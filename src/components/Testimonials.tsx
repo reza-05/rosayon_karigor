@@ -54,7 +54,7 @@ export const Testimonials: React.FC = () => {
               </div>
               <div className="h-6 w-[1px] bg-slate-200" />
               <div className="text-xs text-slate-700 font-medium">
-                <span className="font-bold text-brand-navy">৫.০ / ৫.০</span> • ১১ জন শিক্ষার্থী
+                <span className="font-bold text-brand-navy">৫.০ / ৫.০ রেটিং</span> • ভেরিফাইড শিক্ষার্থী
               </div>
             </div>
 
@@ -132,7 +132,7 @@ export const Testimonials: React.FC = () => {
             onClick={() => setShowAll(!showAll)}
             className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-white border border-slate-200/90 text-sm font-semibold text-brand-navy hover:bg-slate-50 hover:border-brand-navy/30 transition-all shadow-sm group active:scale-98"
           >
-            <span>{showAll ? 'কম রিভিউ দেখুন (স্লাইডার মোড)' : 'সবগুলো ১১টি রিভিউ একসাথে দেখুন'}</span>
+            <span>{showAll ? 'স্লাইডারে ফিরে যান' : 'সবগুলো রিভিউ দেখুন'}</span>
             <ArrowRight className={`w-4 h-4 text-brand-ocean transition-transform ${showAll ? '-rotate-90' : 'group-hover:translate-x-1'}`} />
           </button>
         </div>
@@ -148,7 +148,15 @@ interface TestimonialCardProps {
 }
 
 const TestimonialCard: React.FC<TestimonialCardProps> = ({ testimonial: t, isImageFailed, onImageError }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
   const hasValidPhoto = Boolean(t.avatarUrl && !isImageFailed);
+  const isLongQuote = t.quote.length > 170;
+
+  const previewQuote = React.useMemo(() => {
+    if (!isLongQuote) return t.quote;
+    const boundary = t.quote.lastIndexOf(' ', 165);
+    return t.quote.slice(0, boundary > 0 ? boundary : 165).trim();
+  }, [t.quote, isLongQuote]);
 
   return (
     <div className="bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/80 shadow-[0_4px_20px_-4px_rgba(15,23,42,0.05)] hover:shadow-[0_12px_30px_-6px_rgba(15,23,42,0.1)] hover:border-brand-ocean/30 transition-all duration-300 flex flex-col justify-between group">
@@ -171,8 +179,17 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ testimonial: t, isIma
         </div>
 
         {/* Student's English / Direct Quote */}
-        <blockquote className="text-sm sm:text-base text-slate-800 font-sans leading-relaxed mb-4 line-clamp-6">
-          "{t.quote}"
+        <blockquote className="text-sm sm:text-base text-slate-800 font-sans leading-relaxed mb-4">
+          <span>"{isExpanded || !isLongQuote ? t.quote : `${previewQuote}...`}"</span>
+          {isLongQuote && (
+            <button
+              type="button"
+              onClick={() => setIsExpanded(!isExpanded)}
+              className="inline-flex items-center text-brand-ocean hover:text-brand-navy font-semibold text-xs ml-1.5 transition-colors underline underline-offset-2 cursor-pointer focus:outline-none"
+            >
+              {isExpanded ? 'Show less' : 'See more'}
+            </button>
+          )}
         </blockquote>
 
         {/* Bengali Context / Translation Card */}
