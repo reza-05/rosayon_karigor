@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Hero } from '../components/Hero';
 import { ProblemSection } from '../components/ProblemSection';
+import { ElementInspector } from '../components/ElementInspector';
 import { StatsBar } from '../components/StatsBar';
 import { ArrowRight, Sparkles, PlayCircle, FolderDown, UserCheck, HelpCircle } from 'lucide-react';
 
@@ -15,7 +16,7 @@ export const HomePage = () => {
 
       {/* 3. The Karigor Method High-Impact Teaser */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white rounded-3xl p-8 sm:p-12 border border-brand-navy/10 shadow-card">
+        <div className="glass-panel rounded-3xl p-8 sm:p-12 border border-brand-navy/10 shadow-card">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-7 space-y-4">
               <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-orange/15 text-brand-orange text-xs font-bold tracking-wider uppercase">
@@ -31,11 +32,11 @@ export const HomePage = () => {
               </p>
 
               <div className="flex flex-wrap gap-2 pt-2 text-xs font-semibold text-brand-ocean">
-                <span className="px-3 py-1.5 rounded-full bg-[#F7F5EF] border border-brand-navy/10">01 Understand</span>
-                <span className="px-3 py-1.5 rounded-full bg-[#F7F5EF] border border-brand-navy/10">02 Visualize</span>
-                <span className="px-3 py-1.5 rounded-full bg-[#F7F5EF] border border-brand-navy/10">03 Connect</span>
-                <span className="px-3 py-1.5 rounded-full bg-[#F7F5EF] border border-brand-navy/10">04 Practice</span>
-                <span className="px-3 py-1.5 rounded-full bg-[#F7F5EF] border border-brand-navy/10">05 Master</span>
+                <span className="px-3 py-1.5 rounded-full bg-white border border-brand-navy/10 shadow-sm">01 Understand</span>
+                <span className="px-3 py-1.5 rounded-full bg-white border border-brand-navy/10 shadow-sm">02 Visualize</span>
+                <span className="px-3 py-1.5 rounded-full bg-white border border-brand-navy/10 shadow-sm">03 Connect</span>
+                <span className="px-3 py-1.5 rounded-full bg-white border border-brand-navy/10 shadow-sm">04 Practice</span>
+                <span className="px-3 py-1.5 rounded-full bg-white border border-brand-navy/10 shadow-sm">05 Master</span>
               </div>
             </div>
 
@@ -52,10 +53,13 @@ export const HomePage = () => {
         </div>
       </section>
 
-      {/* 4. Live Statistics Ribbon */}
+      {/* 4. Interactive Element Quantum Inspector */}
+      <ElementInspector />
+
+      {/* 5. Live Statistics Ribbon */}
       <StatsBar />
 
-      {/* 5. Quick Discovery Grid (Class Demo, Resources, About, FAQ) */}
+      {/* 6. Quick Discovery Grid (Class Demo, Resources, About, FAQ) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
         <div className="text-center max-w-2xl mx-auto mb-12 space-y-2">
           <h3 className="text-2xl sm:text-3xl font-serif text-brand-navy">
@@ -70,7 +74,7 @@ export const HomePage = () => {
           {/* Card 1: Class Demo */}
           <Link
             to="/demo"
-            className="group bg-white rounded-3xl p-6 border border-brand-navy/10 shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all flex flex-col justify-between"
+            className="group glass-panel rounded-3xl p-6 border border-brand-navy/10 shadow-card hover:shadow-card-hover hover:-translate-y-1.5 transition-all flex flex-col justify-between"
           >
             <div>
               <div className="w-12 h-12 rounded-2xl bg-amber-500/10 text-brand-orange flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
@@ -92,7 +96,7 @@ export const HomePage = () => {
           {/* Card 2: Free Resources */}
           <Link
             to="/resources"
-            className="group bg-white rounded-3xl p-6 border border-brand-navy/10 shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all flex flex-col justify-between"
+            className="group glass-panel rounded-3xl p-6 border border-brand-navy/10 shadow-card hover:shadow-card-hover hover:-translate-y-1.5 transition-all flex flex-col justify-between"
           >
             <div>
               <div className="w-12 h-12 rounded-2xl bg-blue-500/10 text-brand-ocean flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
@@ -114,7 +118,7 @@ export const HomePage = () => {
           {/* Card 3: Meet Teacher */}
           <Link
             to="/about"
-            className="group bg-white rounded-3xl p-6 border border-brand-navy/10 shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all flex flex-col justify-between"
+            className="group glass-panel rounded-3xl p-6 border border-brand-navy/10 shadow-card hover:shadow-card-hover hover:-translate-y-1.5 transition-all flex flex-col justify-between"
           >
             <div>
               <div className="w-12 h-12 rounded-2xl bg-indigo-500/10 text-indigo-700 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
@@ -136,7 +140,7 @@ export const HomePage = () => {
           {/* Card 4: FAQ */}
           <Link
             to="/faq"
-            className="group bg-white rounded-3xl p-6 border border-brand-navy/10 shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all flex flex-col justify-between"
+            className="group glass-panel rounded-3xl p-6 border border-brand-navy/10 shadow-card hover:shadow-card-hover hover:-translate-y-1.5 transition-all flex flex-col justify-between"
           >
             <div>
               <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-700 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
@@ -157,9 +161,9 @@ export const HomePage = () => {
         </div>
       </section>
 
-      {/* 6. Quick Join Next Batch Banner */}
+      {/* 7. Quick Join Next Batch Banner */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
-        <div className="bg-brand-navy text-white rounded-3xl p-8 sm:p-12 relative overflow-hidden bg-chem-dark-grid">
+        <div className="bg-brand-navy text-white rounded-3xl p-8 sm:p-12 relative overflow-hidden bg-chem-dark-grid shadow-2xl">
           <div className="max-w-2xl space-y-4 relative z-10">
             <span className="text-xs font-mono font-bold text-brand-orange uppercase tracking-wider">
               NEW BATCH ADMISSION OPEN
@@ -174,7 +178,7 @@ export const HomePage = () => {
             <div className="pt-2">
               <Link
                 to="/enroll"
-                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-brand-orange text-white text-sm font-semibold hover:bg-brand-orange-hover hover:shadow-glow-orange transition-all shadow-md"
+                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full btn-luxury-primary text-white text-sm font-semibold transition-all shadow-md"
               >
                 <span>Reserve My Seat / আসন নিশ্চিত করুন</span>
                 <ArrowRight className="w-4 h-4" />

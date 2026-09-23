@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import type { FormEvent } from 'react';
-import { ArrowRight, CheckCircle2, ShieldCheck, Sparkles, MessageCircle, AlertCircle } from 'lucide-react';
+import { ArrowRight, CheckCircle2, ShieldCheck, Sparkles, MessageCircle, AlertCircle, Award } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import type { EnrollmentFormData } from '../types';
 
@@ -24,7 +24,6 @@ export const EnrollmentForm = () => {
       newErrors.fullName = 'আপনার পূর্ণ নাম লিখুন (Please enter your name)';
     }
 
-    // Bangladesh phone validation: 11 digits starting with 01
     const cleanPhone = formData.phone.replace(/[\s-]/g, '');
     if (!cleanPhone) {
       newErrors.phone = 'ফোন নম্বর প্রয়োজন (Phone number is required)';
@@ -42,15 +41,13 @@ export const EnrollmentForm = () => {
 
     setIsSubmitting(true);
 
-    // Simulate API call
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSuccess(true);
 
-      // Trigger celebratory confetti
       confetti({
-        particleCount: 80,
-        spread: 70,
+        particleCount: 90,
+        spread: 80,
         origin: { y: 0.6 },
         colors: ['#F4A261', '#09284C', '#164B73', '#E76F51'],
       });
@@ -74,15 +71,15 @@ export const EnrollmentForm = () => {
     <section id="enroll" className="py-24 bg-brand-navy text-white relative overflow-hidden bg-chem-dark-grid">
       {/* Ambient background lights */}
       <div className="absolute top-10 left-10 w-96 h-96 bg-brand-ocean/20 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-10 right-10 w-96 h-96 bg-brand-orange/15 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-10 right-10 w-96 h-96 bg-brand-orange/20 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          {/* Left Column: Heading & Encouragement */}
+          {/* Left Column: Heading & Trust */}
           <div className="lg:col-span-5 space-y-6">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 text-brand-orange text-xs font-bold tracking-wider uppercase">
               <Sparkles className="w-3.5 h-3.5 text-brand-orange" />
-              <span>JOIN NOW</span>
+              <span>PREMIUM MENTORSHIP BATCH</span>
             </div>
 
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-white tracking-tight leading-tight">
@@ -110,11 +107,19 @@ export const EnrollmentForm = () => {
                 <span>বোর্ড ও এডমিশন স্ট্যান্ডার্ড মডেল টেস্ট ও পার্সোনাল ফিডব্যাক</span>
               </div>
             </div>
+
+            <div className="p-4 rounded-2xl bg-white/5 border border-white/10 flex items-center gap-3">
+              <Award className="w-8 h-8 text-brand-orange flex-shrink-0" />
+              <div className="text-xs">
+                <div className="font-bold text-white">১০০% মানসম্মত শিক্ষা নিশ্চয়তা</div>
+                <div className="text-slate-300 font-bangla">প্রতিটি ক্লাসে বাস্তব লজিক ও প্রবলেম সলভিং স্কিল নিশ্চিত করা হয়।</div>
+              </div>
+            </div>
           </div>
 
           {/* Right Column: Reservation Form */}
           <div className="lg:col-span-7">
-            <div className="bg-white text-brand-navy rounded-3xl p-6 sm:p-10 shadow-2xl border border-white/20 relative">
+            <div className="bg-white text-brand-navy rounded-3xl p-6 sm:p-10 shadow-2xl border border-white/40 relative">
               {isSuccess ? (
                 /* Success View */
                 <div className="text-center py-8 space-y-5 animate-in fade-in duration-300">
@@ -138,7 +143,7 @@ export const EnrollmentForm = () => {
                       )}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[#25D366] text-white text-sm font-semibold hover:bg-[#1EBE5D] transition-colors shadow-md"
+                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#25D366] text-white text-sm font-semibold hover:bg-[#1EBE5D] transition-colors shadow-md"
                     >
                       <MessageCircle className="w-4 h-4" />
                       <span>হোয়াটসঅ্যাপে সরাসরি কথা বলুন</span>
@@ -190,7 +195,7 @@ export const EnrollmentForm = () => {
                       <label className="text-xs font-semibold text-brand-navy">
                         I am a / আমি <span className="text-brand-orange">*</span>
                       </label>
-                      <div className="flex items-center bg-[#F7F5EF] p-1 rounded-xl border border-brand-navy/10">
+                      <div className="flex items-center bg-[#FAF8F5] p-1 rounded-xl border border-brand-navy/10">
                         <button
                           type="button"
                           onClick={() => setFormData({ ...formData, role: 'student' })}
@@ -299,11 +304,11 @@ export const EnrollmentForm = () => {
                     />
                   </div>
 
-                  {/* Submit Button */}
+                  {/* Submit Button with Luxury Styling */}
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full py-3.5 px-6 rounded-full bg-brand-orange text-white text-base font-semibold shadow-md hover:bg-brand-orange-hover hover:shadow-glow-orange active:scale-[0.99] transition-all duration-200 flex items-center justify-center gap-2 group disabled:opacity-70"
+                    className="w-full py-4 px-6 rounded-full btn-luxury-primary text-white text-base font-semibold shadow-lg active:scale-[0.99] transition-all duration-200 flex items-center justify-center gap-2 group disabled:opacity-70"
                   >
                     {isSubmitting ? (
                       <span className="inline-block w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />

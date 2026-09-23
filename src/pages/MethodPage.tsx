@@ -28,20 +28,23 @@ export const MethodPage = () => {
 
       {/* Action Footer */}
       <div className="max-w-4xl mx-auto px-4 text-center pt-8">
-        <div className="bg-[#FAF8F5] rounded-3xl p-8 border border-brand-navy/10 space-y-4">
-          <h3 className="text-2xl font-serif text-brand-navy">
+        <div className="glass-panel rounded-3xl p-8 sm:p-12 border border-brand-navy/10 shadow-lg space-y-4 relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-brand-orange/10 rounded-full blur-3xl pointer-events-none -z-10" />
+          <h3 className="text-2xl sm:text-3xl font-serif text-brand-navy">
             তুমি কি কারিগর মেথডে রসায়ন শিখতে প্রস্তুত?
           </h3>
-          <p className="text-sm font-bangla text-brand-muted">
-            আমাদের আসন্ন ব্যাচে ভর্তি চলছে। এখনই তোমার আসন সংরক্ষণ করো।
+          <p className="text-sm sm:text-base font-bangla text-brand-muted max-w-xl mx-auto">
+            আমাদের আসন্ন ব্যাচে ভর্তি চলছে। এখনই তোমার আসন সংরক্ষণ করো এবং রসায়নের ভীতি জয় করো।
           </p>
-          <Link
-            to="/enroll"
-            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-brand-orange text-white text-sm font-semibold hover:bg-brand-orange-hover shadow-md transition-all"
-          >
-            <span>Join Upcoming Batch</span>
-            <ArrowRight className="w-4 h-4" />
-          </Link>
+          <div className="pt-2">
+            <Link
+              to="/enroll"
+              className="btn-luxury-primary inline-flex items-center gap-2 text-sm font-semibold tracking-wide"
+            >
+              <span>Join Upcoming Batch</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
       </div>
     </div>

@@ -4,15 +4,17 @@
 
 @layer base {
   body {
-    background-color: #F7F5EF;
+    background-color: #FAF8F5;
     color: #18232D;
     font-family: 'Plus Jakarta Sans', 'Hind Siliguri', sans-serif;
     overflow-x: hidden;
+    letter-spacing: -0.01em;
   }
 
-  /* Custom heading typography */
+  /* Luxury Display Serif with optical kerning */
   h1, h2, h3, .font-display {
     font-family: 'Fraunces', Georgia, serif;
+    font-feature-settings: "liga" 1, "kern" 1;
   }
 
   .font-bangla {
@@ -20,13 +22,95 @@
   }
 }
 
+/* Luxury Card & Glassmorphic Utilities */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 4px 24px -2px rgba(9, 40, 76, 0.05), 0 12px 48px -4px rgba(9, 40, 76, 0.08);
+}
+
+.glass-panel-dark {
+  background: rgba(9, 40, 76, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.4);
+}
+
+.btn-luxury-primary {
+  background: linear-gradient(135deg, #F4A261 0%, #E76F51 100%);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.4), 0 4px 14px 0 rgba(231, 111, 81, 0.35);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-luxury-primary:hover {
+  transform: translateY(-1.5px);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.5), 0 8px 24px 0 rgba(231, 111, 81, 0.45);
+}
+
+.btn-luxury-primary:active {
+  transform: translateY(0.5px);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2), 0 2px 8px 0 rgba(231, 111, 81, 0.3);
+}
+
+/* Subtle background chemical grid pattern */
+.bg-chem-grid {
+  background-image: 
+    radial-gradient(rgba(9, 40, 76, 0.06) 1.5px, transparent 1.5px),
+    linear-gradient(to right, rgba(9, 40, 76, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(9, 40, 76, 0.02) 1px, transparent 1px);
+  background-size: 32px 32px, 96px 96px, 96px 96px;
+}
+
+.bg-chem-dark-grid {
+  background-image: 
+    radial-gradient(rgba(244, 162, 97, 0.15) 1.5px, transparent 1.5px),
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 32px 32px, 96px 96px, 96px 96px;
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-6px) rotate(1.5deg); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.6; transform: scale(1); filter: blur(24px); }
+  50% { opacity: 0.9; transform: scale(1.08); filter: blur(30px); }
+}
+
+@keyframes orbit-electron {
+  0% { transform: rotate(0deg) translateX(45px) rotate(0deg); }
+  100% { transform: rotate(360deg) translateX(45px) rotate(-360deg); }
+}
+
+.animate-float {
+  animation: float 5s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float 6.5s ease-in-out 1.5s infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 4s ease-in-out infinite;
+}
+
+.animate-orbit {
+  animation: orbit-electron 8s linear infinite;
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 7px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #F7F5EF;
+  background: #FAF8F5;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -36,38 +120,4 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: #94A3B8;
-}
-
-/* Subtle background chemical grid pattern */
-.bg-chem-grid {
-  background-image: radial-gradient(rgba(9, 40, 76, 0.07) 1px, transparent 1px);
-  background-size: 24px 24px;
-}
-
-.bg-chem-dark-grid {
-  background-image: radial-gradient(rgba(244, 162, 97, 0.12) 1px, transparent 1px);
-  background-size: 28px 28px;
-}
-
-/* Animations */
-@keyframes float {
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(-8px) rotate(2deg); }
-}
-
-@keyframes pulse-subtle {
-  0%, 100% { opacity: 0.9; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.03); }
-}
-
-.animate-float {
-  animation: float 6s ease-in-out infinite;
-}
-
-.animate-float-delayed {
-  animation: float 7s ease-in-out 2s infinite;
-}
-
-.animate-pulse-subtle {
-  animation: pulse-subtle 3s ease-in-out infinite;
 }
