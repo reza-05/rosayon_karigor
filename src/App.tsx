@@ -1,58 +1,42 @@
+import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
-import { Hero } from './components/Hero';
-import { ProblemSection } from './components/ProblemSection';
-import { KarigorMethod } from './components/KarigorMethod';
-import { StatsBar } from './components/StatsBar';
-import { ClassExperience } from './components/ClassExperience';
-import { MeetTeacher } from './components/MeetTeacher';
-import { ResourceLibrary } from './components/ResourceLibrary';
-import { Testimonials } from './components/Testimonials';
-import { EnrollmentForm } from './components/EnrollmentForm';
-import { FAQSection } from './components/FAQSection';
 import { Footer } from './components/Footer';
+import { ScrollToTop } from './components/ScrollToTop';
+
+import { HomePage } from './pages/HomePage';
+import { MethodPage } from './pages/MethodPage';
+import { DemoPage } from './pages/DemoPage';
+import { ResourcesPage } from './pages/ResourcesPage';
+import { TeacherPage } from './pages/TeacherPage';
+import { FAQPage } from './pages/FAQPage';
+import { EnrollPage } from './pages/EnrollPage';
 
 export function App() {
   return (
-    <div className="min-h-screen bg-[#F7F5EF] text-[#18232D] flex flex-col font-sans selection:bg-[#F4A261]/30 selection:text-[#09284C]">
-      {/* Sticky Header Navigation */}
-      <Navbar />
+    <Router>
+      <ScrollToTop />
+      <div className="min-h-screen bg-[#F7F5EF] text-[#18232D] flex flex-col font-sans selection:bg-[#F4A261]/30 selection:text-[#09284C]">
+        {/* Sticky Header Navigation */}
+        <Navbar />
 
-      {/* Main Content Area */}
-      <main className="flex-grow">
-        {/* Hero Section with Interactive 3D Canvas */}
-        <Hero />
+        {/* Dynamic Route Pages */}
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/method" element={<MethodPage />} />
+            <Route path="/demo" element={<DemoPage />} />
+            <Route path="/resources" element={<ResourcesPage />} />
+            <Route path="/about" element={<TeacherPage />} />
+            <Route path="/faq" element={<FAQPage />} />
+            <Route path="/enroll" element={<EnrollPage />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </main>
 
-        {/* The Problem Section */}
-        <ProblemSection />
-
-        {/* The Karigor Method 5-Step Visual Framework */}
-        <KarigorMethod />
-
-        {/* Live Metrics & Social Proof Ribbon */}
-        <StatsBar />
-
-        {/* Video Classroom Experience Demo */}
-        <ClassExperience />
-
-        {/* About Educator Profile & Academic Timeline */}
-        <MeetTeacher />
-
-        {/* Free Chemistry Resource Library with Filter Tabs & Modal */}
-        <ResourceLibrary />
-
-        {/* Student Success Stories & Testimonials */}
-        <Testimonials />
-
-        {/* Batch Reservation & Lead Enrollment Form */}
-        <EnrollmentForm />
-
-        {/* Frequently Asked Questions */}
-        <FAQSection />
-      </main>
-
-      {/* Comprehensive Brand Footer */}
-      <Footer />
-    </div>
+        {/* Brand Footer */}
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
