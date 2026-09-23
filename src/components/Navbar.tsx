@@ -76,13 +76,13 @@ export const Navbar = () => {
           </Link>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-2 xl:gap-4">
+          <nav className="hidden lg:flex items-center gap-1 xl:gap-3">
             {navLinks.map((link) => (
               <NavLink
                 key={link.path}
                 to={link.path}
                 className={({ isActive }) =>
-                  `px-4 py-1.5 rounded-full text-sm font-bangla transition-all duration-200 ${
+                  `px-3 xl:px-4 py-1.5 rounded-full text-xs xl:text-sm font-bangla transition-all duration-200 ${
                     isActive
                       ? 'border-2 border-[#0957C3] text-[#0957C3] font-bold shadow-sm bg-white/70'
                       : 'text-brand-navy/85 hover:text-brand-navy hover:bg-brand-navy/5 font-medium'
@@ -95,7 +95,7 @@ export const Navbar = () => {
           </nav>
 
           {/* Desktop Right CTA */}
-          <div className="hidden md:flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-3">
             <Link
               to="/enroll"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-brand-orange text-white text-sm font-semibold shadow-sm hover:bg-brand-orange-hover hover:shadow-glow-orange active:scale-[0.98] transition-all duration-200 group"
@@ -105,8 +105,8 @@ export const Navbar = () => {
             </Link>
           </div>
 
-          {/* Mobile Menu Button */}
-          <div className="flex md:hidden items-center gap-2">
+          {/* Mobile & Tablet Menu Button */}
+          <div className="flex lg:hidden items-center gap-2">
             <Link
               to="/enroll"
               className="px-3 py-1.5 rounded-full bg-brand-orange text-white text-xs font-semibold shadow-sm"
@@ -125,9 +125,9 @@ export const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Drawer Menu */}
+      {/* Mobile & Tablet Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-white border-b border-slate-200/80 px-4 pt-2 pb-6 space-y-2 shadow-xl animate-in fade-in slide-in-from-top-4 duration-200">
+        <div className="lg:hidden bg-white border-b border-slate-200/80 px-4 pt-2 pb-6 space-y-2 shadow-xl animate-in fade-in slide-in-from-top-4 duration-200">
           <div className="space-y-1">
             {navLinks.map((link) => {
               const Icon = link.icon;

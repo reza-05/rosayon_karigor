@@ -22,9 +22,9 @@ export const Hero = () => {
             </div>
 
             {/* Main Headline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif text-brand-navy tracking-tight leading-[1.12]">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-sans font-bold text-brand-navy tracking-tight leading-[1.12]">
               Chemistry doesn't have to{' '}
-              <span className="relative inline-block text-brand-orange italic font-normal">
+              <span className="relative inline-block text-brand-orange">
                 feel complicated.
                 {/* Hand-drawn style decorative underline */}
                 <svg
@@ -43,7 +43,7 @@ export const Hero = () => {
             </h1>
 
             {/* Bilingual Subtitle */}
-            <p className="text-lg sm:text-xl text-brand-muted max-w-2xl mx-auto lg:mx-0 leading-relaxed font-bangla">
+            <p className="text-base sm:text-xl text-slate-600 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-bangla">
               <strong className="text-brand-navy font-semibold">রসায়ন কারিগর</strong> turns confusing concepts into
               clear mental models, visual stories, and problem-solving skills. আর অন্ধ মুখস্থ নয় — এবার রসায়নের জটিল
               সমীকরণগুলো ধরা দেবে গভীর অনুধাবনে।
@@ -72,22 +72,22 @@ export const Hero = () => {
 
             {/* Social Proof & Trust Badges */}
             <div className="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 text-xs text-brand-muted">
-              {/* Avatar Cluster */}
+              {/* Real Student Avatar Cluster */}
               <div className="flex items-center -space-x-2.5">
                 <img
                   className="w-8 h-8 rounded-full border-2 border-white object-cover"
-                  src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80"
-                  alt="Student"
+                  src="/testimonials/arko_saha.png"
+                  alt="Arko Saha"
                 />
                 <img
                   className="w-8 h-8 rounded-full border-2 border-white object-cover"
-                  src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=100&auto=format&fit=crop&q=80"
-                  alt="Student"
+                  src="/testimonials/afsana_tanisha.webp"
+                  alt="Afsana Tanisha"
                 />
                 <img
                   className="w-8 h-8 rounded-full border-2 border-white object-cover"
-                  src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&auto=format&fit=crop&q=80"
-                  alt="Student"
+                  src="/testimonials/tashriful_arabi.jpg"
+                  alt="Tashriful Arabi"
                 />
                 <div className="w-8 h-8 rounded-full border-2 border-white bg-brand-navy text-white text-[10px] font-bold flex items-center justify-center">
                   +500
@@ -97,7 +97,7 @@ export const Hero = () => {
               <div className="flex items-center gap-2">
                 <span className="font-semibold text-brand-navy">500+ students guided</span>
                 <span className="text-brand-navy/20">•</span>
-                <span className="text-amber-500 font-bold">★ 4.9/5</span>
+                <span className="text-amber-500 font-bold">★ 5.0/5</span>
                 <span>(SSC, HSC & Admission)</span>
               </div>
             </div>
@@ -106,15 +106,15 @@ export const Hero = () => {
           {/* Right Column: Interactive Molecule Visualizer */}
           <div className="lg:col-span-5 relative flex items-center justify-center">
             <div className="relative w-full max-w-[460px]">
-              {/* Handwritten callout style overlay */}
+              {/* Callout style overlay */}
               <div className="absolute -top-6 -right-2 z-20 hidden sm:block rotate-6">
-                <div className="font-serif italic text-sm text-brand-ocean bg-white/90 backdrop-blur-md px-3.5 py-1.5 rounded-xl border border-brand-ocean/20 shadow-md">
+                <div className="font-sans font-medium italic text-xs sm:text-sm text-brand-ocean bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-xl border border-brand-ocean/20 shadow-md">
                   "More than Memorization."
                 </div>
               </div>
 
               <div className="absolute -bottom-4 -left-4 z-20 hidden sm:block -rotate-3">
-                <div className="font-serif italic text-sm text-brand-orange bg-white/90 backdrop-blur-md px-3.5 py-1.5 rounded-xl border border-brand-orange/30 shadow-md">
+                <div className="font-sans font-medium italic text-xs sm:text-sm text-brand-orange bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-xl border border-brand-orange/30 shadow-md">
                   A Deeper Understanding.
                 </div>
               </div>

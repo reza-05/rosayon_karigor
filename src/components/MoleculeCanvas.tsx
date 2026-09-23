@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react';
-import type { MouseEvent as ReactMouseEvent } from 'react';
 import { Sparkles, Orbit } from 'lucide-react';
 
 interface Atom {
@@ -453,32 +452,32 @@ export const MoleculeCanvas = ({ className = '' }: { className?: string }) => {
     };
   }, [activeMolecule]);
 
-  // Inertial Mouse Drag Handlers
-  const handleMouseDown = (e: ReactMouseEvent) => {
+  // Inertial Pointer & Touch Drag Handlers
+  const handlePointerDown = (clientX: number, clientY: number) => {
     setIsDragging(true);
     const p = physicsRef.current;
     p.isMouseDown = true;
-    p.lastMouseX = e.clientX;
-    p.lastMouseY = e.clientY;
+    p.lastMouseX = clientX;
+    p.lastMouseY = clientY;
     p.velX = 0;
     p.velY = 0;
   };
 
-  const handleMouseMove = (e: ReactMouseEvent) => {
+  const handlePointerMove = (clientX: number, clientY: number) => {
     const p = physicsRef.current;
     if (p.isMouseDown) {
-      const deltaX = e.clientX - p.lastMouseX;
-      const deltaY = e.clientY - p.lastMouseY;
+      const deltaX = clientX - p.lastMouseX;
+      const deltaY = clientY - p.lastMouseY;
       p.velY = deltaX * 0.008;
       p.velX = -deltaY * 0.008;
       p.angleY += p.velY;
       p.angleX += p.velX;
-      p.lastMouseX = e.clientX;
-      p.lastMouseY = e.clientY;
+      p.lastMouseX = clientX;
+      p.lastMouseY = clientY;
     }
   };
 
-  const handleMouseUp = () => {
+  const handlePointerUp = () => {
     setIsDragging(false);
     physicsRef.current.isMouseDown = false;
   };
@@ -486,11 +485,23 @@ export const MoleculeCanvas = ({ className = '' }: { className?: string }) => {
   return (
     <div
       ref={containerRef}
-      className={`relative w-full aspect-square max-w-[490px] mx-auto select-none ${className}`}
-      onMouseDown={handleMouseDown}
-      onMouseMove={handleMouseMove}
-      onMouseUp={handleMouseUp}
-      onMouseLeave={handleMouseUp}
+      className={`relative w-full aspect-square max-w-[490px] mx-auto select-none touch-none ${className}`}
+      onMouseDown={(e) => handlePointerDown(e.clientX, e.clientY)}
+      onMouseMove={(e) => handlePointerMove(e.clientX, e.clientY)}
+      onMouseUp={handlePointerUp}
+      onMouseLeave={handlePointerUp}
+      onTouchStart={(e) => {
+        if (e.touches.length > 0) {
+          handlePointerDown(e.touches[0].clientX, e.touches[0].clientY);
+        }
+      }}
+      onTouchMove={(e) => {
+        if (e.touches.length > 0) {
+          handlePointerMove(e.touches[0].clientX, e.touches[0].clientY);
+        }
+      }}
+      onTouchEnd={handlePointerUp}
+      onTouchCancel={handlePointerUp}
     >
       {/* Top Glassmorphic Molecule Selector */}
       <div className="absolute top-2 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5 glass-panel px-3 py-1.5 rounded-full shadow-sm text-xs font-semibold text-brand-navy">
