@@ -61,7 +61,11 @@ export interface Testimonial {
   quote: string;
   quoteBangla: string;
   improvementTag: string;
-  avatarUrl: string;
+  avatarUrl?: string;
+  initials?: string;
+  avatarBg?: string;
+  rating?: number;
+  category?: 'hsc' | 'ssc' | 'foundation';
 }
 
 export interface FAQItem {
