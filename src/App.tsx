@@ -2,6 +2,7 @@ import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { ScrollToTop } from './components/ScrollToTop';
+import { AtomicBackground } from './components/AtomicBackground';
 
 import { HomePage } from './pages/HomePage';
 import { MethodPage } from './pages/MethodPage';
@@ -15,12 +16,15 @@ export function App() {
   return (
     <Router>
       <ScrollToTop />
-      <div className="min-h-screen bg-[#FAFBFC] text-[#0F172A] flex flex-col font-sans selection:bg-[#F4A261]/30 selection:text-[#09284C]">
+      <div className="relative min-h-screen bg-[#FAFBFC] text-[#0F172A] flex flex-col font-sans selection:bg-[#F4A261]/30 selection:text-[#09284C]">
+        {/* Global Interactive Atomic Background */}
+        <AtomicBackground />
+
         {/* Sticky Header Navigation */}
         <Navbar />
 
         {/* Dynamic Route Pages */}
-        <main className="flex-grow">
+        <main className="relative z-10 flex-grow">
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/method" element={<MethodPage />} />

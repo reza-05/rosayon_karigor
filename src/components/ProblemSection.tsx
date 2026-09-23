@@ -35,7 +35,7 @@ export const ProblemSection = () => {
   ];
 
   return (
-    <section id="problem" className="py-20 bg-[#FAFBFC] relative overflow-hidden border-t border-slate-200/60">
+    <section id="problem" className="py-20 bg-transparent relative overflow-hidden border-t border-slate-200/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center space-y-4 mb-16">

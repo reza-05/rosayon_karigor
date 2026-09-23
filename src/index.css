@@ -62,7 +62,7 @@
 
 /* Subtle background chemical grid pattern on clean white */
 .bg-chem-grid {
-  background-color: #FAFBFC;
+  background-color: transparent;
   background-image: 
     radial-gradient(rgba(9, 40, 76, 0.045) 1.5px, transparent 1.5px),
     linear-gradient(to right, rgba(9, 40, 76, 0.015) 1px, transparent 1px),
