@@ -1,32 +1,18 @@
-import React, { useState, useMemo } from 'react';
-import { ChevronLeft, ChevronRight, Quote, Sparkles, Star, CheckCircle2, GraduationCap, LayoutGrid, SlidersHorizontal } from 'lucide-react';
+import React, { useState } from 'react';
+import { ChevronLeft, ChevronRight, Quote, Sparkles, Star, CheckCircle2, GraduationCap, ArrowRight } from 'lucide-react';
 import { testimonialsData } from '../data/testimonialsData';
 
 export const Testimonials: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<'all' | 'photo' | 'hsc' | 'ssc'>('all');
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [viewMode, setViewMode] = useState<'slider' | 'grid'>('grid');
+  const [showAll, setShowAll] = useState(false);
   const [imageErrors, setImageErrors] = useState<Record<string, boolean>>({});
 
   const handleImageError = (id: string) => {
     setImageErrors((prev) => ({ ...prev, [id]: true }));
   };
 
-  const filteredTestimonials = useMemo(() => {
-    switch (activeTab) {
-      case 'photo':
-        return testimonialsData.filter((t) => t.avatarUrl && !imageErrors[t.id]);
-      case 'hsc':
-        return testimonialsData.filter((t) => t.category === 'hsc');
-      case 'ssc':
-        return testimonialsData.filter((t) => t.category === 'ssc' || t.category === 'foundation');
-      default:
-        return testimonialsData;
-    }
-  }, [activeTab, imageErrors]);
-
   const cardsPerPage = 3;
-  const maxIndex = Math.max(0, filteredTestimonials.length - cardsPerPage);
+  const maxIndex = Math.max(0, testimonialsData.length - cardsPerPage);
 
   const prevSlide = () => {
     setCurrentIndex((prev) => (prev <= 0 ? maxIndex : prev - 1));
@@ -44,7 +30,7 @@ export const Testimonials: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-12">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div className="space-y-3 max-w-2xl">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-navy/5 border border-brand-navy/10 text-brand-ocean text-xs font-semibold tracking-wider uppercase">
               <Sparkles className="w-3.5 h-3.5 text-amber-500" />
@@ -58,125 +44,47 @@ export const Testimonials: React.FC = () => {
             </p>
           </div>
 
-          {/* Social Proof & Metrics Badge */}
-          <div className="flex flex-wrap sm:flex-nowrap items-center gap-4 bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm">
-            <div className="flex items-center gap-1 text-amber-500">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-5 h-5 fill-amber-400 text-amber-400" />
-              ))}
-            </div>
-            <div className="h-8 w-[1px] bg-slate-200 hidden sm:block" />
-            <div className="text-xs sm:text-sm text-slate-700">
-              <span className="font-bold text-brand-navy">৫.০ / ৫.০ রেটিং</span>
-              <span className="block text-slate-500 text-xs font-bangla">১১ জন ভেরিফাইড শিক্ষার্থী</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Filter Tabs & View Controls */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-10 pb-6 border-b border-slate-200/60">
-          {/* Category Chips */}
-          <div className="flex flex-wrap items-center gap-2 w-full sm:w-auto">
-            <button
-              type="button"
-              onClick={() => { setActiveTab('all'); setCurrentIndex(0); }}
-              className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all ${
-                activeTab === 'all'
-                  ? 'bg-brand-navy text-white shadow-sm'
-                  : 'bg-white text-slate-600 border border-slate-200/80 hover:bg-slate-50'
-              }`}
-            >
-              সবগুলো রিভিউ ({testimonialsData.length})
-            </button>
-            <button
-              type="button"
-              onClick={() => { setActiveTab('photo'); setCurrentIndex(0); }}
-              className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all ${
-                activeTab === 'photo'
-                  ? 'bg-brand-navy text-white shadow-sm'
-                  : 'bg-white text-slate-600 border border-slate-200/80 hover:bg-slate-50'
-              }`}
-            >
-              ছবিসহ রিভিউ (৪)
-            </button>
-            <button
-              type="button"
-              onClick={() => { setActiveTab('hsc'); setCurrentIndex(0); }}
-              className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all ${
-                activeTab === 'hsc'
-                  ? 'bg-brand-navy text-white shadow-sm'
-                  : 'bg-white text-slate-600 border border-slate-200/80 hover:bg-slate-50'
-              }`}
-            >
-              HSC ব্যাচ
-            </button>
-            <button
-              type="button"
-              onClick={() => { setActiveTab('ssc'); setCurrentIndex(0); }}
-              className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all ${
-                activeTab === 'ssc'
-                  ? 'bg-brand-navy text-white shadow-sm'
-                  : 'bg-white text-slate-600 border border-slate-200/80 hover:bg-slate-50'
-              }`}
-            >
-              SSC ও ফাউন্ডেশন
-            </button>
-          </div>
-
-          {/* Toggle Grid/Slider Mode */}
-          <div className="flex items-center gap-2 self-end sm:self-auto">
-            <div className="inline-flex p-1 rounded-xl bg-slate-100 border border-slate-200/70 text-slate-600">
-              <button
-                type="button"
-                onClick={() => setViewMode('grid')}
-                className={`p-1.5 rounded-lg text-xs font-medium flex items-center gap-1.5 transition-all ${
-                  viewMode === 'grid' ? 'bg-white text-brand-navy shadow-sm' : 'hover:text-brand-navy'
-                }`}
-                title="গ্রিড ভিউ"
-              >
-                <LayoutGrid className="w-4 h-4" />
-                <span className="hidden md:inline">গ্রিড</span>
-              </button>
-              <button
-                type="button"
-                onClick={() => setViewMode('slider')}
-                className={`p-1.5 rounded-lg text-xs font-medium flex items-center gap-1.5 transition-all ${
-                  viewMode === 'slider' ? 'bg-white text-brand-navy shadow-sm' : 'hover:text-brand-navy'
-                }`}
-                title="স্লাইডার ভিউ"
-              >
-                <SlidersHorizontal className="w-4 h-4" />
-                <span className="hidden md:inline">স্লাইডার</span>
-              </button>
+          {/* Social Proof & Carousel Navigation */}
+          <div className="flex items-center gap-4 self-start md:self-auto">
+            <div className="hidden sm:flex items-center gap-3 bg-white px-4 py-2.5 rounded-2xl border border-slate-200/80 shadow-sm">
+              <div className="flex items-center gap-0.5 text-amber-500">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
+                ))}
+              </div>
+              <div className="h-6 w-[1px] bg-slate-200" />
+              <div className="text-xs text-slate-700 font-medium">
+                <span className="font-bold text-brand-navy">৫.০ / ৫.০</span> • ১১ জন শিক্ষার্থী
+              </div>
             </div>
 
-            {viewMode === 'slider' && (
-              <div className="flex items-center gap-1 ml-2">
+            {!showAll && (
+              <div className="flex items-center gap-2">
                 <button
                   type="button"
                   onClick={prevSlide}
-                  className="w-9 h-9 rounded-xl border border-slate-200 bg-white flex items-center justify-center text-brand-navy hover:bg-brand-navy hover:text-white transition-all shadow-sm active:scale-95"
+                  className="w-11 h-11 rounded-2xl border border-slate-200 bg-white flex items-center justify-center text-brand-navy hover:bg-brand-navy hover:text-white transition-all shadow-sm active:scale-95"
                   aria-label="Previous testimonial"
                 >
-                  <ChevronLeft className="w-4 h-4" />
+                  <ChevronLeft className="w-5 h-5" />
                 </button>
                 <button
                   type="button"
                   onClick={nextSlide}
-                  className="w-9 h-9 rounded-xl border border-slate-200 bg-white flex items-center justify-center text-brand-navy hover:bg-brand-navy hover:text-white transition-all shadow-sm active:scale-95"
+                  className="w-11 h-11 rounded-2xl border border-slate-200 bg-white flex items-center justify-center text-brand-navy hover:bg-brand-navy hover:text-white transition-all shadow-sm active:scale-95"
                   aria-label="Next testimonial"
                 >
-                  <ChevronRight className="w-4 h-4" />
+                  <ChevronRight className="w-5 h-5" />
                 </button>
               </div>
             )}
           </div>
         </div>
 
-        {/* Testimonials Display (Grid Mode vs Slider Mode) */}
-        {viewMode === 'grid' ? (
+        {/* Testimonials Display */}
+        {showAll ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredTestimonials.map((t) => (
+            {testimonialsData.map((t) => (
               <TestimonialCard
                 key={t.id}
                 testimonial={t}
@@ -188,7 +96,7 @@ export const Testimonials: React.FC = () => {
         ) : (
           <div className="relative">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filteredTestimonials.slice(currentIndex, currentIndex + cardsPerPage).map((t) => (
+              {testimonialsData.slice(currentIndex, currentIndex + cardsPerPage).map((t) => (
                 <TestimonialCard
                   key={t.id}
                   testimonial={t}
@@ -216,6 +124,18 @@ export const Testimonials: React.FC = () => {
             )}
           </div>
         )}
+
+        {/* View All / Collapse Toggle */}
+        <div className="mt-12 text-center">
+          <button
+            type="button"
+            onClick={() => setShowAll(!showAll)}
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-white border border-slate-200/90 text-sm font-semibold text-brand-navy hover:bg-slate-50 hover:border-brand-navy/30 transition-all shadow-sm group active:scale-98"
+          >
+            <span>{showAll ? 'কম রিভিউ দেখুন (স্লাইডার মোড)' : 'সবগুলো ১১টি রিভিউ একসাথে দেখুন'}</span>
+            <ArrowRight className={`w-4 h-4 text-brand-ocean transition-transform ${showAll ? '-rotate-90' : 'group-hover:translate-x-1'}`} />
+          </button>
+        </div>
       </div>
     </section>
   );
