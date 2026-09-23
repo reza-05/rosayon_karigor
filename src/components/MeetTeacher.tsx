@@ -6,20 +6,20 @@ export const MeetTeacher = () => {
   const [activeTab, setActiveTab] = useState<'timeline' | 'specializations'>('timeline');
 
   return (
-    <section id="about" className="py-24 bg-white relative overflow-hidden border-t border-brand-navy/5">
+    <section id="about" className="pt-8 pb-20 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top Header */}
-        <div className="max-w-3xl mb-16">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-navy/5 text-brand-ocean text-xs font-bold tracking-wider uppercase mb-3">
+        <div className="max-w-3xl mx-auto text-center space-y-4 mb-16">
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-brand-navy/5 text-brand-ocean text-xs font-bold tracking-wider uppercase">
             <Sparkles className="w-3.5 h-3.5 text-brand-orange" />
             <span>ABOUT THE EDUCATOR</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-brand-navy tracking-tight">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif text-brand-navy tracking-tight">
             Meet the <span className="font-bangla font-bold">কারিগর</span>.
-          </h2>
-          <p className="text-base sm:text-lg text-brand-muted font-bangla mt-2">
-            A teacher, a learner, and a firm believer that better explanations can change everything.
+          </h1>
+          <p className="text-base sm:text-lg text-brand-muted font-bangla max-w-2xl mx-auto leading-relaxed">
+            A teacher, a learner, and a firm believer that better explanations can change everything. প্রতিটি শিক্ষার্থীর মাঝে রসায়নের প্রতি ভালোবাসা ও গভীর উপলব্ধি তৈরি করাই আমার অঙ্গীকার।
           </p>
         </div>
 

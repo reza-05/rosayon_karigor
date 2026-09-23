@@ -59,7 +59,7 @@ export const KarigorMethod: React.FC = () => {
   ];
 
   return (
-    <section id="method" className="py-24 bg-white relative overflow-hidden">
+    <section id="method" className="pt-8 pb-20 relative overflow-hidden">
       {/* Background soft gradient */}
       <div className="absolute top-0 right-0 w-80 h-80 bg-brand-orange/5 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-80 h-80 bg-brand-ocean/5 rounded-full blur-3xl pointer-events-none" />
@@ -67,18 +67,17 @@ export const KarigorMethod: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center space-y-4 mb-16">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-navy/5 text-brand-ocean text-xs font-bold tracking-wider uppercase">
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-brand-orange/15 text-brand-orange text-xs font-bold tracking-wider uppercase">
             <Sparkles className="w-3.5 h-3.5 text-brand-orange" />
-            <span>A DIFFERENT APPROACH</span>
+            <span>OUR PEDAGOGY & METHOD</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-brand-navy tracking-tight">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif text-brand-navy tracking-tight">
             The <span className="font-bangla font-bold">কারিগর</span> Method™
-          </h2>
+          </h1>
 
           <p className="text-base sm:text-lg text-brand-muted font-bangla max-w-2xl mx-auto leading-relaxed">
-            From memorizing chemistry to understanding it. A structured, visual, and applied approach designed to make
-            chemistry click — and stay.
+            From memorizing chemistry to understanding it. একটি সুশৃঙ্খল, চিত্রভিত্তিক ও প্রয়োগমুখী শিক্ষাদান পদ্ধতি—যা রসায়নের ভীতি দূর করে এনে দেয় দীর্ঘস্থায়ী উপলব্ধি।
           </p>
         </div>
 

@@ -46,22 +46,21 @@ export const ResourceLibrary = () => {
   };
 
   return (
-    <section id="resources" className="py-24 bg-[#F7F5EF] relative overflow-hidden">
+    <section id="resources" className="pt-8 pb-20 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center space-y-4 mb-12">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-orange/15 text-brand-orange text-xs font-bold tracking-wider uppercase">
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-brand-orange/15 text-brand-orange text-xs font-bold tracking-wider uppercase">
             <Sparkles className="w-3.5 h-3.5 text-brand-orange" />
-            <span>RESOURCES</span>
+            <span>FREE DIGITAL LIBRARY</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-brand-navy tracking-tight">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif text-brand-navy tracking-tight">
             A free library for curious minds.
-          </h2>
+          </h1>
 
           <p className="text-base sm:text-lg text-brand-muted font-bangla max-w-2xl mx-auto leading-relaxed">
-            Concept notes, reaction maps, problem sets and more — carefully curated to support your learning journey.
-            বিনা মূল্যে সংগ্রহ করো সেরা মানের রসায়ন শিক্ষা উপকরণ।
+            রিসোর্স লাইব্রেরি: রঙিন কনসেপ্ট নোট, বিক্রিয়া রূপান্তর ম্যাপ, সূত্র সংকলন ও প্রশ্ন ব্যাংক—সম্পূর্ণ বিনামূল্যে সংগ্রহ করে তোমার প্রস্তুতিকে এগিয়ে রাখো।
           </p>
         </div>
 

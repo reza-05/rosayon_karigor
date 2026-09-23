@@ -44,22 +44,21 @@ export const ClassExperience = () => {
   };
 
   return (
-    <section id="demo" className="py-24 bg-[#FAF8F5] relative overflow-hidden">
+    <section id="demo" className="pt-8 pb-20 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center space-y-4 mb-16">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-ocean/10 text-brand-ocean text-xs font-bold tracking-wider uppercase">
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-brand-ocean/10 text-brand-ocean text-xs font-bold tracking-wider uppercase">
             <Sparkles className="w-3.5 h-3.5 text-brand-orange" />
             <span>STUDIO CLASSROOM EXPERIENCE</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-brand-navy tracking-tight">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif text-brand-navy tracking-tight">
             See how a <span className="font-bangla font-bold">কারিগর</span> class feels.
-          </h2>
+          </h1>
 
           <p className="text-base sm:text-lg text-brand-muted font-bangla max-w-2xl mx-auto leading-relaxed">
-            A glimpse into the real teaching style — clear explanations, visual thinking, and problem solving in action.
-            একবার দেখে নাও কীভাবে জটিল কনসেপ্টগুলো নিমেষেই পরিষ্কার হয়ে যায়।
+            একটি সম্পূর্ণ ইন্টারেক্টিভ চকবোর্ড লেকচার পরিবেশ—যেখানে শুধু সূত্র মুখস্থ নয়, প্রতিটি পরমাণুর আচরণ অ্যানিমেশন ও বাস্তব উদাহরণের মাধ্যমে প্রাঞ্জলভাবে তুলে ধরা হয়।
           </p>
         </div>
 
