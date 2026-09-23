@@ -53,7 +53,7 @@ export const MeetTeacher = () => {
                 </div>
               </div>
 
-              <div className="px-4 py-2 rounded-xl bg-[#F7F5EF] border border-brand-navy/10 text-xs font-mono font-medium text-brand-ocean">
+              <div className="px-4 py-2 rounded-xl bg-slate-100 border border-slate-200 text-xs font-mono font-medium text-brand-ocean">
                 Chemistry for a Brighter You
               </div>
             </div>
@@ -91,7 +91,7 @@ export const MeetTeacher = () => {
                 </div>
 
                 {/* Floating quote badge */}
-                <div className="mt-3 p-3 rounded-xl bg-[#FAF8F5] border border-brand-navy/5 text-xs text-brand-navy font-serif italic text-center">
+                <div className="mt-3 p-3 rounded-xl bg-slate-50 border border-slate-200/80 text-xs text-brand-navy font-serif italic text-center">
                   "Good chemistry changes everything." — রসায়ন কারিগর
                 </div>
               </div>
@@ -100,7 +100,7 @@ export const MeetTeacher = () => {
         </div>
 
         {/* Academic Profile & Journey Section */}
-        <div className="bg-[#F7F5EF] rounded-3xl p-6 sm:p-10 border border-brand-navy/8 shadow-sm">
+        <div className="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200/80 shadow-card">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
             <div>
               <div className="text-xs font-mono font-bold text-brand-orange uppercase tracking-wider mb-1">

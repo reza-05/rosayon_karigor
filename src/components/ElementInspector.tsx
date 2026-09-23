@@ -209,7 +209,7 @@ export const ElementInspector = () => {
           {/* Properties & Exam Hacks */}
           <div className="lg:col-span-8 space-y-5">
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-              <div className="p-3.5 rounded-2xl bg-[#FAF8F5] border border-brand-navy/5">
+              <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/80">
                 <span className="text-[10px] uppercase font-mono text-brand-muted tracking-wider block">
                   Configuration
                 </span>
@@ -218,7 +218,7 @@ export const ElementInspector = () => {
                 </span>
               </div>
 
-              <div className="p-3.5 rounded-2xl bg-[#FAF8F5] border border-brand-navy/5">
+              <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/80">
                 <span className="text-[10px] uppercase font-mono text-brand-muted tracking-wider block">
                   Electronegativity
                 </span>
@@ -227,7 +227,7 @@ export const ElementInspector = () => {
                 </span>
               </div>
 
-              <div className="p-3.5 rounded-2xl bg-[#FAF8F5] border border-brand-navy/5 col-span-2 sm:col-span-1">
+              <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/80 col-span-2 sm:col-span-1">
                 <span className="text-[10px] uppercase font-mono text-brand-muted tracking-wider block">
                   Valency (যোজ্যতা)
                 </span>

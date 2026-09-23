@@ -105,7 +105,7 @@ export const FAQPage = () => {
             </p>
           </div>
         ) : (
-          <div className="glass-panel rounded-3xl p-6 sm:p-10 divide-y divide-brand-navy/10 border border-brand-navy/10 shadow-card">
+          <div className="glass-panel rounded-3xl p-6 sm:p-10 divide-y divide-slate-200/80 border border-slate-200/85 shadow-card">
             {filteredFaqs.map((item) => {
               const isOpen = openId === item.id;
               return (

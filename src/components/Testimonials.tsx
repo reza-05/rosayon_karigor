@@ -57,7 +57,7 @@ export const Testimonials: React.FC = () => {
           {testimonialsData.map((t, idx) => (
             <div
               key={t.id}
-              className={`bg-[#FAF8F5] rounded-3xl p-6 border border-brand-navy/8 shadow-card hover:shadow-card-hover transition-all duration-300 flex flex-col justify-between ${
+              className={`bg-white rounded-3xl p-6 border border-slate-200/80 shadow-card hover:shadow-card-hover transition-all duration-300 flex flex-col justify-between ${
                 idx === currentIndex ? 'ring-2 ring-brand-orange' : ''
               }`}
             >

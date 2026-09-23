@@ -14,7 +14,7 @@ export const MethodPage = () => {
 
       {/* Action Footer */}
       <div className="max-w-4xl mx-auto px-4 text-center pt-8">
-        <div className="glass-panel rounded-3xl p-8 sm:p-12 border border-brand-navy/10 shadow-lg space-y-4 relative overflow-hidden">
+        <div className="glass-panel rounded-3xl p-8 sm:p-12 border border-slate-200/85 shadow-lg space-y-4 relative overflow-hidden">
           <div className="absolute top-0 right-0 w-64 h-64 bg-brand-orange/10 rounded-full blur-3xl pointer-events-none -z-10" />
           <h3 className="text-2xl sm:text-3xl font-serif text-brand-navy">
             তুমি কি কারিগর মেথডে রসায়ন শিখতে প্রস্তুত?

@@ -15,7 +15,7 @@ export function App() {
   return (
     <Router>
       <ScrollToTop />
-      <div className="min-h-screen bg-[#F7F5EF] text-[#18232D] flex flex-col font-sans selection:bg-[#F4A261]/30 selection:text-[#09284C]">
+      <div className="min-h-screen bg-[#FAFBFC] text-[#0F172A] flex flex-col font-sans selection:bg-[#F4A261]/30 selection:text-[#09284C]">
         {/* Sticky Header Navigation */}
         <Navbar />
 

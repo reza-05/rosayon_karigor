@@ -9,9 +9,9 @@ export const Footer = () => {
   };
 
   return (
-    <footer className="bg-[#FAF8F5] text-brand-navy border-t border-brand-navy/10 pt-16 pb-12 relative">
+    <footer className="bg-white text-brand-navy border-t border-slate-200/80 pt-16 pb-12 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-brand-navy/10">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-slate-200/80">
           {/* Col 1: Brand Info */}
           <div className="md:col-span-5 space-y-4">
             <div className="flex items-center gap-3">

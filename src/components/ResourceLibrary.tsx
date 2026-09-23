@@ -223,7 +223,7 @@ export const ResourceLibrary = () => {
               </div>
             </div>
 
-            <div className="bg-[#FAF8F5] rounded-2xl p-4 border border-brand-navy/5 space-y-2">
+            <div className="bg-slate-50 rounded-2xl p-4 border border-slate-200/80 space-y-2">
               <div className="text-xs font-bangla font-semibold text-brand-navy">
                 {previewItem.titleBangla}
               </div>

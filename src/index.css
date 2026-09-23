@@ -4,50 +4,55 @@
 
 @layer base {
   body {
-    background-color: #FAF8F5;
-    color: #18232D;
-    font-family: 'Plus Jakarta Sans', 'Hind Siliguri', sans-serif;
+    background-color: #FAFBFC;
+    color: #0F172A;
+    font-family: 'Plus Jakarta Sans', 'Anek Bangla', sans-serif;
     overflow-x: hidden;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.012em;
   }
 
-  /* Luxury Display Serif with optical kerning */
-  h1, h2, h3, .font-display {
-    font-family: 'Fraunces', Georgia, serif;
-    font-feature-settings: "liga" 1, "kern" 1;
+  /* Ultra-clean Modern Geometric Headings (Silicon Valley / Brilliant style) */
+  h1, h2, h3, h4, .font-display, .font-heading, .font-serif {
+    font-family: 'Outfit', 'Plus Jakarta Sans', 'Anek Bangla', sans-serif;
+    letter-spacing: -0.025em;
   }
 
   .font-bangla {
-    font-family: 'Hind Siliguri', 'Noto Sans Bengali', sans-serif;
+    font-family: 'Anek Bangla', 'Noto Sans Bengali', sans-serif;
+    letter-spacing: -0.005em;
+  }
+
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
   }
 }
 
-/* Luxury Card & Glassmorphic Utilities */
+/* Luxury Card & Glassmorphic Utilities on Premium White */
 .glass-panel {
-  background: rgba(255, 255, 255, 0.82);
+  background: rgba(255, 255, 255, 0.88);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.7);
-  box-shadow: 0 4px 24px -2px rgba(9, 40, 76, 0.05), 0 12px 48px -4px rgba(9, 40, 76, 0.08);
+  border: 1px solid rgba(226, 232, 240, 0.85);
+  box-shadow: 0 4px 20px -2px rgba(9, 40, 76, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
 }
 
 .glass-panel-dark {
-  background: rgba(9, 40, 76, 0.92);
+  background: rgba(9, 40, 76, 0.95);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 12px 40px -10px rgba(0, 0, 0, 0.45);
 }
 
 .btn-luxury-primary {
   background: linear-gradient(135deg, #F4A261 0%, #E76F51 100%);
-  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.4), 0 4px 14px 0 rgba(231, 111, 81, 0.35);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.45), 0 4px 14px 0 rgba(231, 111, 81, 0.35);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .btn-luxury-primary:hover {
   transform: translateY(-1.5px);
-  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.5), 0 8px 24px 0 rgba(231, 111, 81, 0.45);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.55), 0 8px 24px 0 rgba(231, 111, 81, 0.45);
 }
 
 .btn-luxury-primary:active {
@@ -55,12 +60,13 @@
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2), 0 2px 8px 0 rgba(231, 111, 81, 0.3);
 }
 
-/* Subtle background chemical grid pattern */
+/* Subtle background chemical grid pattern on clean white */
 .bg-chem-grid {
+  background-color: #FAFBFC;
   background-image: 
-    radial-gradient(rgba(9, 40, 76, 0.06) 1.5px, transparent 1.5px),
-    linear-gradient(to right, rgba(9, 40, 76, 0.02) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(9, 40, 76, 0.02) 1px, transparent 1px);
+    radial-gradient(rgba(9, 40, 76, 0.045) 1.5px, transparent 1.5px),
+    linear-gradient(to right, rgba(9, 40, 76, 0.015) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(9, 40, 76, 0.015) 1px, transparent 1px);
   background-size: 32px 32px, 96px 96px, 96px 96px;
 }
 
@@ -110,7 +116,7 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #FAF8F5;
+  background: #FAFBFC;
 }
 
 ::-webkit-scrollbar-thumb {

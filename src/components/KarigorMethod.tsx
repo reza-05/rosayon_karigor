@@ -98,7 +98,7 @@ export const KarigorMethod: React.FC = () => {
                   className={`text-left p-6 rounded-3xl border transition-all duration-300 flex flex-col justify-between ${
                     isSelected
                       ? 'bg-brand-navy text-white border-brand-navy shadow-card-hover -translate-y-2'
-                      : 'bg-[#F7F5EF]/70 hover:bg-white text-brand-navy border-brand-navy/10 hover:shadow-card hover:-translate-y-1'
+                      : 'bg-white hover:bg-slate-50/80 text-brand-navy border-slate-200/90 hover:border-slate-300 shadow-sm hover:shadow-card hover:-translate-y-1'
                   }`}
                 >
                   <div>
@@ -106,7 +106,7 @@ export const KarigorMethod: React.FC = () => {
                     <div className="flex items-center justify-between mb-4">
                       <span
                         className={`text-xs font-mono font-bold px-2 py-0.5 rounded-full ${
-                          isSelected ? 'bg-white/20 text-brand-orange' : 'bg-brand-navy/5 text-brand-muted'
+                          isSelected ? 'bg-white/20 text-brand-orange' : 'bg-slate-100 text-brand-muted'
                         }`}
                       >
                         {step.num}
@@ -152,7 +152,7 @@ export const KarigorMethod: React.FC = () => {
         </div>
 
         {/* Selected Step Deep Dive Banner */}
-        <div className="bg-[#FAF8F5] rounded-3xl p-6 sm:p-8 border border-brand-navy/8 mb-16 shadow-sm">
+        <div className="glass-panel rounded-3xl p-6 sm:p-8 mb-16 shadow-card">
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div className="space-y-2">
               <div className="flex items-center gap-2">
@@ -191,7 +191,7 @@ export const KarigorMethod: React.FC = () => {
 
           <div className="divide-y divide-brand-navy/5">
             {beforeAfterComparison.map((item, idx) => (
-              <div key={idx} className="grid grid-cols-1 md:grid-cols-2 p-6 gap-6 hover:bg-[#FAF8F5]/60 transition-colors">
+              <div key={idx} className="grid grid-cols-1 md:grid-cols-2 p-6 gap-6 hover:bg-slate-50/80 transition-colors">
                 {/* Before */}
                 <div className="flex items-start gap-3">
                   <div className="w-6 h-6 rounded-full bg-red-100 text-red-600 flex items-center justify-center flex-shrink-0 mt-0.5">

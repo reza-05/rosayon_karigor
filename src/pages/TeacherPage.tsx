@@ -10,7 +10,7 @@ export const TeacherPage = () => {
 
       {/* Personal Mentorship Assurance Banner */}
       <div className="max-w-5xl mx-auto px-4 pt-4">
-        <div className="glass-panel rounded-3xl p-8 sm:p-12 border border-brand-navy/10 shadow-lg flex flex-col sm:flex-row items-center justify-between gap-6 relative overflow-hidden">
+        <div className="glass-panel rounded-3xl p-8 sm:p-12 border border-slate-200/85 shadow-lg flex flex-col sm:flex-row items-center justify-between gap-6 relative overflow-hidden">
           <div className="absolute top-0 right-0 w-72 h-72 bg-brand-orange/10 rounded-full blur-3xl pointer-events-none -z-10" />
           <div className="space-y-2 text-center sm:text-left">
             <div className="inline-flex items-center gap-2 text-xs font-mono font-bold text-brand-orange uppercase">

@@ -195,7 +195,7 @@ export const EnrollmentForm = () => {
                       <label className="text-xs font-semibold text-brand-navy">
                         I am a / আমি <span className="text-brand-orange">*</span>
                       </label>
-                      <div className="flex items-center bg-[#FAF8F5] p-1 rounded-xl border border-brand-navy/10">
+                      <div className="flex items-center bg-slate-100 p-1 rounded-xl border border-slate-200">
                         <button
                           type="button"
                           onClick={() => setFormData({ ...formData, role: 'student' })}

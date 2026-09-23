@@ -35,7 +35,7 @@ export const ProblemSection = () => {
   ];
 
   return (
-    <section id="problem" className="py-20 bg-[#F7F5EF] relative overflow-hidden border-t border-brand-navy/5">
+    <section id="problem" className="py-20 bg-[#FAFBFC] relative overflow-hidden border-t border-slate-200/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center space-y-4 mb-16">
@@ -63,7 +63,7 @@ export const ProblemSection = () => {
             return (
               <div
                 key={prob.id}
-                className="group relative bg-white rounded-3xl p-8 border border-brand-navy/8 shadow-card hover:shadow-card-hover hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between"
+                className="group relative bg-white rounded-3xl p-8 border border-slate-200/85 shadow-card hover:shadow-card-hover hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between"
               >
                 {/* Top Icon */}
                 <div>

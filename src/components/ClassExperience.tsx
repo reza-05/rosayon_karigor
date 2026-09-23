@@ -211,7 +211,7 @@ export const ClassExperience = () => {
                     className={`text-left p-2.5 rounded-2xl border text-xs transition-all ${
                       activeChapter === i
                         ? 'bg-brand-navy text-white border-brand-navy shadow-sm'
-                        : 'bg-white text-brand-navy border-brand-navy/10 hover:bg-[#FAF8F5]'
+                        : 'bg-white text-brand-navy border-slate-200/80 hover:bg-slate-50'
                     }`}
                   >
                     <div className="flex items-center justify-between text-[10px] text-brand-orange font-mono mb-0.5">
@@ -317,7 +317,7 @@ export const ClassExperience = () => {
                       ? opt.isCorrect
                         ? 'bg-emerald-50 border-emerald-500 text-emerald-900 font-semibold'
                         : 'bg-red-50 border-red-500 text-red-900'
-                      : 'bg-[#FAF8F5] border-brand-navy/10 hover:bg-white text-brand-navy'
+                      : 'bg-slate-50 border-slate-200/80 hover:bg-white text-brand-navy'
                   }`}
                 >
                   <span>{opt.text}</span>

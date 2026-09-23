@@ -74,7 +74,7 @@ export const HomePage = () => {
           {/* Card 1: Class Demo */}
           <Link
             to="/demo"
-            className="group glass-panel rounded-3xl p-6 border border-brand-navy/10 shadow-card hover:shadow-card-hover hover:-translate-y-1.5 transition-all flex flex-col justify-between"
+            className="group glass-panel rounded-3xl p-6 border border-slate-200/85 shadow-card hover:shadow-card-hover hover:-translate-y-1.5 transition-all flex flex-col justify-between"
           >
             <div>
               <div className="w-12 h-12 rounded-2xl bg-amber-500/10 text-brand-orange flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
@@ -87,7 +87,7 @@ export const HomePage = () => {
                 চকবোর্ড স্টাইল ভিডিও ক্লাস ডেমো দেখে নিন—কীভাবে রাসায়নিক বন্ধন ও সংকরণ সহজে শেখানো হয়।
               </p>
             </div>
-            <div className="mt-6 pt-4 border-t border-brand-navy/5 flex items-center justify-between text-xs font-bold text-brand-orange">
+            <div className="mt-6 pt-4 border-t border-slate-200/60 flex items-center justify-between text-xs font-bold text-brand-orange">
               <span>ভিডিও দেখুন</span>
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </div>
@@ -96,7 +96,7 @@ export const HomePage = () => {
           {/* Card 2: Free Resources */}
           <Link
             to="/resources"
-            className="group glass-panel rounded-3xl p-6 border border-brand-navy/10 shadow-card hover:shadow-card-hover hover:-translate-y-1.5 transition-all flex flex-col justify-between"
+            className="group glass-panel rounded-3xl p-6 border border-slate-200/85 shadow-card hover:shadow-card-hover hover:-translate-y-1.5 transition-all flex flex-col justify-between"
           >
             <div>
               <div className="w-12 h-12 rounded-2xl bg-blue-500/10 text-brand-ocean flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
@@ -109,7 +109,7 @@ export const HomePage = () => {
                 জৈব রসায়নের রূপান্তর ম্যাপ, অধ্যায়ভিত্তিক রঙিন নোট ও এডমিশন হ্যাক শিট ডাউনলোড করুন।
               </p>
             </div>
-            <div className="mt-6 pt-4 border-t border-brand-navy/5 flex items-center justify-between text-xs font-bold text-brand-ocean">
+            <div className="mt-6 pt-4 border-t border-slate-200/60 flex items-center justify-between text-xs font-bold text-brand-ocean">
               <span>লাইব্রেরি ভিজিট করুন</span>
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </div>
@@ -118,7 +118,7 @@ export const HomePage = () => {
           {/* Card 3: Meet Teacher */}
           <Link
             to="/about"
-            className="group glass-panel rounded-3xl p-6 border border-brand-navy/10 shadow-card hover:shadow-card-hover hover:-translate-y-1.5 transition-all flex flex-col justify-between"
+            className="group glass-panel rounded-3xl p-6 border border-slate-200/85 shadow-card hover:shadow-card-hover hover:-translate-y-1.5 transition-all flex flex-col justify-between"
           >
             <div>
               <div className="w-12 h-12 rounded-2xl bg-indigo-500/10 text-indigo-700 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
@@ -131,7 +131,7 @@ export const HomePage = () => {
                 রেজা স্যারের শিক্ষাদান দর্শন, শিক্ষাগত যোগ্যতা এবং রসায়ন কারিগরের মূল গল্প জানুন।
               </p>
             </div>
-            <div className="mt-6 pt-4 border-t border-brand-navy/5 flex items-center justify-between text-xs font-bold text-indigo-700">
+            <div className="mt-6 pt-4 border-t border-slate-200/60 flex items-center justify-between text-xs font-bold text-indigo-700">
               <span>প্রোফাইল দেখুন</span>
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </div>
@@ -140,7 +140,7 @@ export const HomePage = () => {
           {/* Card 4: FAQ */}
           <Link
             to="/faq"
-            className="group glass-panel rounded-3xl p-6 border border-brand-navy/10 shadow-card hover:shadow-card-hover hover:-translate-y-1.5 transition-all flex flex-col justify-between"
+            className="group glass-panel rounded-3xl p-6 border border-slate-200/85 shadow-card hover:shadow-card-hover hover:-translate-y-1.5 transition-all flex flex-col justify-between"
           >
             <div>
               <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-700 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
