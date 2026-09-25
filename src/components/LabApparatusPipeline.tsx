@@ -58,12 +58,12 @@ export const LabApparatusPipeline: React.FC<LabApparatusPipelineProps> = ({
       clearInterval(timerRef.current);
       timerRef.current = setInterval(() => {
         advanceStage();
-      }, 5000);
+      }, 5500);
     }
 
     // Auto-scroll on mobile to center the active apparatus
     if (scrollContainerRef.current) {
-      const stationPositions = [60, 260, 480, 700, 900];
+      const stationPositions = [70, 280, 520, 720, 930];
       const target = stationPositions[idx] || 0;
       scrollContainerRef.current.scrollTo({ left: target - 100, behavior: 'smooth' });
     }
@@ -71,101 +71,133 @@ export const LabApparatusPipeline: React.FC<LabApparatusPipelineProps> = ({
 
   return (
     <div ref={containerRef} className={`w-full relative ${className}`}>
-      {/* 1. THE SVG LABORATORY PIPELINE BENCH */}
+      {/* 1. CONTINUOUS 2D VECTOR FLAT LABORATORY PIPELINE BENCH */}
       <div
         ref={scrollContainerRef}
         className="w-full overflow-x-auto pb-4 scrollbar-thin scrollbar-thumb-slate-200 scrollbar-track-transparent select-none"
       >
-        <div className="min-w-[960px] lg:min-w-full relative px-2">
+        <div className="min-w-[1020px] lg:min-w-full relative px-2">
           <svg
-            viewBox="0 0 1100 420"
-            className="w-full h-auto overflow-visible drop-shadow-sm select-none"
+            viewBox="0 0 1140 450"
+            className="w-full h-auto overflow-visible select-none bg-white rounded-3xl p-2"
           >
             <defs>
-              {/* Bench Table Top Reflection Gradient */}
-              <linearGradient id="benchGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor="#E2E8F0" stopOpacity="0.9" />
-                <stop offset="15%" stopColor="#CBD5E1" stopOpacity="0.4" />
-                <stop offset="100%" stopColor="#F8FAFC" stopOpacity="0.1" />
+              {/* Soft Pastel Gradients */}
+              <linearGradient id="pastelBlueGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="#BAE6FD" stopOpacity="0.9" />
+                <stop offset="100%" stopColor="#38BDF8" stopOpacity="0.85" />
               </linearGradient>
 
-              {/* Glass Specular Sheen Gradient */}
-              <linearGradient id="glassSheen" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.5" />
-                <stop offset="25%" stopColor="#FFFFFF" stopOpacity="0.1" />
-                <stop offset="80%" stopColor="#FFFFFF" stopOpacity="0.05" />
-                <stop offset="100%" stopColor="#FFFFFF" stopOpacity="0.35" />
+              <linearGradient id="lowerFlaskGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="#93C5FD" stopOpacity="0.75" />
+                <stop offset="100%" stopColor="#3B82F6" stopOpacity="0.85" />
+              </linearGradient>
+
+              <linearGradient id="pastelPurpleGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="#E9D5FF" stopOpacity="0.9" />
+                <stop offset="60%" stopColor="#C084FC" stopOpacity="0.85" />
+                <stop offset="100%" stopColor="#A855F7" stopOpacity="0.9" />
+              </linearGradient>
+
+              <linearGradient id="boilingLiquidGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="#DDD6FE" stopOpacity="0.85" />
+                <stop offset="50%" stopColor="#C084FC" stopOpacity="0.85" />
+                <stop offset="100%" stopColor="#F97316" stopOpacity="0.75" />
+              </linearGradient>
+
+              <linearGradient id="coolingJacketGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#CCFBF1" stopOpacity="0.55" />
+                <stop offset="100%" stopColor="#99F6E4" stopOpacity="0.45" />
+              </linearGradient>
+
+              <linearGradient id="pastelAmberGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="#FEF3C7" stopOpacity="0.9" />
+                <stop offset="100%" stopColor="#F59E0B" stopOpacity="0.85" />
+              </linearGradient>
+
+              <linearGradient id="pastelGoldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="#FEF08A" stopOpacity="0.95" />
+                <stop offset="50%" stopColor="#FDE047" stopOpacity="0.85" />
+                <stop offset="100%" stopColor="#EAB308" stopOpacity="0.9" />
               </linearGradient>
 
               {/* Bunsen Burner Outer Flame Gradient */}
               <radialGradient id="flameOuter" cx="50%" cy="80%" r="65%">
-                <stop offset="0%" stopColor="#FFAA00" stopOpacity="1" />
-                <stop offset="45%" stopColor="#FF5500" stopOpacity="0.9" />
-                <stop offset="85%" stopColor="#FF1100" stopOpacity="0.75" />
-                <stop offset="100%" stopColor="#FF7700" stopOpacity="0" />
+                <stop offset="0%" stopColor="#FDE047" stopOpacity="1" />
+                <stop offset="45%" stopColor="#FB923C" stopOpacity="0.95" />
+                <stop offset="85%" stopColor="#EA580C" stopOpacity="0.85" />
+                <stop offset="100%" stopColor="#EA580C" stopOpacity="0" />
               </radialGradient>
 
               {/* Bunsen Burner Inner Hot Core Gradient */}
               <radialGradient id="flameInner" cx="50%" cy="80%" r="55%">
-                <stop offset="0%" stopColor="#E0F2FE" stopOpacity="1" />
-                <stop offset="50%" stopColor="#38BDF8" stopOpacity="0.9" />
+                <stop offset="0%" stopColor="#FFFFFF" stopOpacity="1" />
+                <stop offset="50%" stopColor="#BAE6FD" stopOpacity="0.95" />
                 <stop offset="100%" stopColor="#0284C7" stopOpacity="0.2" />
               </radialGradient>
 
-              {/* Glass Tube Highlight */}
-              <linearGradient id="tubeGlass" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.8" />
-                <stop offset="50%" stopColor="#E2E8F0" stopOpacity="0.3" />
-                <stop offset="100%" stopColor="#94A3B8" stopOpacity="0.5" />
-              </linearGradient>
-
-              {/* Gold Crystal Shimmer */}
-              <radialGradient id="goldCrystalGlow" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stopColor="#FEF08A" stopOpacity="0.9" />
-                <stop offset="60%" stopColor="#EAB308" stopOpacity="0.4" />
-                <stop offset="100%" stopColor="#CA8A04" stopOpacity="0" />
-              </radialGradient>
-
-              {/* CSS Animations embedded in SVG for 100% smooth framerates */}
+              {/* CSS Animations embedded in SVG */}
               <style>{`
                 @keyframes flameFlicker {
                   0%, 100% {
                     transform: scale(1) skewX(0deg);
-                    filter: drop-shadow(0 0 8px rgba(249, 115, 22, 0.85));
+                    filter: drop-shadow(0 0 6px rgba(249, 115, 22, 0.8));
                   }
                   25% {
-                    transform: scale(1.05, 0.95) skewX(-1.5deg);
-                    filter: drop-shadow(0 0 12px rgba(249, 115, 22, 0.95));
+                    transform: scale(1.06, 0.94) skewX(-1.5deg);
+                    filter: drop-shadow(0 0 10px rgba(249, 115, 22, 0.9));
                   }
                   50% {
-                    transform: scale(0.96, 1.04) skewX(1deg);
-                    filter: drop-shadow(0 0 7px rgba(249, 115, 22, 0.75));
+                    transform: scale(0.95, 1.05) skewX(1deg);
+                    filter: drop-shadow(0 0 6px rgba(249, 115, 22, 0.7));
                   }
                   75% {
-                    transform: scale(1.03, 0.97) skewX(-0.8deg);
-                    filter: drop-shadow(0 0 11px rgba(249, 115, 22, 0.9));
+                    transform: scale(1.04, 0.96) skewX(-1deg);
+                    filter: drop-shadow(0 0 9px rgba(249, 115, 22, 0.85));
                   }
                 }
-                @keyframes dropFallContinuous {
+                @keyframes gravityDropFall {
                   0% {
                     transform: translateY(0);
                     opacity: 0;
                   }
                   15% {
                     opacity: 1;
-                    transform: translateY(3px);
+                    transform: translateY(4px);
                   }
                   75% {
                     opacity: 1;
-                    transform: translateY(44px);
+                    transform: translateY(50px);
                   }
-                  90% {
-                    opacity: 0.8;
-                    transform: translateY(48px);
+                  95% {
+                    opacity: 0.6;
+                    transform: translateY(58px);
                   }
                   100% {
                     opacity: 0;
-                    transform: translateY(50px);
+                    transform: translateY(60px);
+                  }
+                }
+                @keyframes dropFallStep4 {
+                  0% {
+                    transform: translateY(0);
+                    opacity: 0;
+                  }
+                  15% {
+                    opacity: 1;
+                    transform: translateY(4px);
+                  }
+                  75% {
+                    opacity: 1;
+                    transform: translateY(48px);
+                  }
+                  90% {
+                    opacity: 0.7;
+                    transform: translateY(54px);
+                  }
+                  100% {
+                    opacity: 0;
+                    transform: translateY(56px);
                   }
                 }
                 @keyframes rippleEffect {
@@ -177,39 +209,39 @@ export const LabApparatusPipeline: React.FC<LabApparatusPipelineProps> = ({
                     opacity: 0.5;
                   }
                   100% {
-                    r: 14;
+                    r: 16;
                     opacity: 0;
                   }
                 }
-                @keyframes bubbleFloatUp {
+                @keyframes vaporRise {
+                  0% {
+                    transform: translateY(0) scale(0.85);
+                    opacity: 0;
+                  }
+                  25% {
+                    opacity: 0.75;
+                  }
+                  75% {
+                    opacity: 0.6;
+                  }
+                  100% {
+                    transform: translateY(-45px) scale(1.15);
+                    opacity: 0;
+                  }
+                }
+                @keyframes bubbleBoil {
                   0% {
                     transform: translateY(0);
                     opacity: 0;
                   }
                   20% {
-                    opacity: 0.8;
+                    opacity: 0.85;
                   }
                   80% {
-                    opacity: 0.8;
+                    opacity: 0.85;
                   }
                   100% {
-                    transform: translateY(-32px);
-                    opacity: 0;
-                  }
-                }
-                @keyframes vaporWaft {
-                  0% {
-                    transform: translateY(0) scale(0.9);
-                    opacity: 0;
-                  }
-                  40% {
-                    opacity: 0.5;
-                  }
-                  80% {
-                    opacity: 0.3;
-                  }
-                  100% {
-                    transform: translateY(-24px) scale(1.2);
+                    transform: translateY(-22px);
                     opacity: 0;
                   }
                 }
@@ -221,180 +253,191 @@ export const LabApparatusPipeline: React.FC<LabApparatusPipelineProps> = ({
                   20% {
                     opacity: 0.9;
                   }
-                  80% {
+                  85% {
                     opacity: 0.9;
                   }
                   100% {
-                    transform: translate(145px, 68px);
+                    transform: translate(145px, 80px);
                     opacity: 0;
                   }
                 }
                 @keyframes pipeDashFlow {
                   to {
-                    stroke-dashoffset: -40;
+                    stroke-dashoffset: -36;
+                  }
+                }
+                @keyframes suctionDashUp {
+                  to {
+                    stroke-dashoffset: 36;
                   }
                 }
                 .anim-flame {
-                  transform-origin: 340px 295px;
-                  animation: flameFlicker 1.4s infinite ease-in-out;
+                  transform-origin: 330px 325px;
+                  animation: flameFlicker 1.3s infinite ease-in-out;
                 }
-                .anim-drop {
-                  animation: dropFallContinuous 1.6s infinite cubic-bezier(0.4, 0, 1, 1);
+                .anim-gravity-drop {
+                  animation: gravityDropFall 1.5s infinite cubic-bezier(0.4, 0, 1, 1);
+                }
+                .anim-drop-step4 {
+                  animation: dropFallStep4 1.6s infinite cubic-bezier(0.4, 0, 1, 1) 0.3s;
                 }
                 .anim-ripple {
-                  animation: rippleEffect 1.6s infinite ease-out;
+                  animation: rippleEffect 1.6s infinite ease-out 0.3s;
+                }
+                .anim-vapor-1 {
+                  animation: vaporRise 2.2s infinite ease-out;
+                }
+                .anim-vapor-2 {
+                  animation: vaporRise 2.5s infinite ease-out 0.8s;
                 }
                 .anim-bubble-1 {
-                  animation: bubbleFloatUp 2.2s infinite ease-in;
+                  animation: bubbleBoil 1.8s infinite ease-in;
                 }
                 .anim-bubble-2 {
-                  animation: bubbleFloatUp 1.8s infinite ease-in 0.7s;
+                  animation: bubbleBoil 1.5s infinite ease-in 0.5s;
                 }
-                .anim-bubble-3 {
-                  animation: bubbleFloatUp 2.5s infinite ease-in 1.2s;
-                }
-                .anim-vapor {
-                  animation: vaporWaft 2.4s infinite ease-out;
-                }
-                .anim-condenser-drop {
-                  animation: condenserSliding 2.2s infinite linear;
+                .anim-condenser-slide {
+                  animation: condenserSliding 2.1s infinite linear;
                 }
                 .anim-pipe-flow {
                   stroke-dasharray: 8 6;
-                  animation: pipeDashFlow 1.8s linear infinite;
+                  animation: pipeDashFlow 1.6s linear infinite;
+                }
+                .anim-suction-flow {
+                  stroke-dasharray: 8 6;
+                  animation: suctionDashUp 1.5s linear infinite;
                 }
               `}</style>
             </defs>
 
-            {/* --- LABORATORY BENCH SURFACE --- */}
-            <rect x="20" y="350" width="1060" height="22" rx="4" fill="url(#benchGrad)" />
-            <line x1="20" y1="350" x2="1080" y2="350" stroke="#94A3B8" strokeWidth="1.8" />
-            <line x1="30" y1="372" x2="1070" y2="372" stroke="#E2E8F0" strokeWidth="1" />
+            {/* --- MINIMAL BASE BENCH LINE --- */}
+            <line x1="30" y1="380" x2="1110" y2="380" stroke="#334155" strokeWidth="3" strokeLinecap="round" />
+            <rect x="30" y="380" width="1080" height="6" rx="2" fill="#F8FAFC" stroke="#E2E8F0" strokeWidth="1" />
 
-            {/* Bench Measurement Ruler Ticks */}
-            {Array.from({ length: 24 }).map((_, i) => (
-              <line
-                key={i}
-                x1={45 + i * 44}
-                y1="350"
-                x2={45 + i * 44}
-                y2={i % 4 === 0 ? '360' : '355'}
-                stroke="#94A3B8"
-                strokeWidth="1"
-                opacity="0.5"
-              />
-            ))}
+            {/* --- CONNECTING TRANSPARENT GLASS TUBING (Left to Right) --- */}
 
-            {/* --- CONNECTING REAL GLASS DELIVERY PIPES --- */}
-
-            {/* Pipe 1: Stage 0 (Conical Flask Stopper) -> Stage 1 (Boiling Flask) */}
+            {/* Tube 1: Lower Flask Side Arm (Step 1) -> Boiling Flask Tall Neck (Step 2) */}
             <g className="transition-opacity duration-300">
-              {/* Outer glass tube */}
               <path
-                d="M 110 170 L 110 100 Q 110 85 125 85 L 325 85 Q 340 85 340 100 L 340 135"
+                d="M 165 330 L 215 330 Q 225 330 225 320 L 225 145 Q 225 135 235 135 L 315 135"
                 fill="none"
-                stroke="#CBD5E1"
-                strokeWidth="6"
+                stroke="#334155"
+                strokeWidth="7"
                 strokeLinecap="round"
               />
               <path
-                d="M 110 170 L 110 100 Q 110 85 125 85 L 325 85 Q 340 85 340 100 L 340 135"
+                d="M 165 330 L 215 330 Q 225 330 225 320 L 225 145 Q 225 135 235 135 L 315 135"
                 fill="none"
                 stroke="#FFFFFF"
-                strokeWidth="3.5"
+                strokeWidth="4"
                 strokeLinecap="round"
               />
-              {/* Inner animated liquid stream */}
               <path
-                d="M 110 170 L 110 100 Q 110 85 125 85 L 325 85 Q 340 85 340 100 L 340 135"
+                d="M 165 330 L 215 330 Q 225 330 225 320 L 225 145 Q 225 135 235 135 L 315 135"
                 fill="none"
-                stroke="#0284c7"
+                stroke="#38BDF8"
                 strokeWidth="2.5"
                 className="anim-pipe-flow"
-                opacity={activeStage >= 0 ? 0.9 : 0.35}
+                opacity={activeStage >= 0 ? 0.95 : 0.4}
               />
             </g>
 
-            {/* Pipe 2: Stage 1 (Boiling Flask) -> Stage 2 (Liebig Condenser Top) */}
+            {/* Tube 2: Boiling Flask Tall Neck Top (Step 2) -> Liebig Condenser Inlet (Step 3) */}
             <g className="transition-opacity duration-300">
               <path
-                d="M 345 130 L 345 95 Q 345 80 360 80 L 440 80 Q 455 80 460 95 L 470 120"
+                d="M 330 80 L 330 65 Q 330 55 342 55 L 400 55 Q 412 55 418 68 L 438 100"
                 fill="none"
-                stroke="#CBD5E1"
-                strokeWidth="6"
+                stroke="#334155"
+                strokeWidth="7"
                 strokeLinecap="round"
               />
               <path
-                d="M 345 130 L 345 95 Q 345 80 360 80 L 440 80 Q 455 80 460 95 L 470 120"
+                d="M 330 80 L 330 65 Q 330 55 342 55 L 400 55 Q 412 55 418 68 L 438 100"
                 fill="none"
                 stroke="#FFFFFF"
-                strokeWidth="3.5"
+                strokeWidth="4"
                 strokeLinecap="round"
               />
               <path
-                d="M 345 130 L 345 95 Q 345 80 360 80 L 440 80 Q 455 80 460 95 L 470 120"
+                d="M 330 80 L 330 65 Q 330 55 342 55 L 400 55 Q 412 55 418 68 L 438 100"
                 fill="none"
-                stroke="#8b5cf6"
+                stroke="#C084FC"
                 strokeWidth="2.5"
                 className="anim-pipe-flow"
-                opacity={activeStage >= 1 ? 0.9 : 0.35}
+                opacity={activeStage >= 1 ? 0.95 : 0.4}
               />
             </g>
 
-            {/* Pipe 3: Stage 2 (Liebig Condenser Outlet) -> Stage 3 (Drip Nozzle above Beaker) */}
+            {/* Tube 3: Slanted Liebig Condenser -> Open Beaker (Step 4) via curved delivery adapter */}
             <g className="transition-opacity duration-300">
               <path
-                d="M 645 220 L 675 235 Q 695 245 715 245 L 730 245 Q 740 245 740 255 L 740 268"
+                d="M 640 212 L 655 220 Q 670 230 670 245 L 670 262"
                 fill="none"
-                stroke="#CBD5E1"
+                stroke="#334155"
                 strokeWidth="6"
                 strokeLinecap="round"
               />
               <path
-                d="M 645 220 L 675 235 Q 695 245 715 245 L 730 245 Q 740 245 740 255 L 740 268"
+                d="M 640 212 L 655 220 Q 670 230 670 245 L 670 262"
                 fill="none"
                 stroke="#FFFFFF"
                 strokeWidth="3.5"
                 strokeLinecap="round"
               />
               <path
-                d="M 645 220 L 675 235 Q 695 245 715 245 L 730 245 Q 740 245 740 255 L 740 268"
+                d="M 640 212 L 655 220 Q 670 230 670 245 L 670 262"
                 fill="none"
-                stroke="#0d9488"
-                strokeWidth="2.5"
+                stroke="#0D9488"
+                strokeWidth="2"
                 className="anim-pipe-flow"
-                opacity={activeStage >= 2 ? 0.9 : 0.35}
+                opacity={activeStage >= 2 ? 0.95 : 0.4}
               />
             </g>
 
-            {/* Pipe 4: Stage 3 (Beaker Base) -> Stage 4 (Volumetric Flask) */}
+            {/* Tube 4: VACUUM SUCTION TUBE: Open Beaker (Step 4) UPWARDS into Volumetric Flask (Step 5) */}
             <g className="transition-opacity duration-300">
+              {/* Outer glass suction line */}
               <path
-                d="M 770 330 L 795 330 Q 815 330 815 310 L 815 200 Q 815 170 840 170 L 950 170 Q 965 170 965 185 L 965 210"
+                d="M 690 355 L 690 330 Q 690 320 700 320 L 730 320 Q 740 320 740 310 L 740 95 Q 740 82 755 82 L 815 82 Q 830 82 830 95 L 830 148"
                 fill="none"
-                stroke="#CBD5E1"
-                strokeWidth="6"
+                stroke="#334155"
+                strokeWidth="7"
                 strokeLinecap="round"
               />
               <path
-                d="M 770 330 L 795 330 Q 815 330 815 310 L 815 200 Q 815 170 840 170 L 950 170 Q 965 170 965 185 L 965 210"
+                d="M 690 355 L 690 330 Q 690 320 700 320 L 730 320 Q 740 320 740 310 L 740 95 Q 740 82 755 82 L 815 82 Q 830 82 830 95 L 830 148"
                 fill="none"
                 stroke="#FFFFFF"
-                strokeWidth="3.5"
+                strokeWidth="4"
                 strokeLinecap="round"
               />
+              {/* Inner animated suction flow (Liquid moving UP out of beaker due to vacuum) */}
               <path
-                d="M 770 330 L 795 330 Q 815 330 815 310 L 815 200 Q 815 170 840 170 L 950 170 Q 965 170 965 185 L 965 210"
+                d="M 690 355 L 690 330 Q 690 320 700 320 L 730 320 Q 740 320 740 310 L 740 95 Q 740 82 755 82 L 815 82 Q 830 82 830 95 L 830 148"
                 fill="none"
-                stroke="#f59e0b"
+                stroke="#F59E0B"
                 strokeWidth="2.5"
-                className="anim-pipe-flow"
-                opacity={activeStage >= 3 ? 0.9 : 0.35}
+                className="anim-suction-flow"
+                opacity={activeStage >= 3 ? 0.95 : 0.4}
               />
+            </g>
+
+            {/* Vacuum Hose Line: From Volumetric Flask 2-Hole Stopper to Mechanical Vacuum Pump */}
+            <g>
+              <path
+                d="M 840 148 L 840 120 Q 840 108 852 108 L 930 108 Q 942 108 942 120 L 942 275"
+                fill="none"
+                stroke="#475569"
+                strokeWidth="4.5"
+                strokeLinecap="round"
+                strokeDasharray="4 3"
+              />
+              {/* Vacuum direction arrows on hose */}
+              <polygon points="942,190 938,198 946,198" fill="#475569" />
             </g>
 
             {/* ========================================================
-                STATION 01: CONICAL FLASK (ERLENMEYER) — UNDERSTAND
+                STEP 1: SEPARATORY FUNNEL & LOWER FLASK (GRAVITY DRIP)
                ======================================================== */}
             <g
               className="cursor-pointer group"
@@ -402,64 +445,90 @@ export const LabApparatusPipeline: React.FC<LabApparatusPipelineProps> = ({
               onMouseEnter={() => setHoveredIndex(0)}
               onMouseLeave={() => setHoveredIndex(null)}
             >
-              {/* Active stage highlight aura */}
+              {/* Selection Aura */}
               <circle
-                cx="110"
-                cy="260"
-                r="70"
-                fill="#0284c7"
+                cx="140"
+                cy="230"
+                r="78"
+                fill="#38BDF8"
                 opacity={activeStage === 0 ? 0.12 : hoveredIndex === 0 ? 0.06 : 0}
                 className="transition-opacity duration-300 pointer-events-none"
               />
 
-              {/* Retort Stand (Base, Rod & Bosshead Clamp) */}
-              <rect x="40" y="344" width="55" height="6" rx="2" fill="#334155" />
-              <line x1="55" y1="120" x2="55" y2="344" stroke="#475569" strokeWidth="4" strokeLinecap="round" />
-              <rect x="51" y="200" width="8" height="12" rx="2" fill="#1E293B" />
-              <line x1="55" y1="206" x2="98" y2="206" stroke="#475569" strokeWidth="2.5" />
-              <path d="M 98 198 Q 110 206 122 198" fill="none" stroke="#334155" strokeWidth="2.5" />
+              {/* Lab Stand holding separatory funnel */}
+              <rect x="50" y="370" width="70" height="10" rx="3" fill="#64748B" stroke="#334155" strokeWidth="2.5" />
+              <line x1="75" y1="70" x2="75" y2="370" stroke="#334155" strokeWidth="4.5" strokeLinecap="round" />
+              {/* Clamp at Funnel */}
+              <rect x="70" y="125" width="10" height="12" rx="2" fill="#1E293B" />
+              <line x1="75" y1="131" x2="118" y2="131" stroke="#334155" strokeWidth="3" />
+              <path d="M 118 122 Q 138 131 158 122" fill="none" stroke="#334155" strokeWidth="3" />
 
-              {/* Conical Flask Liquid Fill (Sky Blue #0284c7) */}
+              {/* Separatory Funnel (Pear Shape) */}
+              {/* Soft Blue Liquid inside */}
               <path
-                d="M 73 342 L 147 342 L 132 255 Q 110 250 88 255 Z"
-                fill="#0284c7"
-                opacity="0.85"
+                d="M 132 105 C 110 125 110 160 132 185 L 138 205 L 142 205 L 148 185 C 170 160 170 125 148 105 Z"
+                fill="url(#pastelBlueGrad)"
+                opacity="0.9"
               />
-              <ellipse cx="110" cy="254" rx="22" ry="4" fill="#38BDF8" opacity="0.6" />
-
-              {/* Animated Rising Bubbles */}
-              <circle cx="95" cy="320" r="2.5" fill="#E0F2FE" className="anim-bubble-1" />
-              <circle cx="112" cy="330" r="3" fill="#FFFFFF" className="anim-bubble-2" />
-              <circle cx="125" cy="315" r="2" fill="#E0F2FE" className="anim-bubble-3" />
-
-              {/* Glass Outlines */}
+              {/* Glass pear body outline */}
               <path
-                d="M 98 175 L 98 215 L 68 342 Q 67 346 72 346 L 148 346 Q 153 346 152 342 L 122 215 L 122 175 Z"
+                d="M 132 80 L 132 95 C 108 118 108 165 132 192 L 138 212 L 138 232 L 142 232 L 142 212 L 148 192 C 172 165 172 118 148 95 L 148 80 Z"
                 fill="none"
-                stroke="#64748B"
-                strokeWidth="2.2"
+                stroke="#334155"
+                strokeWidth="2.8"
                 strokeLinejoin="round"
               />
-              {/* Glass Lip & Stopper */}
-              <ellipse cx="110" cy="175" rx="12" ry="3.5" fill="none" stroke="#64748B" strokeWidth="2" />
-              <rect x="99" y="168" width="22" height="10" rx="2" fill="#475569" />
+              {/* Top rim and stopper */}
+              <ellipse cx="140" cy="80" rx="14" ry="4" fill="none" stroke="#334155" strokeWidth="2.5" />
+              <polygon points="134,80 146,80 148,68 132,68" fill="#475569" stroke="#334155" strokeWidth="2" />
 
-              {/* Graduation markings */}
-              <line x1="125" y1="280" x2="135" y2="280" stroke="#94A3B8" strokeWidth="1.2" opacity="0.7" />
-              <line x1="128" y1="295" x2="137" y2="295" stroke="#94A3B8" strokeWidth="1.2" opacity="0.7" />
-              <line x1="131" y1="310" x2="139" y2="310" stroke="#94A3B8" strokeWidth="1.2" opacity="0.7" />
+              {/* Stopcock Valve on Funnel Stem */}
+              <rect x="132" y="215" width="16" height="8" rx="2" fill="#475569" stroke="#334155" strokeWidth="2" />
+              <line x1="140" y1="211" x2="140" y2="227" stroke="#334155" strokeWidth="3" strokeLinecap="round" />
+              <line x1="134" y1="211" x2="146" y2="211" stroke="#334155" strokeWidth="3" strokeLinecap="round" />
 
-              {/* Station Label */}
-              <text x="110" y="385" textAnchor="middle" className="text-[13px] font-mono font-bold fill-slate-700">
+              {/* Drip Nozzle */}
+              <line x1="138" y1="223" x2="138" y2="235" stroke="#334155" strokeWidth="2.5" />
+              <line x1="142" y1="223" x2="142" y2="235" stroke="#334155" strokeWidth="2.5" />
+
+              {/* Gravity Falling Droplet */}
+              <g transform="translate(140, 238)">
+                <circle cx="0" cy="0" r="3.5" fill="#38BDF8" className="anim-gravity-drop" />
+              </g>
+
+              {/* LOWER FLASK (Conical / Receiving Flask placed under the funnel) */}
+              {/* Blue liquid collection */}
+              <path
+                d="M 125 330 L 110 376 Q 110 380 115 380 L 165 380 Q 170 380 170 376 L 155 330 Z"
+                fill="url(#lowerFlaskGrad)"
+              />
+              {/* Surface ripples */}
+              <ellipse cx="140" cy="330" rx="15" ry="3" fill="#BAE6FD" opacity="0.8" />
+
+              {/* Conical Flask Glass Body */}
+              <path
+                d="M 132 270 L 132 295 L 108 375 Q 106 380 112 380 L 168 380 Q 174 380 172 375 L 148 295 L 148 270 Z"
+                fill="none"
+                stroke="#334155"
+                strokeWidth="2.8"
+                strokeLinejoin="round"
+              />
+              <ellipse cx="140" cy="270" rx="12" ry="3.5" fill="none" stroke="#334155" strokeWidth="2.2" />
+
+              {/* Side Arm on Lower Flask */}
+              <path d="M 158 326 L 168 326 L 168 334 L 158 334" fill="none" stroke="#334155" strokeWidth="2.4" />
+
+              {/* Step Label */}
+              <text x="140" y="410" textAnchor="middle" className="text-[13px] font-mono font-bold fill-slate-800">
                 01 Understand
               </text>
-              <text x="110" y="402" textAnchor="middle" className="text-[11px] font-bangla fill-brand-ocean font-bold">
-                অনুধাবন (কনিক্যাল ফ্লাস্ক)
+              <text x="140" y="427" textAnchor="middle" className="text-[11px] font-bangla fill-sky-600 font-bold">
+                অনুধাবন (সেপারেটরি ফানেল ও গ্র্যাভিটি)
               </text>
             </g>
 
             {/* ========================================================
-                STATION 02: BOILING FLASK & BUNSEN BURNER — VISUALIZE
+                STEP 2: BOILING FLASK & GLOWING BUNSEN BURNER (HEAT & VAPOR)
                ======================================================== */}
             <g
               className="cursor-pointer group"
@@ -467,88 +536,101 @@ export const LabApparatusPipeline: React.FC<LabApparatusPipelineProps> = ({
               onMouseEnter={() => setHoveredIndex(1)}
               onMouseLeave={() => setHoveredIndex(null)}
             >
-              {/* Active stage highlight aura */}
+              {/* Selection Aura */}
               <circle
-                cx="340"
-                cy="215"
-                r="72"
-                fill="#8b5cf6"
+                cx="330"
+                cy="230"
+                r="78"
+                fill="#8B5CF6"
                 opacity={activeStage === 1 ? 0.12 : hoveredIndex === 1 ? 0.06 : 0}
                 className="transition-opacity duration-300 pointer-events-none"
               />
 
-              {/* Bunsen Burner (Base, Barrel & Gas Hose) */}
-              <rect x="315" y="344" width="50" height="6" rx="2" fill="#334155" />
-              <rect x="334" y="295" width="12" height="49" fill="#64748B" />
-              <rect x="332" y="325" width="16" height="6" rx="1" fill="#475569" />
-              <circle cx="340" cy="328" r="1.8" fill="#1E293B" /> {/* Air hole */}
-              <path d="M 318 346 Q 300 348 290 355" fill="none" stroke="#475569" strokeWidth="2.5" />
+              {/* TRIPOD STAND */}
+              <line x1="290" y1="292" x2="370" y2="292" stroke="#334155" strokeWidth="3.5" strokeLinecap="round" />
+              {/* Wire gauze mesh lines */}
+              <line x1="295" y1="290" x2="365" y2="290" stroke="#64748B" strokeWidth="2" strokeDasharray="3 2" />
+              {/* Tripod legs */}
+              <line x1="300" y1="292" x2="285" y2="380" stroke="#334155" strokeWidth="3.5" strokeLinecap="round" />
+              <line x1="360" y1="292" x2="375" y2="380" stroke="#334155" strokeWidth="3.5" strokeLinecap="round" />
 
-              {/* SCIENTIFIC FLICKERING FIRE ("আগুন জ্বলবে নিচে") */}
+              {/* GLOWING BUNSEN BURNER (Underneath) */}
+              <rect x="310" y="370" width="40" height="10" rx="3" fill="#475569" stroke="#334155" strokeWidth="2.5" />
+              <rect x="325" y="332" width="10" height="38" rx="1.5" fill="#64748B" stroke="#334155" strokeWidth="2" />
+              {/* Air collar */}
+              <rect x="323" y="352" width="14" height="6" rx="1" fill="#334155" />
+              {/* Gas hose line */}
+              <path d="M 325 365 L 305 365 Q 295 365 295 372 L 295 380" fill="none" stroke="#475569" strokeWidth="2.5" />
+
+              {/* Glowing Bunsen Flame */}
               <g className="anim-flame">
-                {/* Outer Glowing Fire */}
+                {/* Outer flame */}
                 <path
-                  d="M 330 295 C 324 270 332 245 340 235 C 348 245 356 270 350 295 Z"
+                  d="M 322 332 C 318 315 325 296 330 292 C 335 296 342 315 338 332 Z"
                   fill="url(#flameOuter)"
                 />
-                {/* Inner Bright Blue Hot Cone */}
+                {/* Inner hot core */}
                 <path
-                  d="M 334 295 C 332 278 337 262 340 256 C 343 262 348 278 346 295 Z"
+                  d="M 326 332 C 324 322 328 310 330 307 C 332 310 336 322 334 332 Z"
                   fill="url(#flameInner)"
                 />
               </g>
 
-              {/* Tripod Stand & Wire Gauze */}
-              <line x1="315" y1="240" x2="305" y2="345" stroke="#475569" strokeWidth="3" />
-              <line x1="365" y1="240" x2="375" y2="345" stroke="#475569" strokeWidth="3" />
-              <line x1="340" y1="240" x2="340" y2="345" stroke="#475569" strokeWidth="2" opacity="0.4" />
-              {/* Ceramic Wire Gauze (Distributes heat safely) */}
-              <rect x="312" y="238" width="56" height="4" rx="1" fill="#475569" />
-              <ellipse cx="340" cy="240" rx="14" ry="2" fill="#E2E8F0" opacity="0.8" />
+              {/* Heat glow under flask */}
+              <ellipse cx="330" cy="292" rx="28" ry="4" fill="#F97316" opacity="0.3" filter="drop-shadow(0 0 4px #F97316)" />
 
-              {/* Round Bottom Boiling Flask */}
-              {/* Boiling Liquid Fill (Purple #8b5cf6) */}
+              {/* ROUND BOTTOM BOILING FLASK */}
+              {/* Boiling Liquid in bulb */}
               <path
-                d="M 308 210 A 34 34 0 0 0 372 210 Q 340 216 308 210 Z"
-                fill="#8b5cf6"
-                opacity="0.85"
+                d="M 302 272 Q 330 268 358 272 C 362 288 350 292 330 292 C 310 292 298 288 302 272 Z"
+                fill="url(#boilingLiquidGrad)"
               />
-              <ellipse cx="340" cy="210" rx="32" ry="5" fill="#C084FC" opacity="0.5" />
+              <ellipse cx="330" cy="272" rx="28" ry="4" fill="#DDD6FE" opacity="0.6" />
 
-              {/* Boiling Agitation Bubbles */}
-              <circle cx="332" cy="225" r="2.5" fill="#FFFFFF" className="anim-bubble-1" />
-              <circle cx="348" cy="230" r="3" fill="#EDE9FE" className="anim-bubble-2" />
-              <circle cx="340" cy="220" r="2" fill="#FFFFFF" className="anim-bubble-3" />
+              {/* Boiling bubbles */}
+              <circle cx="320" cy="285" r="2.5" fill="#FFFFFF" className="anim-bubble-1" />
+              <circle cx="335" cy="288" r="3" fill="#FFFFFF" className="anim-bubble-2" />
+              <circle cx="342" cy="282" r="2" fill="#FFFFFF" className="anim-bubble-1" />
 
-              {/* Steam / Vapor rising in the neck */}
+              {/* Glass Body Outlines */}
+              {/* Round bottom bulb */}
               <path
-                d="M 336 170 Q 340 160 344 150 Q 340 140 338 130"
+                d="M 320 228 C 295 240 295 285 315 294 C 330 300 345 295 358 285 C 365 270 365 240 340 228"
                 fill="none"
-                stroke="#C084FC"
-                strokeWidth="1.8"
-                strokeDasharray="4 3"
-                className="anim-vapor"
-                opacity="0.7"
+                stroke="#334155"
+                strokeWidth="2.8"
+                strokeLinejoin="round"
               />
+              {/* Tall vertical neck */}
+              <line x1="320" y1="80" x2="320" y2="230" stroke="#334155" strokeWidth="2.8" />
+              <line x1="340" y1="80" x2="340" y2="230" stroke="#334155" strokeWidth="2.8" />
+              <ellipse cx="330" cy="80" rx="12" ry="3.5" fill="none" stroke="#334155" strokeWidth="2.2" />
 
-              {/* Glass Bulb Outline */}
-              <circle cx="340" cy="204" r="34" fill="none" stroke="#64748B" strokeWidth="2.2" />
-              {/* Flask Neck & Stopper */}
-              <rect x="333" y="130" width="14" height="42" fill="none" stroke="#64748B" strokeWidth="2.2" />
-              <ellipse cx="340" cy="130" rx="7.5" ry="2.5" fill="none" stroke="#64748B" strokeWidth="2" />
-              <rect x="332" y="124" width="16" height="8" rx="2" fill="#475569" />
+              {/* RISING PURPLE VAPOR THROUGH VERTICAL TUBE */}
+              <g transform="translate(330, 200)">
+                <circle cx="-3" cy="0" r="5" fill="#C084FC" opacity="0.5" className="anim-vapor-1" />
+                <circle cx="4" cy="-10" r="6" fill="#DDD6FE" opacity="0.55" className="anim-vapor-2" />
+                <circle cx="-1" cy="-20" r="7" fill="#A855F7" opacity="0.45" className="anim-vapor-1" />
+                <circle cx="2" cy="-40" r="8" fill="#C084FC" opacity="0.6" className="anim-vapor-2" />
+              </g>
 
-              {/* Station Label */}
-              <text x="340" y="385" textAnchor="middle" className="text-[13px] font-mono font-bold fill-slate-700">
+              {/* Upward Pressure Indicator Arrow */}
+              <g transform="translate(352, 160)">
+                <line x1="0" y1="25" x2="0" y2="0" stroke="#A855F7" strokeWidth="2" strokeLinecap="round" />
+                <polygon points="0,-4 -4,4 4,4" fill="#A855F7" />
+              </g>
+
+              {/* Step Label */}
+              <text x="330" y="410" textAnchor="middle" className="text-[13px] font-mono font-bold fill-slate-800">
                 02 Visualize
               </text>
-              <text x="340" y="402" textAnchor="middle" className="text-[11px] font-bangla fill-brand-ocean font-bold">
-                ভিজ্যুয়ালাইজ (গোলতলী ফ্লাস্ক ও বার্নার)
+              <text x="330" y="427" textAnchor="middle" className="text-[11px] font-bangla fill-purple-600 font-bold">
+                ভিজ্যুয়ালাইজ (বয়েলিং ফ্লাস্ক ও বুনসেন বার্নার)
               </text>
             </g>
 
             {/* ========================================================
-                STATION 03: LIEBIG CONDENSER — CONNECT
+                STEP 3: SLANTED LIEBIG CONDENSER WITH WATER COOLING JACKET
                ======================================================== */}
             <g
               className="cursor-pointer group"
@@ -556,131 +638,125 @@ export const LabApparatusPipeline: React.FC<LabApparatusPipelineProps> = ({
               onMouseEnter={() => setHoveredIndex(2)}
               onMouseLeave={() => setHoveredIndex(null)}
             >
-              {/* Active stage highlight aura */}
+              {/* Selection Aura */}
               <circle
-                cx="560"
-                cy="190"
-                r="75"
-                fill="#0d9488"
+                cx="540"
+                cy="170"
+                r="82"
+                fill="#0D9488"
                 opacity={activeStage === 2 ? 0.12 : hoveredIndex === 2 ? 0.06 : 0}
                 className="transition-opacity duration-300 pointer-events-none"
               />
 
-              {/* Heavy Retort Stand holding Condenser */}
-              <rect x="525" y="344" width="70" height="6" rx="2" fill="#334155" />
-              <line x1="560" y1="110" x2="560" y2="344" stroke="#475569" strokeWidth="4" strokeLinecap="round" />
-              {/* Double Clamps clamping at 25-degree angle */}
-              <rect x="556" y="160" width="8" height="10" rx="1.5" fill="#1E293B" />
-              <line x1="560" y1="165" x2="520" y2="155" stroke="#475569" strokeWidth="2.5" />
-              <circle cx="518" cy="154" r="6" fill="none" stroke="#334155" strokeWidth="2.5" />
+              {/* Retort Stand holding condenser */}
+              <rect x="495" y="370" width="60" height="10" rx="3" fill="#64748B" stroke="#334155" strokeWidth="2.5" />
+              <line x1="520" y1="140" x2="520" y2="370" stroke="#334155" strokeWidth="4.5" strokeLinecap="round" />
+              <rect x="515" y="180" width="10" height="12" rx="2" fill="#1E293B" />
+              <line x1="520" y1="186" x2="540" y2="175" stroke="#334155" strokeWidth="3" />
 
-              <rect x="556" y="215" width="8" height="10" rx="1.5" fill="#1E293B" />
-              <line x1="560" y1="220" x2="595" y2="195" stroke="#475569" strokeWidth="2.5" />
-              <circle cx="597" cy="194" r="6" fill="none" stroke="#334155" strokeWidth="2.5" />
+              {/* Slanted Liebig Condenser Body */}
+              {/* Water Cooling Outer Jacket Fill */}
+              <polygon
+                points="465,95 615,182 605,199 455,112"
+                fill="url(#coolingJacketGrad)"
+                stroke="#334155"
+                strokeWidth="2.8"
+                strokeLinejoin="round"
+              />
 
-              {/* LIEBIG CONDENSER BODY (Tilted at 25° downwards from 470,120 to 645,210) */}
-              {/* Outer Cooling Water Jacket */}
-              <g transform="translate(460, 115) rotate(27)">
-                {/* Water Jacket Cylinder */}
-                <rect x="25" y="-14" width="145" height="28" rx="6" fill="#0d9488" opacity="0.22" stroke="#64748B" strokeWidth="1.8" />
-                {/* Water Inlet Nozzle (cold water in at bottom) */}
-                <rect x="140" y="14" width="7" height="12" rx="1.5" fill="#64748B" />
-                {/* Water Outlet Nozzle (warm water out at top) */}
-                <rect x="35" y="-24" width="7" height="12" rx="1.5" fill="#64748B" />
+              {/* Water Jacket In/Out Port Nipples */}
+              {/* Cool Water Inlet (at lower end, underside) */}
+              <line x1="595" y1="193" x2="583" y2="214" stroke="#334155" strokeWidth="4" strokeLinecap="round" />
+              <text x="580" y="230" textAnchor="middle" className="text-[9px] font-mono fill-teal-600 font-bold">
+                Water In ↓
+              </text>
 
-                {/* Inner Vapor & Condensation Tube */}
-                <line x1="0" y1="0" x2="195" y2="0" stroke="#94A3B8" strokeWidth="5" opacity="0.5" />
-                <line x1="0" y1="0" x2="195" y2="0" stroke="#FFFFFF" strokeWidth="3" opacity="0.7" />
+              {/* Warm Water Outlet (at upper end, top side) */}
+              <line x1="475" y1="101" x2="487" y2="80" stroke="#334155" strokeWidth="4" strokeLinecap="round" />
+              <text x="495" y="75" textAnchor="middle" className="text-[9px] font-mono fill-teal-600 font-bold">
+                Water Out ↑
+              </text>
 
-                {/* Condensed Liquid Droplets sliding down the tube */}
-                <circle cx="30" cy="0" r="2.5" fill="#2DD4BF" className="anim-condenser-drop" />
-                <circle cx="65" cy="0" r="3" fill="#14B8A6" className="anim-condenser-drop" style={{ animationDelay: '0.9s' }} />
-                <circle cx="100" cy="0" r="2" fill="#5EEAD4" className="anim-condenser-drop" style={{ animationDelay: '1.5s' }} />
+              {/* Inner Glass Vapor/Condensation Tube */}
+              <line x1="438" y1="100" x2="640" y2="212" stroke="#334155" strokeWidth="3" />
+              <line x1="442" y1="107" x2="644" y2="219" stroke="#334155" strokeWidth="3" />
+
+              {/* Condensing Liquid Droplets Sliding Down the Tube */}
+              <g className="anim-condenser-slide" transform="translate(460, 110)">
+                <ellipse cx="0" cy="0" rx="3.5" ry="2" fill="#0D9488" opacity="0.85" transform="rotate(28)" />
+                <ellipse cx="12" cy="7" rx="3" ry="1.8" fill="#38BDF8" opacity="0.8" transform="rotate(28)" />
               </g>
 
-              {/* Station Label */}
-              <text x="560" y="385" textAnchor="middle" className="text-[13px] font-mono font-bold fill-slate-700">
+              {/* Step Label */}
+              <text x="540" y="410" textAnchor="middle" className="text-[13px] font-mono font-bold fill-slate-800">
                 03 Connect
               </text>
-              <text x="560" y="402" textAnchor="middle" className="text-[11px] font-bangla fill-brand-ocean font-bold">
-                সংযোগ (লিবিগ কন্ডেন্সার ও ঘনীভবন)
+              <text x="540" y="427" textAnchor="middle" className="text-[11px] font-bangla fill-teal-600 font-bold">
+                সংযোগ (লিবিগ কন্ডেন্সার ও জ্যাকেট)
               </text>
             </g>
 
-            {/* =================================================================
-                STATION 04: DRIP NOZZLE & TITRATION BEAKER — PRACTICE
-                ("pipe theke fotay fotay porbe")
-               ================================================================= */}
+            {/* ========================================================
+                STEP 4: OPEN GLASS BEAKER & NATURALLY FALLING DROPS
+               ======================================================== */}
             <g
               className="cursor-pointer group"
               onClick={() => handleSelect(3)}
               onMouseEnter={() => setHoveredIndex(3)}
               onMouseLeave={() => setHoveredIndex(null)}
             >
-              {/* Active stage highlight aura */}
+              {/* Selection Aura */}
               <circle
-                cx="750"
-                cy="285"
+                cx="675"
+                cy="320"
                 r="72"
-                fill="#f59e0b"
+                fill="#F59E0B"
                 opacity={activeStage === 3 ? 0.12 : hoveredIndex === 3 ? 0.06 : 0}
                 className="transition-opacity duration-300 pointer-events-none"
               />
 
-              {/* Retort Stand holding Burette */}
-              <rect x="715" y="344" width="70" height="6" rx="2" fill="#334155" />
-              <line x1="775" y1="130" x2="775" y2="344" stroke="#475569" strokeWidth="4" strokeLinecap="round" />
-              <rect x="771" y="240" width="8" height="12" rx="1.5" fill="#1E293B" />
-              <line x1="775" y1="246" x2="745" y2="246" stroke="#475569" strokeWidth="2.5" />
-
-              {/* Glass Nozzle Tip hanging at (740, 268) */}
-              <polygon points="737,260 743,260 741,270 739,270" fill="#94A3B8" />
-
-              {/* SCIENTIFIC DROP-BY-DROP FALLING ANIMATION ("ফোটায় ফোটায় পড়বে") */}
-              {/* Animated Falling Teardrop */}
-              <g transform="translate(740, 270)">
-                <path
-                  d="M 0 0 C -2.5 3 -2.5 6 0 8 C 2.5 6 2.5 3 0 0 Z"
-                  fill="#f59e0b"
-                  className="anim-drop"
-                />
+              {/* Droplets Naturally Falling Down from Drip Tip */}
+              <g transform="translate(670, 265)">
+                <circle cx="0" cy="0" r="3.5" fill="#F59E0B" className="anim-drop-step4" />
               </g>
 
-              {/* Concentric Ripples forming on liquid surface in beaker (x: 740, y: 320) */}
-              <ellipse cx="740" cy="320" rx="4" ry="1.5" fill="none" stroke="#FBBF24" strokeWidth="1.5" className="anim-ripple" />
-              <ellipse cx="740" cy="320" rx="4" ry="1.5" fill="none" stroke="#F59E0B" strokeWidth="1.2" className="anim-ripple" style={{ animationDelay: '0.8s' }} />
-
-              {/* Receiving Beaker */}
-              {/* Amber Liquid Fill in Beaker */}
-              <rect x="712" y="320" width="56" height="24" rx="2" fill="#f59e0b" opacity="0.85" />
-              <ellipse cx="740" cy="320" rx="28" ry="3.5" fill="#FBBF24" opacity="0.6" />
+              {/* OPEN GLASS BEAKER (Resting directly on base bench) */}
+              {/* Amber Liquid Fill inside beaker */}
+              <path
+                d="M 643 335 L 643 376 Q 643 380 648 380 L 697 380 Q 702 380 702 376 L 702 335 Z"
+                fill="url(#pastelAmberGrad)"
+              />
+              {/* Ripple on liquid surface where drops hit */}
+              <ellipse cx="670" cy="335" rx="3" ry="1.5" fill="none" stroke="#F59E0B" strokeWidth="1.5" className="anim-ripple" />
+              <ellipse cx="670" cy="335" rx="26" ry="3.5" fill="#FEF3C7" opacity="0.6" />
 
               {/* Beaker Glass Body */}
               <path
-                d="M 708 285 L 708 343 Q 708 346 712 346 L 768 346 Q 772 346 772 343 L 772 285"
+                d="M 638 300 L 643 376 Q 643 380 648 380 L 697 380 Q 702 380 702 376 L 707 300"
                 fill="none"
-                stroke="#64748B"
-                strokeWidth="2.2"
+                stroke="#334155"
+                strokeWidth="2.8"
                 strokeLinecap="round"
               />
-              {/* Beaker Spout & Top Rim */}
-              <line x1="706" y1="285" x2="774" y2="285" stroke="#64748B" strokeWidth="2.2" />
-              {/* Volume Lines on Beaker */}
-              <line x1="714" y1="300" x2="724" y2="300" stroke="#94A3B8" strokeWidth="1" />
-              <line x1="714" y1="315" x2="728" y2="315" stroke="#94A3B8" strokeWidth="1.2" />
-              <line x1="714" y1="330" x2="724" y2="330" stroke="#94A3B8" strokeWidth="1" />
+              {/* Beaker Spout at left top rim */}
+              <path d="M 634 300 L 710 300" stroke="#334155" strokeWidth="2.8" strokeLinecap="round" />
 
-              {/* Station Label */}
-              <text x="750" y="385" textAnchor="middle" className="text-[13px] font-mono font-bold fill-slate-700">
+              {/* Volume Graduation Lines on Beaker */}
+              <line x1="648" y1="320" x2="658" y2="320" stroke="#94A3B8" strokeWidth="1.5" />
+              <line x1="648" y1="340" x2="662" y2="340" stroke="#94A3B8" strokeWidth="1.5" />
+              <line x1="648" y1="360" x2="658" y2="360" stroke="#94A3B8" strokeWidth="1.5" />
+
+              {/* Step Label */}
+              <text x="675" y="410" textAnchor="middle" className="text-[13px] font-mono font-bold fill-slate-800">
                 04 Practice
               </text>
-              <text x="750" y="402" textAnchor="middle" className="text-[11px] font-bangla fill-brand-ocean font-bold">
-                অনুশীলন (ড্রপ ব্যুরেট ও টাইট্রেশন)
+              <text x="675" y="427" textAnchor="middle" className="text-[11px] font-bangla fill-amber-600 font-bold">
+                অনুশীলন (খোলা বিকার ও ড্রপওয়াইজ সংগ্রহ)
               </text>
             </g>
 
             {/* ========================================================
-                STATION 05: VOLUMETRIC FLASK & PURE CRYSTALS — MASTER
+                STEP 5: VOLUMETRIC FLASK (2-HOLE STOPPER) & VACUUM PUMP
                ======================================================== */}
             <g
               className="cursor-pointer group"
@@ -688,62 +764,98 @@ export const LabApparatusPipeline: React.FC<LabApparatusPipelineProps> = ({
               onMouseEnter={() => setHoveredIndex(4)}
               onMouseLeave={() => setHoveredIndex(null)}
             >
-              {/* Active stage highlight aura */}
+              {/* Selection Aura */}
               <circle
-                cx="970"
-                cy="260"
-                r="72"
-                fill="#eab308"
-                opacity={activeStage === 4 ? 0.15 : hoveredIndex === 4 ? 0.08 : 0}
+                cx="900"
+                cy="280"
+                r="88"
+                fill="#EAB308"
+                opacity={activeStage === 4 ? 0.12 : hoveredIndex === 4 ? 0.06 : 0}
                 className="transition-opacity duration-300 pointer-events-none"
               />
-
-              {/* Retort Stand holding Neck */}
-              <rect x="915" y="344" width="50" height="6" rx="2" fill="#334155" />
-              <line x1="930" y1="150" x2="930" y2="344" stroke="#475569" strokeWidth="4" strokeLinecap="round" />
-              <rect x="926" y="215" width="8" height="12" rx="1.5" fill="#1E293B" />
-              <line x1="930" y1="221" x2="960" y2="221" stroke="#475569" strokeWidth="2.5" />
 
               {/* VOLUMETRIC FLASK (Long slender calibrated neck with pear-shaped bulb) */}
               {/* Pure Golden Liquid Fill */}
               <path
-                d="M 942 342 L 998 342 Q 1008 335 1005 315 Q 1000 280 976 260 L 964 260 Q 940 280 935 315 Q 932 335 942 342 Z"
-                fill="#eab308"
-                opacity="0.88"
+                d="M 808 376 Q 808 380 813 380 L 857 380 Q 862 380 862 376 Q 868 340 850 305 L 845 305 L 825 305 L 820 305 Q 802 340 808 376 Z"
+                fill="url(#pastelGoldGrad)"
               />
-              <ellipse cx="970" cy="260" rx="8" ry="2" fill="#FEF08A" opacity="0.8" />
+              <ellipse cx="835" cy="305" rx="12" ry="2.5" fill="#FEF08A" opacity="0.8" />
 
-              {/* Sparkling Synthesized Crystals at Bottom of Flask */}
-              <g transform="translate(970, 335)">
-                <polygon points="0,-10 6,0 0,10 -6,0" fill="#FEF08A" opacity="0.95" />
-                <polygon points="-8,-4 -2,4 -14,4" fill="#FDE047" opacity="0.85" />
-                <polygon points="8,-3 14,4 2,4" fill="#FACC15" opacity="0.9" />
-                {/* Crystal shimmer sparkles */}
-                <circle cx="-12" cy="-6" r="1.5" fill="#FFFFFF" opacity="0.9" />
-                <circle cx="10" cy="-8" r="1.8" fill="#FFFFFF" opacity="0.9" />
+              {/* Sparkling Crystals in Volumetric Flask */}
+              <g transform="translate(835, 365)">
+                <polygon points="0,-8 5,0 0,8 -5,0" fill="#FFFFFF" opacity="0.95" />
+                <polygon points="-8,-3 -3,3 -13,3" fill="#FEF08A" opacity="0.9" />
+                <polygon points="8,-2 13,3 3,3" fill="#FDE047" opacity="0.9" />
+                <circle cx="-10" cy="-6" r="1.5" fill="#FFFFFF" opacity="0.9" />
+                <circle cx="9" cy="-7" r="1.8" fill="#FFFFFF" opacity="0.9" />
               </g>
 
               {/* Glass Outlines */}
               <path
-                d="M 963 175 L 963 245 Q 932 270 932 315 Q 932 346 942 346 L 998 346 Q 1008 346 1008 315 Q 1008 270 977 245 L 977 175 Z"
+                d="M 828 150 L 828 275 Q 798 310 808 376 Q 808 380 813 380 L 857 380 Q 862 380 862 376 Q 872 310 842 275 L 842 150 Z"
                 fill="none"
-                stroke="#64748B"
-                strokeWidth="2.2"
+                stroke="#334155"
+                strokeWidth="2.8"
                 strokeLinejoin="round"
               />
               {/* Neck Graduation Calibration Mark */}
-              <line x1="961" y1="210" x2="979" y2="210" stroke="#EF4444" strokeWidth="1.8" />
+              <line x1="826" y1="210" x2="844" y2="210" stroke="#EF4444" strokeWidth="2" />
 
-              {/* Glass Stopper */}
-              <ellipse cx="970" cy="175" rx="9" ry="3" fill="none" stroke="#64748B" strokeWidth="2" />
-              <polygon points="965,173 975,173 978,160 962,160" fill="#475569" />
+              {/* 2-HOLE RUBBER STOPPER */}
+              <polygon points="824,152 846,152 848,138 822,138" fill="#EA580C" stroke="#334155" strokeWidth="2.4" />
+              {/* Hole 1: Suction Tube inlet */}
+              <ellipse cx="830" cy="145" rx="2.5" ry="1.5" fill="#7C2D12" />
+              {/* Hole 2: Vacuum line outlet */}
+              <ellipse cx="840" cy="145" rx="2.5" ry="1.5" fill="#7C2D12" />
 
-              {/* Station Label */}
-              <text x="970" y="385" textAnchor="middle" className="text-[13px] font-mono font-bold fill-slate-700">
+              {/* MECHANICAL VACUUM PUMP */}
+              {/* Heavy pump base */}
+              <rect x="915" y="365" width="85" height="15" rx="3" fill="#1E293B" stroke="#334155" strokeWidth="2.5" />
+              {/* Rubber mounting pads */}
+              <rect x="922" y="378" width="14" height="4" rx="1" fill="#475569" />
+              <rect x="978" y="378" width="14" height="4" rx="1" fill="#475569" />
+
+              {/* Motor body */}
+              <rect x="925" y="305" width="70" height="60" rx="6" fill="#64748B" stroke="#334155" strokeWidth="2.8" />
+              {/* Motor cooling fins / ribs */}
+              <line x1="930" y1="318" x2="985" y2="318" stroke="#334155" strokeWidth="2.2" />
+              <line x1="930" y1="330" x2="985" y2="330" stroke="#334155" strokeWidth="2.2" />
+              <line x1="930" y1="342" x2="985" y2="342" stroke="#334155" strokeWidth="2.2" />
+              <line x1="930" y1="354" x2="985" y2="354" stroke="#334155" strokeWidth="2.2" />
+
+              {/* Vacuum Pressure Dial Gauge on Top */}
+              <line x1="950" y1="305" x2="950" y2="288" stroke="#334155" strokeWidth="3.5" />
+              <circle cx="950" cy="275" r="16" fill="#FFFFFF" stroke="#334155" strokeWidth="2.8" />
+              {/* Dial tick marks */}
+              <line x1="950" y1="262" x2="950" y2="266" stroke="#64748B" strokeWidth="1.5" />
+              <line x1="960" y1="266" x2="957" y2="269" stroke="#64748B" strokeWidth="1.5" />
+              <line x1="940" y1="266" x2="943" y2="269" stroke="#64748B" strokeWidth="1.5" />
+              {/* Vacuum indicator needle */}
+              <line x1="950" y1="275" x2="943" y2="267" stroke="#EF4444" strokeWidth="2" strokeLinecap="round" />
+              <circle cx="950" cy="275" r="2" fill="#334155" />
+
+              {/* Vacuum intake nozzle & label */}
+              <rect x="938" y="275" width="8" height="12" rx="1.5" fill="#334155" />
+
+              {/* Pump Exhaust Port with subtle airflow */}
+              <path d="M 980 305 L 980 290 Q 980 282 988 282 L 992 282" fill="none" stroke="#334155" strokeWidth="3" />
+              {/* Air exhaust wisps */}
+              <path d="M 995 278 Q 1002 278 1005 272" fill="none" stroke="#94A3B8" strokeWidth="1.5" opacity="0.7" />
+              <path d="M 995 284 Q 1004 284 1008 288" fill="none" stroke="#94A3B8" strokeWidth="1.5" opacity="0.7" />
+
+              {/* Power Switch & Indicator Light */}
+              <circle cx="985" cy="358" r="2.5" fill="#22C55E" />
+              <text x="960" y="398" textAnchor="middle" className="text-[9.5px] font-mono fill-slate-500 font-bold">
+                VACUUM PUMP
+              </text>
+
+              {/* Step Label */}
+              <text x="890" y="420" textAnchor="middle" className="text-[13px] font-mono font-bold fill-slate-800">
                 05 Master
               </text>
-              <text x="970" y="402" textAnchor="middle" className="text-[11px] font-bangla fill-brand-ocean font-bold">
-                পারদর্শিতা (ভলিউমেট্রিক ফ্লাস্ক ও স্ফটিক)
+              <text x="890" y="437" textAnchor="middle" className="text-[11px] font-bangla fill-amber-500 font-bold">
+                পারদর্শিতা (ভলিউমেট্রিক ফ্লাস্ক ও ভ্যাকুয়াম পাম্প)
               </text>
             </g>
           </svg>
