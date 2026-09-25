@@ -1,5 +1,5 @@
 import React from 'react';
-import { Check, X, FlaskConical } from 'lucide-react';
+import { ArrowRight, Check, Sparkles, X } from 'lucide-react';
 import { beforeAfterComparison } from '../data/testimonialsData';
 import { LabApparatusPipeline, type LabStage } from './LabApparatusPipeline';
 
@@ -111,91 +111,110 @@ export const KarigorMethod: React.FC = () => {
           </p>
         </div>
 
-        {/* 1. CONTINUOUS CHEMISTRY LAB REACTION PIPELINE (2D Vector Flat Illustration) */}
-        <div className="relative w-full max-w-6xl mx-auto mb-10">
+        {/* 1. CONTINUOUS CHEMISTRY LAB REACTION PIPELINE (2D Vector Flat Illustration - Prominent Hero) */}
+        <div className="relative w-full max-w-6xl mx-auto mb-6 sm:mb-8">
           <LabApparatusPipeline />
         </div>
 
-        {/* 2. THE 5-STEP METHOD FRAMEWORK CARDS */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-14">
-          {stages.map((st) => (
-            <div
-              key={st.id}
-              className="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-[0_2px_12px_-3px_rgba(15,23,42,0.04)] flex flex-col justify-between hover:border-slate-300 transition-colors"
-            >
-              <div>
-                <div className="flex items-center justify-between mb-3">
+        {/* 2. THE 5-STEP METHOD FLOW (COMPACT WITH SMALL ARROWS, NO BULKY TEXT) */}
+        <div className="w-full overflow-x-auto no-scrollbar py-2 mb-16">
+          <div className="flex items-center justify-start lg:justify-center gap-1.5 sm:gap-3 min-w-max mx-auto px-2">
+            {stages.map((st, idx) => (
+              <React.Fragment key={st.id}>
+                <div className="inline-flex items-center gap-2 bg-white/95 border border-slate-200/90 rounded-xl px-3 py-1.5 sm:px-4 sm:py-2 shadow-xs hover:border-slate-300 transition-colors">
                   <span
-                    className="w-2.5 h-2.5 rounded-full"
+                    className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full shrink-0"
                     style={{ backgroundColor: st.color }}
                   />
-                  <span className="font-mono text-xs font-bold text-slate-400">
+                  <span className="font-mono text-[11px] sm:text-xs font-bold text-slate-400">
                     {st.num}
                   </span>
+                  <span className="font-sans font-bold text-brand-navy text-xs sm:text-sm">
+                    {st.title}
+                  </span>
+                  <span className="text-slate-300 text-xs font-light">/</span>
+                  <span className="font-bangla font-semibold text-xs sm:text-sm text-brand-ocean">
+                    {st.titleBangla}
+                  </span>
                 </div>
-                <h3 className="font-sans font-bold text-brand-navy text-base">
-                  {st.title}
-                </h3>
-                <span className="inline-block font-bangla font-semibold text-xs text-brand-ocean mb-2">
-                  {st.titleBangla}
-                </span>
-                <p className="text-xs text-slate-600 font-bangla leading-relaxed">
-                  {st.shortDescBangla}
-                </p>
-              </div>
-            </div>
-          ))}
+                {idx < stages.length - 1 && (
+                  <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-slate-400/80 shrink-0" />
+                )}
+              </React.Fragment>
+            ))}
+          </div>
         </div>
 
-        {/* 3. THE TRANSFORMATION: BEFORE VS AFTER TABLE */}
-        <div className="bg-white rounded-3xl border border-slate-200/90 overflow-hidden shadow-card">
-          <div className="bg-brand-navy text-white px-5 sm:px-6 py-4 flex items-center justify-between">
-            <h3 className="text-base sm:text-lg font-sans font-bold flex items-center gap-2">
-              <FlaskConical className="w-4 h-4 sm:w-5 sm:h-5 text-brand-orange" />
-              <span>The Transformation: Before vs. After কারিগর</span>
+        {/* 3. THE TRANSFORMATION: BEFORE VS AFTER CARDS */}
+        <div className="max-w-5xl mx-auto">
+          {/* Header */}
+          <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-ocean/10 text-brand-ocean border border-brand-ocean/20 text-xs font-mono font-semibold uppercase tracking-wider mb-3">
+              <Sparkles className="w-3.5 h-3.5 text-brand-orange" />
+              The Transformation
+            </div>
+            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-sans font-bold text-brand-navy tracking-tight">
+              Before vs. After <span className="text-brand-ocean font-bangla">কারিগর</span>
             </h3>
-            <span className="text-xs text-brand-orange font-mono font-semibold">
-              Real Impact
-            </span>
+            <p className="text-xs sm:text-sm text-slate-600 font-bangla mt-2 font-medium">
+              অন্ধ মুখস্থের ভীতি কাটিয়ে প্রতিটি অধ্যায়ে গভীর আত্মবিশ্বাস ও স্থায়ী উপলব্ধি গড়ার রূপান্তর।
+            </p>
           </div>
 
-          <div className="divide-y divide-slate-100">
+          {/* Luxury 3 Comparative Cards */}
+          <div className="space-y-4 sm:space-y-5">
             {beforeAfterComparison.map((item, idx) => (
               <div
                 key={idx}
-                className="grid grid-cols-1 md:grid-cols-2 p-5 sm:p-6 gap-5 sm:gap-6 hover:bg-slate-50/70 transition-colors"
+                className="bg-white rounded-2xl sm:rounded-3xl border border-slate-200/90 shadow-[0_4px_20px_-4px_rgba(15,23,42,0.05)] p-4 sm:p-6 hover:shadow-card-hover hover:border-slate-300 transition-all duration-300"
               >
-                {/* Before */}
-                <div className="flex items-start gap-3 sm:gap-3.5">
-                  <div className="w-7 h-7 rounded-xl bg-red-50 text-red-600 flex items-center justify-center flex-shrink-0 mt-0.5 border border-red-100">
-                    <X className="w-4 h-4 stroke-[2.5]" />
-                  </div>
-                  <div>
-                    <span className="text-xs font-bold text-red-600 tracking-wider uppercase block mb-1">
-                      Traditional Way (মুখস্থ ভিত্তিক)
-                    </span>
-                    <p className="text-xs sm:text-sm font-bangla text-slate-600 leading-relaxed">
-                      {item.beforeBangla}
-                    </p>
-                    <p className="text-xs text-slate-400 mt-1 italic">
+                <div className="grid grid-cols-1 lg:grid-cols-[1fr,auto,1fr] items-center gap-3.5 sm:gap-6">
+                  {/* Before (Traditional) */}
+                  <div className="bg-rose-50/50 border border-rose-100/90 rounded-2xl p-4 sm:p-5 flex flex-col justify-between h-full">
+                    <div>
+                      <div className="flex items-center justify-between mb-2">
+                        <span className="inline-flex items-center gap-1.5 text-[11px] font-mono font-bold uppercase tracking-wider text-rose-600">
+                          <X className="w-3.5 h-3.5 stroke-[2.5]" />
+                          Traditional Way
+                        </span>
+                        <span className="text-[10px] font-bangla text-rose-500 font-medium">
+                          মুখস্থ ভিত্তিক
+                        </span>
+                      </div>
+                      <p className="text-xs sm:text-sm font-bangla text-slate-700 leading-relaxed font-medium">
+                        {item.beforeBangla}
+                      </p>
+                    </div>
+                    <p className="text-[11px] sm:text-xs text-slate-400 italic mt-3 pt-2.5 border-t border-rose-100/80 font-serif">
                       "{item.before}"
                     </p>
                   </div>
-                </div>
 
-                {/* After */}
-                <div className="flex items-start gap-3 sm:gap-3.5 md:border-l md:border-slate-100 md:pl-6">
-                  <div className="w-7 h-7 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center flex-shrink-0 mt-0.5 border border-emerald-100">
-                    <Check className="w-4 h-4 stroke-[2.5]" />
+                  {/* VS Bridge */}
+                  <div className="flex lg:flex-col items-center justify-center my-[-2px] lg:my-0">
+                    <div className="w-8 h-8 rounded-full bg-slate-100 border border-slate-200/90 shadow-xs flex items-center justify-center text-[11px] font-mono font-extrabold text-slate-500 shrink-0">
+                      VS
+                    </div>
                   </div>
-                  <div>
-                    <span className="text-xs font-bold text-emerald-600 tracking-wider uppercase block mb-1">
-                      The কারিগর Way (লজিক্যাল ও দৃশ্যমান)
-                    </span>
-                    <p className="text-xs sm:text-sm font-bangla text-brand-navy font-semibold leading-relaxed">
-                      {item.afterBangla}
-                    </p>
-                    <p className="text-xs text-brand-ocean mt-1 italic">
+
+                  {/* After (The কারিগর Way) */}
+                  <div className="bg-gradient-to-br from-emerald-50/70 via-white to-sky-50/40 border border-emerald-200/90 rounded-2xl p-4 sm:p-5 shadow-[0_2px_12px_-3px_rgba(16,185,129,0.06)] flex flex-col justify-between h-full relative overflow-hidden">
+                    <div className="absolute top-0 right-0 w-24 h-24 bg-emerald-400/5 rounded-bl-full pointer-events-none" />
+                    <div>
+                      <div className="flex items-center justify-between mb-2">
+                        <span className="inline-flex items-center gap-1.5 text-[11px] font-mono font-bold uppercase tracking-wider text-emerald-700">
+                          <Check className="w-3.5 h-3.5 stroke-[2.5]" />
+                          The কারিগর Way
+                        </span>
+                        <span className="text-[10px] font-bangla text-emerald-700 font-semibold bg-emerald-100/80 px-2 py-0.5 rounded-md">
+                          লজিক্যাল ও দৃশ্যমান
+                        </span>
+                      </div>
+                      <p className="text-xs sm:text-sm font-bangla text-brand-navy font-bold leading-relaxed">
+                        {item.afterBangla}
+                      </p>
+                    </div>
+                    <p className="text-[11px] sm:text-xs text-brand-ocean font-medium italic mt-3 pt-2.5 border-t border-emerald-100/80 font-serif">
                       "{item.after}"
                     </p>
                   </div>

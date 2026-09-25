@@ -28,9 +28,9 @@ export const LabApparatusPipeline: React.FC<LabApparatusPipelineProps> = ({
   return (
     <div className={`w-full relative select-none ${className}`}>
       {/* 1-LINE STRICT CONTINUOUS LABORATORY PIPELINE (RESPONSIVE SVG SCALING) */}
-      <div className="w-full bg-white rounded-2xl sm:rounded-3xl p-2 sm:p-4 md:p-6 shadow-sm border border-slate-200/80 overflow-hidden">
+      <div className="w-full bg-white rounded-2xl sm:rounded-3xl p-1.5 sm:p-4 md:p-6 shadow-sm border border-slate-200/80 overflow-hidden">
         <svg
-          viewBox="0 0 1140 450"
+          viewBox="25 48 1085 396"
           className="w-full h-auto max-w-full block select-none"
           preserveAspectRatio="xMidYMid meet"
         >
