@@ -3,7 +3,7 @@
 > **"বোঝো। প্রয়োগ করো। পারদর্শী হও।"**  
 > *More than Memorization. A Deeper Understanding.*
 
-An advanced, interactive web application built with precision for my classmate **Farzaad Sawrar**'s (Chemical Engineering, BUET) premier chemistry tuition and mentorship platform — **রসায়ন কারিগর (Rosayon Karigor)**.
+An advanced, interactive web application built with precision for my classmate **Farzaad Sawrar**'s (Civil & Environmental Engineering, Islamic University of Technology - IUT) premier chemistry tuition and mentorship platform — **রসায়ন কারিগর (Rosayon Karigor)**.
 
 This platform empowers students in **HSC 27**, **HSC 28**, and **University Admission (BUET / Engineering, Medical & Varsity 'A' Unit)** across Bangladesh to overcome chemistry phobia through deep, visual, first-principles understanding rather than mechanical rote memorization.
 
@@ -11,7 +11,7 @@ This platform empowers students in **HSC 27**, **HSC 28**, and **University Admi
 
 ## 👨‍🏫 About the Educator & Platform
 
-**Farzaad Sawrar** is a graduate of **BUET (Department of Chemical Engineering)** and the founder of **রসায়ন কারিগর**. Having mentored hundreds of high-achieving board examinees and top-tier admission test rankers, he developed the signature **Karigor Method™** to break complex reaction mechanisms, atomic orbitals, and chemical equilibrium down into intuitive, visual logic.
+**Farzaad Sawrar** is an engineering student at the **Islamic University of Technology (IUT)** in the Department of **Civil and Environmental Engineering (CEE)**, and the founder of **রসায়ন কারিগর**. Having served as Head Examiner for Chemistry at Udvash Engineering Admission Program and former Head of Chemistry at Shikkhanir, he developed the signature **Karigor Method™** to break complex reaction mechanisms, atomic orbitals, and chemical equilibrium down into intuitive, visual logic.
 
 - 🌐 **Facebook Page**: [facebook.com/roshayonkarigor](https://www.facebook.com/roshayonkarigor)
 - 💬 **Messenger**: [m.me/roshayonkarigor](https://m.me/roshayonkarigor)
@@ -45,7 +45,7 @@ This platform empowers students in **HSC 27**, **HSC 28**, and **University Admi
 - Built-in preview modal and instant download triggers.
 
 ### 6. 🏆 Meet the Educator (শিক্ষক পরিচিতি)
-- Farzaad Sawrar's academic journey at BUET, pedagogical philosophy, and digital signature.
+- Farzaad Sawrar's academic journey at IUT (CEE), pedagogical philosophy, and digital signature.
 - Interactive timeline covering teaching career, university achievements, and core syllabus specializations.
 
 ### 7. ❓ Comprehensive FAQ (প্রশ্নোত্তর) with Instant Live Search
@@ -185,7 +185,7 @@ This project is configured as a Single Page Application (SPA) using `HashRouter`
 
 ## 👨‍💻 Author & Credits
 
-- **Platform Concept & Chemistry Content**: [Farzaad Sawrar](https://www.facebook.com/roshayonkarigor) (BUET Chemical Engineering)
+- **Platform Concept & Chemistry Content**: [Farzaad Sawrar](https://www.facebook.com/roshayonkarigor) (Civil & Environmental Engineering, IUT)
 - **Web Application Development & Design**: [Md. Shifat Reza](https://github.com/reza-05)
 - **Repository**: [reza-05/rosayon_karigor](https://github.com/reza-05/rosayon_karigor)
 

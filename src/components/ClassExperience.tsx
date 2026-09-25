@@ -22,7 +22,7 @@ export const ClassExperience = () => {
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center space-y-4 mb-14">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif text-brand-navy tracking-tight">
-            See how a <span className="font-bangla font-bold text-brand-orange">কারিগর</span> class feels.
+            See how a <span className="font-bangla font-bold text-brand-orange">কারিগর</span> class feels
           </h1>
 
           <p className="text-base sm:text-lg text-brand-muted font-bangla max-w-2xl mx-auto leading-relaxed">
