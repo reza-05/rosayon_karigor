@@ -39,28 +39,12 @@ export const Navbar = () => {
             onClick={() => setMobileMenuOpen(false)}
             className="flex items-center gap-3 group focus:outline-none"
           >
-            <div className="relative w-10 h-10 flex-shrink-0 transition-transform duration-300 group-hover:scale-105">
-              <svg viewBox="0 0 100 100" fill="none" className="w-full h-full drop-shadow-sm">
-                <polygon
-                  points="50,15 80,32 80,68 50,85 20,68 20,32"
-                  stroke="#09284C"
-                  strokeWidth="6"
-                  strokeLinejoin="round"
-                />
-                <line x1="50" y1="15" x2="50" y2="40" stroke="#164B73" strokeWidth="4" />
-                <line x1="80" y1="32" x2="58" y2="45" stroke="#164B73" strokeWidth="4" />
-                <line x1="80" y1="68" x2="58" y2="55" stroke="#164B73" strokeWidth="4" />
-                <line x1="50" y1="85" x2="50" y2="60" stroke="#164B73" strokeWidth="4" />
-                <line x1="20" y1="68" x2="42" y2="55" stroke="#164B73" strokeWidth="4" />
-                <line x1="20" y1="32" x2="42" y2="45" stroke="#164B73" strokeWidth="4" />
-                <circle cx="50" cy="15" r="7" fill="#164B73" stroke="#FFFFFF" strokeWidth="2" />
-                <circle cx="80" cy="32" r="7" fill="#164B73" stroke="#FFFFFF" strokeWidth="2" />
-                <circle cx="80" cy="68" r="7" fill="#164B73" stroke="#FFFFFF" strokeWidth="2" />
-                <circle cx="50" cy="85" r="7" fill="#164B73" stroke="#FFFFFF" strokeWidth="2" />
-                <circle cx="20" cy="68" r="7" fill="#164B73" stroke="#FFFFFF" strokeWidth="2" />
-                <circle cx="20" cy="32" r="7" fill="#164B73" stroke="#FFFFFF" strokeWidth="2" />
-                <circle cx="50" cy="50" r="11" fill="#F4A261" stroke="#FFFFFF" strokeWidth="2" className="animate-pulse-subtle" />
-              </svg>
+            <div className="relative w-10 h-10 sm:w-11 sm:h-11 flex-shrink-0 transition-transform duration-300 group-hover:scale-105 flex items-center justify-center">
+              <img
+                src="/logo.png"
+                alt="রসায়ন কারিগর লোগো"
+                className="w-full h-full object-contain drop-shadow-sm"
+              />
             </div>
             <div className="flex flex-col">
               <div className="flex items-center gap-1.5">

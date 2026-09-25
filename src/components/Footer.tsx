@@ -1,4 +1,4 @@
-import { ArrowUp } from 'lucide-react';
+import { ArrowUp, Mail } from 'lucide-react';
 
 export const Footer = () => {
   const scrollToTop = () => {
@@ -15,28 +15,12 @@ export const Footer = () => {
           {/* Col 1: Brand Info */}
           <div className="md:col-span-5 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="relative w-9 h-9 flex-shrink-0">
-                <svg viewBox="0 0 100 100" fill="none" className="w-full h-full">
-                  <polygon
-                    points="50,15 80,32 80,68 50,85 20,68 20,32"
-                    stroke="#09284C"
-                    strokeWidth="6"
-                    strokeLinejoin="round"
-                  />
-                  <line x1="50" y1="15" x2="50" y2="40" stroke="#164B73" strokeWidth="4" />
-                  <line x1="80" y1="32" x2="58" y2="45" stroke="#164B73" strokeWidth="4" />
-                  <line x1="80" y1="68" x2="58" y2="55" stroke="#164B73" strokeWidth="4" />
-                  <line x1="50" y1="85" x2="50" y2="60" stroke="#164B73" strokeWidth="4" />
-                  <line x1="20" y1="68" x2="42" y2="55" stroke="#164B73" strokeWidth="4" />
-                  <line x1="20" y1="32" x2="42" y2="45" stroke="#164B73" strokeWidth="4" />
-                  <circle cx="50" cy="15" r="7" fill="#164B73" stroke="#FFFFFF" strokeWidth="2" />
-                  <circle cx="80" cy="32" r="7" fill="#164B73" stroke="#FFFFFF" strokeWidth="2" />
-                  <circle cx="80" cy="68" r="7" fill="#164B73" stroke="#FFFFFF" strokeWidth="2" />
-                  <circle cx="50" cy="85" r="7" fill="#164B73" stroke="#FFFFFF" strokeWidth="2" />
-                  <circle cx="20" cy="68" r="7" fill="#164B73" stroke="#FFFFFF" strokeWidth="2" />
-                  <circle cx="20" cy="32" r="7" fill="#164B73" stroke="#FFFFFF" strokeWidth="2" />
-                  <circle cx="50" cy="50" r="11" fill="#F4A261" stroke="#FFFFFF" strokeWidth="2" />
-                </svg>
+              <div className="relative w-11 h-11 flex-shrink-0 flex items-center justify-center">
+                <img
+                  src="/logo.png"
+                  alt="রসায়ন কারিগর লোগো"
+                  className="w-full h-full object-contain drop-shadow-sm"
+                />
               </div>
               <div className="flex flex-col">
                 <div className="flex items-center gap-1.5">
@@ -110,11 +94,25 @@ export const Footer = () => {
             </p>
 
             <div className="flex items-center gap-2">
+              {/* Facebook */}
+              <a
+                href="https://www.facebook.com/roshayonkarigor"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-full bg-white border border-brand-navy/10 flex items-center justify-center text-brand-navy hover:bg-[#1877F2] hover:text-white hover:border-transparent transition-all shadow-sm"
+                aria-label="Facebook Page"
+                title="Facebook: roshayonkarigor"
+              >
+                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                </svg>
+              </a>
+
               {/* YouTube */}
               <a
                 href="https://youtube.com"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="w-9 h-9 rounded-full bg-white border border-brand-navy/10 flex items-center justify-center text-brand-navy hover:bg-[#FF0000] hover:text-white hover:border-transparent transition-all shadow-sm"
                 aria-label="YouTube"
               >
@@ -123,24 +121,21 @@ export const Footer = () => {
                 </svg>
               </a>
 
-              {/* Facebook */}
+              {/* Gmail / Email */}
               <a
-                href="https://facebook.com"
-                target="_blank"
-                rel="noreferrer"
-                className="w-9 h-9 rounded-full bg-white border border-brand-navy/10 flex items-center justify-center text-brand-navy hover:bg-[#1877F2] hover:text-white hover:border-transparent transition-all shadow-sm"
-                aria-label="Facebook"
+                href="mailto:farzaadp68@gmail.com"
+                className="w-9 h-9 rounded-full bg-white border border-brand-navy/10 flex items-center justify-center text-brand-navy hover:bg-[#EA4335] hover:text-white hover:border-transparent transition-all shadow-sm"
+                aria-label="Email"
+                title="farzaadp68@gmail.com"
               >
-                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                </svg>
+                <Mail className="w-4 h-4" />
               </a>
 
               {/* Instagram */}
               <a
                 href="https://instagram.com"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="w-9 h-9 rounded-full bg-white border border-brand-navy/10 flex items-center justify-center text-brand-navy hover:bg-[#E4405F] hover:text-white hover:border-transparent transition-all shadow-sm"
                 aria-label="Instagram"
               >
@@ -153,13 +148,24 @@ export const Footer = () => {
               <a
                 href="https://linkedin.com"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="w-9 h-9 rounded-full bg-white border border-brand-navy/10 flex items-center justify-center text-brand-navy hover:bg-[#0A66C2] hover:text-white hover:border-transparent transition-all shadow-sm"
                 aria-label="LinkedIn"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
                   <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
                 </svg>
+              </a>
+            </div>
+
+            {/* Direct Email Address Display */}
+            <div className="pt-1">
+              <a
+                href="mailto:farzaadp68@gmail.com"
+                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-50 border border-slate-200/90 text-xs font-mono text-slate-700 hover:text-brand-ocean hover:border-brand-ocean/40 transition-colors shadow-sm"
+              >
+                <Mail className="w-3.5 h-3.5 text-brand-ocean flex-shrink-0" />
+                <span>farzaadp68@gmail.com</span>
               </a>
             </div>
 

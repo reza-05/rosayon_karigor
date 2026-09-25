@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Search, Plus, Minus, MessageCircle, Sparkles, PhoneCall } from 'lucide-react';
+import { Search, Plus, Minus, MessageCircle, Sparkles, Mail } from 'lucide-react';
 import { faqData } from '../data/faqData';
 
 export const FAQPage = () => {
@@ -165,22 +165,33 @@ export const FAQPage = () => {
           <p className="text-sm font-bangla text-brand-muted max-w-md mx-auto">
             কোনো দ্বিধা ছাড়াই সরাসরি হোয়াটসঅ্যাপে আমাদের সাথে কথা বলুন। আমরা যেকোনো পরামর্শে সহযোগিতা করতে আনন্দিত।
           </p>
-          <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 flex-wrap">
             <a
               href="https://wa.me/8801700000000?text=হ্যালো%20স্যার,%20রসায়ন%20কারিগর%20সম্পর্কে%20কিছু%20জানতে%20চাই।"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#25D366] text-white text-sm font-semibold hover:bg-[#1EBE5D] transition-colors shadow-md"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#25D366] text-white text-xs sm:text-sm font-semibold hover:bg-[#1EBE5D] transition-colors shadow-md"
             >
               <MessageCircle className="w-4 h-4" />
-              <span>WhatsApp এ মেসেজ দিন</span>
+              <span>WhatsApp এ মেসেজ</span>
             </a>
             <a
-              href="tel:+8801700000000"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-brand-navy border border-brand-navy/15 text-sm font-semibold hover:bg-brand-navy/5 transition-colors"
+              href="https://www.facebook.com/roshayonkarigor"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#1877F2] text-white text-xs sm:text-sm font-semibold hover:bg-[#166FE5] transition-colors shadow-md"
             >
-              <PhoneCall className="w-4 h-4 text-brand-orange" />
-              <span>সরাসরি কল করুন</span>
+              <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+              <span>Facebook Page</span>
+            </a>
+            <a
+              href="mailto:farzaadp68@gmail.com"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white text-slate-700 border border-slate-200/90 text-xs sm:text-sm font-semibold hover:bg-slate-50 transition-colors shadow-sm"
+            >
+              <Mail className="w-4 h-4 text-red-500" />
+              <span className="font-mono">farzaadp68@gmail.com</span>
             </a>
           </div>
         </div>
