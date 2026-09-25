@@ -1,94 +1,131 @@
 import React, { useState } from 'react';
-import { ArrowRight, Check, X, Atom, Sparkles } from 'lucide-react';
+import { ArrowRight, Check, X, FlaskConical, Sparkles } from 'lucide-react';
 import { beforeAfterComparison } from '../data/testimonialsData';
-import { AtomicMethod3DCanvas, type MethodStep } from './AtomicMethod3DCanvas';
+import { LabApparatusPipeline, type LabStage } from './LabApparatusPipeline';
 
 export const KarigorMethod: React.FC = () => {
-  const [activeStep, setActiveStep] = useState<number>(0);
+  const [activeStage, setActiveStage] = useState<number>(0);
 
-  const steps: MethodStep[] = [
+  const stages: LabStage[] = [
     {
+      id: 'understand',
       num: '01',
-      symbol: 'Ud',
-      orbital: '1s² Ground State',
-      energyState: 'Conceptual Foundation',
       title: 'Understand',
       titleBangla: 'অনুধাবন',
-      color: '#0284c7', // Sky / Ocean
+      equipmentName: 'Conical Flask (Erlenmeyer)',
+      equipmentBangla: 'কনিক্যাল ফ্লাস্ক',
+      actionTag: 'Conceptual Foundation',
+      chemicalFormula: 'Reactants [A + B] → Activated Complex',
       shortDesc: 'Build a strong conceptual foundation.',
       shortDescBangla: 'অন্ধ মুখস্থের বিপরীতে বৈজ্ঞানিক যুক্তি ও কনসেপ্টের মূল ভিত্তি তৈরি।',
       details:
-        'Instead of forcing reactions into memory, we explore why atoms react, why bonds form, and how thermodynamic tendencies drive reactions. রসায়ন অন্ধ মুখস্থ নয় — পরমাণুর ভেতরের মৌলিক আচরণ বুঝে নেওয়া।',
+        'Instead of forcing reactions into memory, we explore why atoms react, why bonds form, and how thermodynamic tendencies drive reactions. রসায়ন অন্ধ মুখস্থ নয় — পরমাণুর ভেতরের মৌলিক আচরণ, ইলেকট্রন ক্লাউডের আকর্ষণ ও বিক্রিয়ার কারণ স্পষ্টভাবে বুঝে নেওয়া।',
+      color: '#0284c7', // Sky Blue
+      glowColor: '#38BDF8',
+      liquidColor: '#0284c7',
     },
     {
+      id: 'visualize',
       num: '02',
-      symbol: 'Vz',
-      orbital: '2s² 2p¹ Spatial Shell',
-      energyState: '3D Mental Projection',
       title: 'Visualize',
       titleBangla: 'ভিজ্যুয়ালাইজ',
-      color: '#8b5cf6', // Violet
+      equipmentName: 'Boiling Round Bottom Flask',
+      equipmentBangla: 'গোলতলী ফ্লাস্ক ও বাষ্প',
+      actionTag: '3D Spatial Modeling',
+      chemicalFormula: 'ΔH_vap • sp³ Hybridization Shapes',
       shortDesc: 'Turn abstract ideas into clear mental models.',
       shortDescBangla: 'অরবিটাল ও অণুর ত্রিমাত্রিক আকার মনের পর্দায় স্পষ্ট দেখা।',
       details:
-        '3D molecular animations, electron cloud projections, and visual maps transform abstract formulas into tangible intuitive pictures. সংকরায়ন ও জ্যামিতিক কাঠামো মনের পর্দায় স্পষ্ট ভেসে ওঠে।',
+        '3D molecular animations, electron cloud projections, and visual maps transform abstract formulas into tangible intuitive pictures. সংকরায়ন ও জ্যামিতিক কাঠামো বাষ্পের মতো মনের পর্দায় স্পষ্ট ভেসে ওঠে — অণুর আকার আর মুখস্থ করতে হয় না।',
+      color: '#8b5cf6', // Royal Violet
+      glowColor: '#C084FC',
+      liquidColor: '#8b5cf6',
     },
     {
+      id: 'connect',
       num: '03',
-      symbol: 'Cn',
-      orbital: '3s² 3p³ Resonance Bridge',
-      energyState: 'Holistic Synthesis',
       title: 'Connect',
       titleBangla: 'সংযোগ',
-      color: '#0d9488', // Teal / Emerald
+      equipmentName: 'Liebig Condenser & Spiral',
+      equipmentBangla: 'লিবিগ কন্ডেন্সার ও সেতুবন্ধন',
+      actionTag: 'Holistic Synthesis',
+      chemicalFormula: 'Organic ⇌ Inorganic ⇌ Physical',
       shortDesc: 'See the big picture across topics.',
       shortDescBangla: 'ভৌত, জৈব ও অজৈব রসায়নের ভেতর সেতুবন্ধন তৈরি করা।',
       details:
-        'Periodic trends connect directly to organic acidity, electrochemistry explains reaction feasibility, and gas laws tie to thermodynamics. আলাদা আলাদা না পড়ে রসায়নের সব শাখাকে একটি সাধারণ সুতোয় গাঁথা।',
+        'Periodic trends connect directly to organic acidity, electrochemistry explains reaction feasibility, and gas laws tie to thermodynamics. আলাদা আলাদা না পড়ে রসায়নের সব শাখাকে একটি সাধারণ সুতোয় গাঁথা, ঠিক যেভাবে কন্ডেন্সার বাষ্পকে ঘনীভূত করে তরলে রূপ দেয়।',
+      color: '#0d9488', // Electric Teal
+      glowColor: '#2DD4BF',
+      liquidColor: '#0d9488',
     },
     {
+      id: 'practice',
       num: '04',
-      symbol: 'Pr',
-      orbital: '4s² 3d² Kinetic Solving',
-      energyState: 'Structured Application',
       title: 'Practice',
       titleBangla: 'প্রয়োগ',
-      color: '#f59e0b', // Amber / Orange
+      equipmentName: 'Burette & Titration Beaker',
+      equipmentBangla: 'ব্যুরেট ও টাইট্রেশন ড্রপার',
+      actionTag: 'Precision Problem Solving',
+      chemicalFormula: 'V₁S₁ = V₂S₂ • Titration Precision',
       shortDesc: 'Apply concepts through structured problem solving.',
       shortDescBangla: 'বোর্ড ও এডমিশন লেভেলের নতুন নতুন সৃজনশীল সমস্যা সমাধান।',
       details:
-        'Tiered problem sets from foundational board questions to tricky BUET/Medical admissions, teaching step-by-step deconstruction. কঠিন ও ঘুরিয়ে আসা প্রশ্ন সহজে ভেঙে সমাধান করার মানসিকতা গড়ে তোলা।',
+        'Tiered problem sets from foundational board questions to tricky BUET/Medical admissions, teaching step-by-step deconstruction. ব্যুরেট থেকে প্রতিটি নিখুঁত ফোঁটার মতো কঠিন ও ঘুরিয়ে আসা প্রশ্ন নির্ভুল সমাধানের মানসিকতা গড়ে তোলা।',
+      color: '#f59e0b', // Amber Gold
+      glowColor: '#FBBF24',
+      liquidColor: '#f59e0b',
     },
     {
+      id: 'analyze',
       num: '05',
-      symbol: 'Ms',
-      orbital: '5s² 5p⁶ Noble Mastery',
-      energyState: 'Exam Mastery & Peak Octet',
+      title: 'Analyze',
+      titleBangla: 'বিশ্লেষণ',
+      equipmentName: 'Separating Funnel & Filter',
+      equipmentBangla: 'সেপারেটিং ফানেল ও ফিল্টারিং',
+      actionTag: 'Weakness Filtration & Debugging',
+      chemicalFormula: 'Extraction → Filtration → Zero Error',
+      shortDesc: 'Filter out doubts, silly mistakes, and conceptual gaps.',
+      shortDescBangla: 'ভুলভ্রান্তি ও কনফিউশন দূর করে নিখুঁত প্রস্তুতি নিশ্চিত করা।',
+      details:
+        'Separating funnel divides unwanted impurities from the pure compound. একইভাবে প্রতিটি মক টেস্ট ও প্র্যাকটিসে চিহ্নিত ভুলগুলো আলাদা করে ফিল্টার করা হয়, যাতে পরীক্ষার হলে কোনো সন্দেহ বা ভুলের অবকাশ না থাকে।',
+      color: '#10b981', // Emerald Green
+      glowColor: '#34D399',
+      liquidColor: '#10b981',
+    },
+    {
+      id: 'master',
+      num: '06',
       title: 'Master',
       titleBangla: 'পারদর্শিতা',
-      color: '#10b981', // Emerald
+      equipmentName: 'Volumetric Flask & Crystals',
+      equipmentBangla: 'ভলিউমেট্রিক ফ্লাস্ক ও স্ফটিক',
+      actionTag: 'Peak Exam Performance & Octet',
+      chemicalFormula: 'Pure Product [Top 1% Merit]',
       shortDesc: 'Gain confidence and perform better in exams.',
       shortDescBangla: 'পরীক্ষার হলে যেকোনো জটিল উদ্দীপকে সর্বোচ্চ আত্মবিশ্বাস।',
       details:
-        'With speed hacks, dimensional cross-checks, and crystal-clear memory anchors, exam pressure converts into peak performance. যেকোনো জটিল উদ্দীপকেও নির্ভুল ও দ্রুততম সমাধান।',
+        'With speed hacks, dimensional cross-checks, and crystal-clear memory anchors, exam pressure converts into peak performance. পাত্রের খাঁটি স্ফটিকের মতো অর্জিত আত্মবিশ্বাস নিয়ে বোর্ড ও শীর্ষ এডমিশনে নিশ্চিত সেরা সাফল্য।',
+      color: '#eab308', // Luminous Gold
+      glowColor: '#FEF08A',
+      liquidColor: '#eab308',
     },
   ];
 
-  const active = steps[activeStep];
+  const active = stages[activeStage];
 
   return (
     <section id="method" className="pt-8 pb-20 relative overflow-hidden bg-[#FAFBFC]">
-      {/* Background Soft Chemistry Grid & Light Glows */}
+      {/* Background Soft Chemistry Grid & Ambient Laboratory Glows */}
       <div className="absolute inset-0 bg-chem-grid opacity-35 pointer-events-none" />
       <div className="absolute top-0 right-0 w-96 h-96 bg-brand-ocean/5 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-10 left-0 w-96 h-96 bg-amber-500/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="max-w-3xl mx-auto text-center space-y-4 mb-6">
+        <div className="max-w-3xl mx-auto text-center space-y-4 mb-8">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-navy/5 border border-brand-navy/10 text-brand-ocean text-xs font-bold tracking-wider uppercase">
-            <Atom className="w-3.5 h-3.5 text-brand-ocean animate-spin-slow" />
-            <span>ATOMIC PEDAGOGY • কারিগর মেথডলজি</span>
+            <FlaskConical className="w-3.5 h-3.5 text-brand-ocean animate-pulse" />
+            <span>LABORATORY SYNTHESIS • কারিগর মেথডলজি</span>
           </div>
 
           <h2 className="text-3xl sm:text-5xl lg:text-6xl font-sans font-bold text-brand-navy tracking-tight">
@@ -96,49 +133,25 @@ export const KarigorMethod: React.FC = () => {
           </h2>
 
           <p className="text-sm sm:text-base lg:text-lg text-slate-600 font-bangla max-w-2xl mx-auto leading-relaxed">
-            রসায়ন অন্ধ মুখস্থের কোনো বিষয় নয় — পরমাণুর গঠনের মতো এটি একটি সমন্বিত, লজিক্যাল কাঠামো। ৫টি কোয়ান্টাম ধাপে গড়ে ওঠে রসায়নের স্থায়ী বুৎপত্তি।
+            রসায়ন অন্ধ মুখস্থের কোনো বিষয় নয় — ল্যাবরেটরির স্বয়ংক্রিয় রিঅ্যাকশন পাইপলাইনের মতো এটি একটি নিখুঁত সমন্বিত রূপান্তর। ৬টি ধারাবাহিক ধাপে গড়ে ওঠে রসায়নের স্থায়ী বুৎপত্তি ও পরীক্ষার সেরা সাফল্য।
           </p>
         </div>
 
-        {/* 1. TRUE 3D BOHR ATOMIC FLOWCHART CANVAS */}
-        <div className="relative w-full max-w-5xl mx-auto mb-6">
-          <AtomicMethod3DCanvas
-            steps={steps}
-            activeStep={activeStep}
-            onSelectStep={setActiveStep}
+        {/* 1. INTERACTIVE CHEMISTRY LAB REACTION PIPELINE (Animated SVG & Dripping Physics) */}
+        <div className="relative w-full max-w-6xl mx-auto mb-10">
+          <LabApparatusPipeline
+            stages={stages}
+            activeStage={activeStage}
+            onSelectStage={setActiveStage}
           />
         </div>
 
-        {/* Quick Station Navigation Strip (Desktop & Mobile) */}
-        <div className="flex items-center justify-center gap-2 sm:gap-3 flex-wrap mb-10">
-          {steps.map((step, idx) => {
-            const isCurrent = activeStep === idx;
-            return (
-              <button
-                key={step.num}
-                type="button"
-                onClick={() => setActiveStep(idx)}
-                className={`group flex items-center gap-2 px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 ${
-                  isCurrent
-                    ? 'bg-brand-navy text-white shadow-md ring-2 ring-brand-ocean/40 scale-105'
-                    : 'bg-white text-slate-600 border border-slate-200/90 hover:bg-slate-50 hover:border-slate-300'
-                }`}
-              >
-                <span
-                  className="w-2.5 h-2.5 rounded-full transition-transform group-hover:scale-125"
-                  style={{ backgroundColor: step.color }}
-                />
-                <span className="font-mono">{step.num}</span>
-                <span>{step.title}</span>
-                <span className="text-xs opacity-75 font-bangla">({step.titleBangla})</span>
-              </button>
-            );
-          })}
-        </div>
-
-        {/* 2. SELECTED STEP DEEP DIVE INSPECTION CHAMBER */}
-        <div className="bg-white rounded-3xl p-6 sm:p-8 mb-14 border border-slate-200/90 shadow-[0_4px_25px_-5px_rgba(15,23,42,0.06)] relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-brand-ocean/5 rounded-full blur-2xl pointer-events-none" />
+        {/* 2. SELECTED STAGE DEEP DIVE INSPECTION CHAMBER */}
+        <div className="bg-white rounded-3xl p-6 sm:p-8 mb-14 border border-slate-200/90 shadow-[0_4px_25px_-5px_rgba(15,23,42,0.06)] relative overflow-hidden transition-all duration-300">
+          <div
+            className="absolute top-0 right-0 w-72 h-72 rounded-full blur-3xl pointer-events-none transition-colors duration-500"
+            style={{ backgroundColor: `${active.color}15` }}
+          />
 
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 relative z-10">
             <div className="space-y-2.5">
@@ -148,20 +161,20 @@ export const KarigorMethod: React.FC = () => {
                   style={{ backgroundColor: active.color }}
                 />
                 <span
-                  className="px-3 py-1 rounded-full text-xs font-mono font-bold tracking-wider uppercase"
+                  className="px-3 py-1 rounded-full text-xs font-mono font-bold tracking-wider uppercase transition-colors"
                   style={{
-                    backgroundColor: `${active.color}15`,
+                    backgroundColor: `${active.color}18`,
                     color: active.color,
                   }}
                 >
-                  Stage {active.num} • {active.symbol} ({active.orbital})
+                  Stage {active.num} • {active.equipmentName} ({active.equipmentBangla})
                 </span>
-                <span className="text-xs font-bold text-slate-500 font-sans">
-                  {active.energyState}
+                <span className="text-xs font-bold text-slate-500 font-mono">
+                  {active.chemicalFormula}
                 </span>
               </div>
 
-              <h3 className="text-xl sm:text-2xl font-bold font-sans text-brand-navy flex items-center gap-2">
+              <h3 className="text-xl sm:text-2xl font-bold font-sans text-brand-navy flex items-center gap-2 flex-wrap">
                 <span>
                   {active.title} ({active.titleBangla})
                 </span>
@@ -187,11 +200,11 @@ export const KarigorMethod: React.FC = () => {
           </div>
         </div>
 
-        {/* 3. BEFORE VS AFTER TRANSFORMATION TABLE */}
+        {/* 3. THE TRANSFORMATION: BEFORE VS AFTER TABLE */}
         <div className="bg-white rounded-3xl border border-slate-200/90 overflow-hidden shadow-card">
           <div className="bg-brand-navy text-white px-5 sm:px-6 py-4 flex items-center justify-between">
             <h3 className="text-base sm:text-lg font-sans font-bold flex items-center gap-2">
-              <Atom className="w-4 h-4 sm:w-5 sm:h-5 text-brand-orange" />
+              <FlaskConical className="w-4 h-4 sm:w-5 sm:h-5 text-brand-orange" />
               <span>The Transformation: Before vs. After কারিগর</span>
             </h3>
             <span className="text-xs text-brand-orange font-mono font-semibold">

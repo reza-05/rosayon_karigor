@@ -110,6 +110,39 @@
   animation: orbit-electron 8s linear infinite;
 }
 
+@keyframes dash {
+  to {
+    stroke-dashoffset: -28;
+  }
+}
+
+@keyframes drip {
+  0% {
+    transform: translateY(0) scaleY(0.8);
+    opacity: 0;
+  }
+  15% {
+    transform: translateY(4px) scaleY(1.2);
+    opacity: 1;
+  }
+  80% {
+    transform: translateY(66px) scaleY(1.3);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(70px) scaleY(0.4) scaleX(1.8);
+    opacity: 0;
+  }
+}
+
+.animate-dash {
+  animation: dash 1.5s linear infinite;
+}
+
+.animate-drip {
+  animation: drip 1.8s infinite cubic-bezier(0.4, 0, 0.8, 1);
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 7px;
