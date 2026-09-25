@@ -12,7 +12,7 @@ export const Hero = () => {
             {/* Minimal Posh Micro Badge */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-50 border border-slate-200/80 shadow-xs text-xs font-mono font-medium text-brand-navy">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-              <span>HSC 26, 27 & Admission</span>
+              <span>HSC 27, 28 & Admission</span>
               <span className="text-slate-300">•</span>
               <span className="text-brand-orange font-semibold font-bangla">নতুন ব্যাচ ভর্তি চলছে</span>
             </div>
