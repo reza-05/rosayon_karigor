@@ -63,12 +63,7 @@ export const Footer = () => {
               </li>
               <li>
                 <a href="#demo" className="text-brand-muted hover:text-brand-navy transition-colors">
-                  ক্লাস ডেমো (Class Experience)
-                </a>
-              </li>
-              <li>
-                <a href="#resources" className="text-brand-muted hover:text-brand-navy transition-colors">
-                  ফ্রি রিসোর্স লাইব্রেরি (Resources)
+                  ডেমো ক্লাস (Demo Class)
                 </a>
               </li>
               <li>

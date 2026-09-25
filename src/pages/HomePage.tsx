@@ -3,7 +3,7 @@ import { Hero } from '../components/Hero';
 import { ProblemSection } from '../components/ProblemSection';
 import { StatsBar } from '../components/StatsBar';
 import { ClassroomGallery } from '../components/ClassroomGallery';
-import { ArrowRight, Sparkles, PlayCircle, FolderDown, UserCheck, HelpCircle } from 'lucide-react';
+import { ArrowRight, Sparkles, PlayCircle, UserCheck, HelpCircle } from 'lucide-react';
 
 export const HomePage = () => {
   return (
@@ -56,58 +56,36 @@ export const HomePage = () => {
       {/* 4. Live Statistics Ribbon */}
       <StatsBar />
 
-      {/* 6. Quick Discovery Grid (Class Demo, Resources, About, FAQ) */}
+      {/* 5. Quick Discovery Grid (Demo Class, About, FAQ) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
         <div className="text-center max-w-2xl mx-auto mb-12 space-y-2">
           <h3 className="text-2xl sm:text-3xl font-serif text-brand-navy">
             সবকিছু এক নজরে এক্সপ্লোর করুন
           </h3>
           <p className="text-sm font-bangla text-brand-muted">
-            রসায়ন কারিগরের ক্লাস, রিসোর্স ও বিস্তারিত তথ্য আলাদা পেজে ভিজিট করুন:
+            রসায়ন কারিগরের ডেমো ক্লাস, শিক্ষক পরিচিতি ও বিস্তারিত তথ্য আলাদা পেজে ভিজিট করুন:
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {/* Card 1: Class Demo */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* Card 1: Demo Class */}
           <Link
             to="/demo"
-            className="group glass-panel rounded-3xl p-6 border border-slate-200/85 shadow-card hover:shadow-card-hover hover:-translate-y-1.5 transition-all flex flex-col justify-between"
+            className="group glass-panel rounded-3xl p-6 sm:p-8 border border-slate-200/85 shadow-card hover:shadow-card-hover hover:-translate-y-1.5 transition-all flex flex-col justify-between"
           >
             <div>
               <div className="w-12 h-12 rounded-2xl bg-amber-500/10 text-brand-orange flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                 <PlayCircle className="w-6 h-6" />
               </div>
-              <h4 className="text-lg font-serif font-bold text-brand-navy mb-1">
-                ক্লাস ডেমো (Class Demo)
+              <h4 className="text-xl font-serif font-bold text-brand-navy mb-1.5">
+                ডেমো ক্লাস (Demo Class)
               </h4>
-              <p className="text-xs font-bangla text-brand-muted leading-relaxed">
-                চকবোর্ড স্টাইল ভিডিও ক্লাস ডেমো দেখে নিন—কীভাবে রাসায়নিক বন্ধন ও সংকরণ সহজে শেখানো হয়।
+              <p className="text-xs sm:text-sm font-bangla text-brand-muted leading-relaxed">
+                ফারজাদ ভাইয়ার অফিশিয়াল ডেমো লেকচার ভিডিও দেখে নিন—কীভাবে জটিল বিষয়গুলো সহজভাবে বোঝানো হয়।
               </p>
             </div>
             <div className="mt-6 pt-4 border-t border-slate-200/60 flex items-center justify-between text-xs font-bold text-brand-orange">
-              <span>ভিডিও দেখুন</span>
-              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-            </div>
-          </Link>
-
-          {/* Card 2: Free Resources */}
-          <Link
-            to="/resources"
-            className="group glass-panel rounded-3xl p-6 border border-slate-200/85 shadow-card hover:shadow-card-hover hover:-translate-y-1.5 transition-all flex flex-col justify-between"
-          >
-            <div>
-              <div className="w-12 h-12 rounded-2xl bg-blue-500/10 text-brand-ocean flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                <FolderDown className="w-6 h-6" />
-              </div>
-              <h4 className="text-lg font-serif font-bold text-brand-navy mb-1">
-                ফ্রি রিসোর্স (Resources)
-              </h4>
-              <p className="text-xs font-bangla text-brand-muted leading-relaxed">
-                জৈব রসায়নের রূপান্তর ম্যাপ, অধ্যায়ভিত্তিক রঙিন নোট ও এডমিশন হ্যাক শিট ডাউনলোড করুন।
-              </p>
-            </div>
-            <div className="mt-6 pt-4 border-t border-slate-200/60 flex items-center justify-between text-xs font-bold text-brand-ocean">
-              <span>লাইব্রেরি ভিজিট করুন</span>
+              <span>ডেমো ক্লাস দেখুন</span>
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </div>
           </Link>

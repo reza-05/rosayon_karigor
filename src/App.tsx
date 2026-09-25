@@ -7,7 +7,6 @@ import { AtomicBackground } from './components/AtomicBackground';
 import { HomePage } from './pages/HomePage';
 import { MethodPage } from './pages/MethodPage';
 import { DemoPage } from './pages/DemoPage';
-import { ResourcesPage } from './pages/ResourcesPage';
 import { TeacherPage } from './pages/TeacherPage';
 import { FAQPage } from './pages/FAQPage';
 import { EnrollPage } from './pages/EnrollPage';
@@ -29,7 +28,6 @@ export function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/method" element={<MethodPage />} />
             <Route path="/demo" element={<DemoPage />} />
-            <Route path="/resources" element={<ResourcesPage />} />
             <Route path="/about" element={<TeacherPage />} />
             <Route path="/faq" element={<FAQPage />} />
             <Route path="/enroll" element={<EnrollPage />} />

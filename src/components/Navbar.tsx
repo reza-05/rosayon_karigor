@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { NavLink, Link } from 'react-router-dom';
-import { Menu, X, ArrowRight, Atom, Sparkles, User, PlayCircle, FolderDown, HelpCircle } from 'lucide-react';
+import { Menu, X, ArrowRight, Atom, Sparkles, User, PlayCircle, HelpCircle } from 'lucide-react';
 
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -17,8 +17,7 @@ export const Navbar = () => {
   const navLinks = [
     { name: 'হোম', enName: 'Home', path: '/', icon: Atom },
     { name: 'পদ্ধতি', enName: 'Method', path: '/method', icon: Sparkles },
-    { name: 'ক্লাস ডেমো', enName: 'Demo', path: '/demo', icon: PlayCircle },
-    { name: 'রিসোর্স', enName: 'Resources', path: '/resources', icon: FolderDown },
+    { name: 'ডেমো ক্লাস', enName: 'Demo Class', path: '/demo', icon: PlayCircle },
     { name: 'শিক্ষক পরিচিতি', enName: 'About', path: '/about', icon: User },
     { name: 'প্রশ্নোত্তর', enName: 'FAQ', path: '/faq', icon: HelpCircle },
   ];
