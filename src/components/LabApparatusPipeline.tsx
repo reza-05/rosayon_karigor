@@ -105,24 +105,46 @@ export const LabApparatusPipeline: React.FC<LabApparatusPipelineProps> = ({
               }
               @keyframes gravityDropFall {
                 0% {
-                  transform: translateY(0);
+                  transform: translateY(0) scale(0.5);
                   opacity: 0;
                 }
-                15% {
+                8% {
+                  transform: translateY(2px) scale(0.9);
                   opacity: 1;
-                  transform: translateY(4px);
                 }
-                75% {
+                16% {
+                  transform: translateY(6px) scale(1, 1.15);
                   opacity: 1;
-                  transform: translateY(50px);
                 }
-                95% {
-                  opacity: 0.6;
-                  transform: translateY(58px);
+                78% {
+                  transform: translateY(86px) scale(0.9, 1.25);
+                  opacity: 1;
+                }
+                84% {
+                  transform: translateY(92px) scale(1.6, 0.45);
+                  opacity: 0.95;
+                }
+                89% {
+                  transform: translateY(93px) scale(2.2, 0.15);
+                  opacity: 0;
                 }
                 100% {
+                  transform: translateY(93px) scale(2.2, 0.15);
                   opacity: 0;
-                  transform: translateY(60px);
+                }
+              }
+              @keyframes gravityRippleEffect {
+                0%, 82% {
+                  transform: scale(0);
+                  opacity: 0;
+                }
+                85% {
+                  transform: scale(0.7);
+                  opacity: 0.9;
+                }
+                100% {
+                  transform: scale(3.5);
+                  opacity: 0;
                 }
               }
               @keyframes dropFallStep4 {
@@ -223,7 +245,11 @@ export const LabApparatusPipeline: React.FC<LabApparatusPipelineProps> = ({
                 animation: flameFlicker 1.3s infinite ease-in-out;
               }
               .anim-gravity-drop {
-                animation: gravityDropFall 1.5s infinite cubic-bezier(0.4, 0, 1, 1);
+                animation: gravityDropFall 1.8s infinite cubic-bezier(0.4, 0, 1, 1);
+              }
+              .anim-gravity-ripple {
+                transform-origin: 0 0;
+                animation: gravityRippleEffect 1.8s infinite ease-out;
               }
               .anim-drop-step4 {
                 animation: dropFallStep4 1.6s infinite cubic-bezier(0.4, 0, 1, 1) 0.3s;
@@ -460,11 +486,6 @@ export const LabApparatusPipeline: React.FC<LabApparatusPipelineProps> = ({
             <line x1="128" y1="223" x2="128" y2="236" stroke="#334155" strokeWidth="2.5" />
             <line x1="132" y1="223" x2="132" y2="236" stroke="#334155" strokeWidth="2.5" />
 
-            {/* Falling Drop under Gravity */}
-            <g transform="translate(130, 238)">
-              <circle cx="0" cy="0" r="3.5" fill="#38BDF8" className="anim-gravity-drop" />
-            </g>
-
             {/* LOWER RECEIVING FLASK (Conical) */}
             {/* Blue liquid collection */}
             <path
@@ -472,6 +493,16 @@ export const LabApparatusPipeline: React.FC<LabApparatusPipelineProps> = ({
               fill="url(#lowerFlaskGrad)"
             />
             <ellipse cx="130" cy="330" rx="15" ry="3" fill="#BAE6FD" opacity="0.8" />
+
+            {/* Surface Ripple upon Drop Impact */}
+            <g transform="translate(130, 330)">
+              <ellipse cx="0" cy="0" rx="4" ry="1.2" fill="none" stroke="#BAE6FD" strokeWidth="1.6" className="anim-gravity-ripple" />
+            </g>
+
+            {/* Falling Drop under Gravity (Falls 92px down into liquid and merges) */}
+            <g transform="translate(130, 238)">
+              <circle cx="0" cy="0" r="3.5" fill="#38BDF8" className="anim-gravity-drop" />
+            </g>
 
             {/* Conical Flask Glass Body (Open side mouth into delivery tube!) */}
             <path
