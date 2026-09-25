@@ -468,12 +468,12 @@ export const LabApparatusPipeline: React.FC<LabApparatusPipelineProps> = ({
               strokeLinecap="round"
             />
             {/* OPEN DRIP NOZZLE at y=260 (no closure line!) */}
-            {/* Flow stream to tip */}
+            {/* Flow stream to tip - Orange chemical exiting condenser */}
             <path
               d="M 640 212 Q 665 226 675 260"
               fill="none"
-              stroke="#0D9488"
-              strokeWidth="3"
+              stroke="#E26127"
+              strokeWidth="3.8"
               className="anim-pipe-flow"
             />
           </g>
@@ -731,8 +731,8 @@ export const LabApparatusPipeline: React.FC<LabApparatusPipelineProps> = ({
 
             {/* Condensing Liquid Droplets Sliding Down Central Tube at 30° */}
             <g className="anim-condenser-slide" transform="translate(460, 108)">
-              <ellipse cx="0" cy="0" rx="3.5" ry="2" fill="#0D9488" opacity="0.85" transform="rotate(30)" />
-              <ellipse cx="12" cy="7" rx="3" ry="1.8" fill="#38BDF8" opacity="0.8" transform="rotate(30)" />
+              <ellipse cx="0" cy="0" rx="3.5" ry="2" fill="#E26127" opacity="0.85" transform="rotate(30)" />
+              <ellipse cx="12" cy="7" rx="3" ry="1.8" fill="#F59E0B" opacity="0.8" transform="rotate(30)" />
             </g>
 
             {/* Clean Step Label */}
@@ -750,7 +750,7 @@ export const LabApparatusPipeline: React.FC<LabApparatusPipelineProps> = ({
           <g>
             {/* Droplets Naturally Falling Down from Open Drip Nozzle */}
             <g transform="translate(675, 265)">
-              <circle cx="0" cy="0" r="3.5" fill="#F59E0B" className="anim-drop-step4" />
+              <circle cx="0" cy="0" r="3.5" fill="#E26127" className="anim-drop-step4" />
             </g>
 
             {/* OPEN GLASS BEAKER */}
@@ -760,7 +760,7 @@ export const LabApparatusPipeline: React.FC<LabApparatusPipelineProps> = ({
               fill="url(#pastelAmberGrad)"
             />
             {/* Surface Ripple where drop lands */}
-            <ellipse cx="675" cy="335" rx="3" ry="1.5" fill="none" stroke="#F59E0B" strokeWidth="1.5" className="anim-ripple" />
+            <ellipse cx="675" cy="335" rx="3" ry="1.5" fill="none" stroke="#E26127" strokeWidth="1.5" className="anim-ripple" />
             <ellipse cx="675" cy="335" rx="26" ry="3.5" fill="#FEF3C7" opacity="0.6" />
 
             {/* Beaker Glass Body (OPEN TOP) */}
@@ -797,14 +797,6 @@ export const LabApparatusPipeline: React.FC<LabApparatusPipelineProps> = ({
             />
             <ellipse cx="835" cy="205" rx="10" ry="2" fill="#FEF3C7" opacity="0.9" />
 
-            {/* Sparkling Crystals in Volumetric Flask */}
-            <g transform="translate(835, 365)">
-              <polygon points="0,-8 5,0 0,8 -5,0" fill="#FFFFFF" opacity="0.95" />
-              <polygon points="-8,-3 -3,3 -13,3" fill="#FEF08A" opacity="0.9" />
-              <polygon points="8,-2 13,3 3,3" fill="#FDE047" opacity="0.9" />
-              <circle cx="-10" cy="-6" r="1.5" fill="#FFFFFF" opacity="0.9" />
-              <circle cx="9" cy="-7" r="1.8" fill="#FFFFFF" opacity="0.9" />
-            </g>
 
             {/* Flask Glass Outlines */}
             <path
