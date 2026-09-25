@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { ArrowUp, Mail } from 'lucide-react';
 
 export const Footer = () => {
@@ -49,29 +50,29 @@ export const Footer = () => {
             </h4>
             <ul className="space-y-2 text-xs font-medium">
               <li>
-                <a href="#home" className="text-brand-muted hover:text-brand-navy transition-colors">
+                <Link to="/" className="text-brand-muted hover:text-brand-navy transition-colors">
                   হোম (Home)
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#method" className="text-brand-muted hover:text-brand-navy transition-colors">
+                <Link to="/method" className="text-brand-muted hover:text-brand-navy transition-colors">
                   কারিগর মেথড (The Method)
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#demo" className="text-brand-muted hover:text-brand-navy transition-colors">
+                <Link to="/demo" className="text-brand-muted hover:text-brand-navy transition-colors">
                   ডেমো ক্লাস (Demo Class)
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#about" className="text-brand-muted hover:text-brand-navy transition-colors">
+                <Link to="/about" className="text-brand-muted hover:text-brand-navy transition-colors">
                   শিক্ষক পরিচিতি (About Educator)
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#faq" className="text-brand-muted hover:text-brand-navy transition-colors">
+                <Link to="/faq" className="text-brand-muted hover:text-brand-navy transition-colors">
                   সাধারণ জিজ্ঞাসা (FAQ)
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
