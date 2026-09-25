@@ -1,11 +1,9 @@
-import React, { useState } from 'react';
-import { ArrowRight, Check, X, FlaskConical } from 'lucide-react';
+import React from 'react';
+import { Check, X, FlaskConical } from 'lucide-react';
 import { beforeAfterComparison } from '../data/testimonialsData';
 import { LabApparatusPipeline, type LabStage } from './LabApparatusPipeline';
 
 export const KarigorMethod: React.FC = () => {
-  const [activeStage, setActiveStage] = useState<number>(0);
-
   const stages: LabStage[] = [
     {
       id: 'understand',
@@ -94,8 +92,6 @@ export const KarigorMethod: React.FC = () => {
     },
   ];
 
-  const active = stages[activeStage];
-
   return (
     <section id="method" className="pt-8 pb-20 relative overflow-hidden bg-[#FAFBFC]">
       {/* Background Soft Chemistry Grid & Ambient Laboratory Glows */}
@@ -115,66 +111,40 @@ export const KarigorMethod: React.FC = () => {
           </p>
         </div>
 
-        {/* 1. INTERACTIVE CHEMISTRY LAB REACTION PIPELINE (Animated SVG & Dripping Physics) */}
+        {/* 1. CONTINUOUS CHEMISTRY LAB REACTION PIPELINE (2D Vector Flat Illustration) */}
         <div className="relative w-full max-w-6xl mx-auto mb-10">
-          <LabApparatusPipeline
-            stages={stages}
-            activeStage={activeStage}
-            onSelectStage={setActiveStage}
-          />
+          <LabApparatusPipeline />
         </div>
 
-        {/* 2. SELECTED STAGE DEEP DIVE INSPECTION CHAMBER */}
-        <div className="bg-white rounded-3xl p-6 sm:p-8 mb-14 border border-slate-200/90 shadow-[0_4px_25px_-5px_rgba(15,23,42,0.06)] relative overflow-hidden transition-all duration-300">
-          <div
-            className="absolute top-0 right-0 w-72 h-72 rounded-full blur-3xl pointer-events-none transition-colors duration-500"
-            style={{ backgroundColor: `${active.color}15` }}
-          />
-
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 relative z-10">
-            <div className="space-y-2.5">
-              <div className="flex items-center gap-2.5 flex-wrap">
-                <span
-                  className="w-3 h-3 rounded-full animate-ping"
-                  style={{ backgroundColor: active.color }}
-                />
-                <span
-                  className="px-3 py-1 rounded-full text-xs font-mono font-bold tracking-wider uppercase transition-colors"
-                  style={{
-                    backgroundColor: `${active.color}18`,
-                    color: active.color,
-                  }}
-                >
-                  Stage {active.num} • {active.equipmentName} ({active.equipmentBangla})
-                </span>
-                <span className="text-xs font-bold text-slate-500 font-mono">
-                  {active.chemicalFormula}
-                </span>
-              </div>
-
-              <h3 className="text-xl sm:text-2xl font-bold font-sans text-brand-navy flex items-center gap-2 flex-wrap">
-                <span>
-                  {active.title} ({active.titleBangla})
-                </span>
-                <span className="text-slate-400 font-normal">—</span>
-                <span className="text-brand-ocean text-base sm:text-lg font-normal">
-                  {active.shortDesc}
-                </span>
-              </h3>
-
-              <p className="text-xs sm:text-sm text-slate-600 font-bangla leading-relaxed max-w-3xl">
-                {active.details}
-              </p>
-            </div>
-
-            <a
-              href="#demo"
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-brand-navy text-white text-xs font-bold hover:bg-brand-ocean transition-all shadow-sm active:scale-95 flex-shrink-0"
+        {/* 2. THE 5-STEP METHOD FRAMEWORK CARDS */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-14">
+          {stages.map((st) => (
+            <div
+              key={st.id}
+              className="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-[0_2px_12px_-3px_rgba(15,23,42,0.04)] flex flex-col justify-between hover:border-slate-300 transition-colors"
             >
-              <span>See It In Action</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </a>
-          </div>
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <span
+                    className="w-2.5 h-2.5 rounded-full"
+                    style={{ backgroundColor: st.color }}
+                  />
+                  <span className="font-mono text-xs font-bold text-slate-400">
+                    {st.num}
+                  </span>
+                </div>
+                <h3 className="font-sans font-bold text-brand-navy text-base">
+                  {st.title}
+                </h3>
+                <span className="inline-block font-bangla font-semibold text-xs text-brand-ocean mb-2">
+                  {st.titleBangla}
+                </span>
+                <p className="text-xs text-slate-600 font-bangla leading-relaxed">
+                  {st.shortDescBangla}
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
 
         {/* 3. THE TRANSFORMATION: BEFORE VS AFTER TABLE */}
