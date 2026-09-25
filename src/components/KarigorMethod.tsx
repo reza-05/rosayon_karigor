@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, Check, Sparkles, X } from 'lucide-react';
+import { ArrowRight, Check, X } from 'lucide-react';
 import { beforeAfterComparison } from '../data/testimonialsData';
 import { LabApparatusPipeline, type LabStage } from './LabApparatusPipeline';
 
@@ -116,29 +116,57 @@ export const KarigorMethod: React.FC = () => {
           <LabApparatusPipeline />
         </div>
 
-        {/* 2. THE 5-STEP METHOD FLOW (COMPACT WITH SMALL ARROWS, NO BULKY TEXT) */}
-        <div className="w-full overflow-x-auto no-scrollbar py-2 mb-16">
-          <div className="flex items-center justify-start lg:justify-center gap-1.5 sm:gap-3 min-w-max mx-auto px-2">
+        {/* 2. THE 5-STEP METHOD FLOW (SPACIOUS & ELEGANT, ZERO SLIDEBAR) */}
+        <div className="w-full max-w-5xl mx-auto mb-16">
+          {/* Desktop & Tablet: 5 connected spacious cards with ample breathing room */}
+          <div className="hidden sm:flex items-center justify-between gap-1.5 md:gap-2.5 lg:gap-3.5">
             {stages.map((st, idx) => (
               <React.Fragment key={st.id}>
-                <div className="inline-flex items-center gap-2 bg-white/95 border border-slate-200/90 rounded-xl px-3 py-1.5 sm:px-4 sm:py-2 shadow-xs hover:border-slate-300 transition-colors">
-                  <span
-                    className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full shrink-0"
-                    style={{ backgroundColor: st.color }}
-                  />
-                  <span className="font-mono text-[11px] sm:text-xs font-bold text-slate-400">
-                    {st.num}
-                  </span>
-                  <span className="font-sans font-bold text-brand-navy text-xs sm:text-sm">
+                <div className="flex-1 bg-white border border-slate-200/90 rounded-2xl py-3.5 px-2 sm:px-3 lg:px-4 shadow-[0_2px_10px_-2px_rgba(15,23,42,0.04)] hover:border-slate-300 hover:shadow-sm transition-all text-center flex flex-col items-center justify-center">
+                  <div className="flex items-center gap-1.5 mb-1.5">
+                    <span
+                      className="w-2.5 h-2.5 rounded-full"
+                      style={{ backgroundColor: st.color }}
+                    />
+                    <span className="font-mono text-xs font-bold text-slate-400">
+                      {st.num}
+                    </span>
+                  </div>
+                  <span className="font-sans font-bold text-brand-navy text-sm lg:text-base leading-tight">
                     {st.title}
                   </span>
-                  <span className="text-slate-300 text-xs font-light">/</span>
-                  <span className="font-bangla font-semibold text-xs sm:text-sm text-brand-ocean">
+                  <span className="font-bangla font-semibold text-xs lg:text-sm text-brand-ocean mt-0.5">
                     {st.titleBangla}
                   </span>
                 </div>
                 {idx < stages.length - 1 && (
-                  <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-slate-400/80 shrink-0" />
+                  <ArrowRight className="w-4 h-4 text-slate-300 shrink-0" />
+                )}
+              </React.Fragment>
+            ))}
+          </div>
+
+          {/* Mobile: Clean, natural wrapped pills without cramming or scrollbar */}
+          <div className="flex sm:hidden flex-wrap items-center justify-center gap-2 max-w-sm mx-auto">
+            {stages.map((st, idx) => (
+              <React.Fragment key={st.id}>
+                <div className="inline-flex items-center gap-1.5 bg-white border border-slate-200/90 rounded-xl px-3 py-2 shadow-xs">
+                  <span
+                    className="w-2 h-2 rounded-full shrink-0"
+                    style={{ backgroundColor: st.color }}
+                  />
+                  <span className="font-mono text-[11px] font-bold text-slate-400">
+                    {st.num}
+                  </span>
+                  <span className="font-sans font-bold text-brand-navy text-xs">
+                    {st.title}
+                  </span>
+                  <span className="font-bangla font-semibold text-xs text-brand-ocean">
+                    ({st.titleBangla})
+                  </span>
+                </div>
+                {idx < stages.length - 1 && (
+                  <ArrowRight className="w-3.5 h-3.5 text-slate-300 shrink-0" />
                 )}
               </React.Fragment>
             ))}
@@ -149,10 +177,6 @@ export const KarigorMethod: React.FC = () => {
         <div className="max-w-5xl mx-auto">
           {/* Header */}
           <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-ocean/10 text-brand-ocean border border-brand-ocean/20 text-xs font-mono font-semibold uppercase tracking-wider mb-3">
-              <Sparkles className="w-3.5 h-3.5 text-brand-orange" />
-              The Transformation
-            </div>
             <h3 className="text-2xl sm:text-3xl lg:text-4xl font-sans font-bold text-brand-navy tracking-tight">
               Before vs. After <span className="text-brand-ocean font-bangla">কারিগর</span>
             </h3>
