@@ -70,7 +70,7 @@ export const HomePage = () => {
             className="group glass-panel rounded-3xl p-6 sm:p-8 border border-slate-200/85 shadow-card hover:shadow-card-hover hover:-translate-y-1.5 transition-all flex flex-col justify-between"
           >
             <div>
-              <div className="w-12 h-12 rounded-2xl bg-amber-500/10 text-brand-orange flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+              <div className="w-12 h-12 rounded-2xl bg-brand-orange/10 text-brand-orange flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                 <PlayCircle className="w-6 h-6" />
               </div>
               <h4 className="text-xl font-serif font-bold text-brand-navy mb-1.5">

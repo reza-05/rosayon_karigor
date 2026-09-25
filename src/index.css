@@ -45,19 +45,19 @@
 }
 
 .btn-luxury-primary {
-  background: linear-gradient(135deg, #F4A261 0%, #E76F51 100%);
-  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.45), 0 4px 14px 0 rgba(231, 111, 81, 0.35);
+  background: linear-gradient(135deg, #E86B2F 0%, #D44E18 100%);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.35), 0 4px 16px 0 rgba(226, 97, 39, 0.32);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .btn-luxury-primary:hover {
   transform: translateY(-1.5px);
-  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.55), 0 8px 24px 0 rgba(231, 111, 81, 0.45);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.45), 0 8px 24px 0 rgba(226, 97, 39, 0.42);
 }
 
 .btn-luxury-primary:active {
   transform: translateY(0.5px);
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2), 0 2px 8px 0 rgba(231, 111, 81, 0.3);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2), 0 2px 8px 0 rgba(226, 97, 39, 0.3);
 }
 
 /* Subtle background chemical grid pattern on clean white */
@@ -72,7 +72,7 @@
 
 .bg-chem-dark-grid {
   background-image: 
-    radial-gradient(rgba(244, 162, 97, 0.15) 1.5px, transparent 1.5px),
+    radial-gradient(rgba(226, 97, 39, 0.18) 1.5px, transparent 1.5px),
     linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
   background-size: 32px 32px, 96px 96px, 96px 96px;

@@ -10,9 +10,9 @@ export default {
         brand: {
           navy: '#09284C',
           ocean: '#164B73',
-          orange: '#F4A261',
-          'orange-hover': '#E76F51',
-          'orange-light': '#FDF1E7',
+          orange: '#E26127',
+          'orange-hover': '#C74E18',
+          'orange-light': '#FFF5ED',
           cream: '#FAFBFC',
           'cream-light': '#FFFFFF',
           text: '#0F172A',
@@ -36,7 +36,7 @@ export default {
       boxShadow: {
         'card': '0 2px 12px -2px rgba(9, 40, 76, 0.05), 0 1px 3px rgba(0, 0, 0, 0.03)',
         'card-hover': '0 16px 36px -4px rgba(9, 40, 76, 0.09), 0 2px 6px rgba(0, 0, 0, 0.04)',
-        'glow-orange': '0 0 25px rgba(244, 162, 97, 0.35)',
+        'glow-orange': '0 0 25px rgba(226, 97, 39, 0.28)',
         'glow-blue': '0 0 25px rgba(22, 75, 115, 0.25)',
       },
       borderRadius: {

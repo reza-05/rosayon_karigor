@@ -49,7 +49,7 @@ export const EnrollmentForm = () => {
         particleCount: 90,
         spread: 80,
         origin: { y: 0.6 },
-        colors: ['#F4A261', '#09284C', '#164B73', '#E76F51'],
+        colors: ['#E26127', '#09284C', '#164B73', '#C74E18'],
       });
     }, 1000);
   };

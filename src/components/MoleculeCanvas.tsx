@@ -146,8 +146,8 @@ export const MoleculeCanvas = ({ className = '' }: { className?: string }) => {
             y: -22,
             z: 0,
             radius: 26,
-            color: '#F4A261',
-            borderColor: '#E76F51',
+            color: '#E26127',
+            borderColor: '#C74E18',
             label: 'O',
             element: 'Oxygen',
             atomicNum: 8,
@@ -248,8 +248,8 @@ export const MoleculeCanvas = ({ className = '' }: { className?: string }) => {
             y: L / 3,
             z: -L * Math.sqrt(2 / 3),
             radius: 16,
-            color: '#F4A261',
-            borderColor: '#E76F51',
+            color: '#E26127',
+            borderColor: '#C74E18',
             label: 'H',
             element: 'Hydrogen',
             atomicNum: 1,
@@ -271,7 +271,7 @@ export const MoleculeCanvas = ({ className = '' }: { className?: string }) => {
           { x: -50, y: 12, z: 0, radius: 22, color: '#09284C', borderColor: '#164B73', label: 'C', element: 'Carbon', atomicNum: 6, mass: '12.011', electrons: 'Methyl Carbon' },
           { x: 26, y: -10, z: 0, radius: 22, color: '#09284C', borderColor: '#164B73', label: 'C', element: 'Carbon', atomicNum: 6, mass: '12.011', electrons: 'Methylene Carbon' },
           // Hydroxyl Oxygen
-          { x: 82, y: 32, z: 0, radius: 23, color: '#F4A261', borderColor: '#E76F51', label: 'O', element: 'Oxygen', atomicNum: 8, mass: '15.999', electrons: 'Hydroxyl Oxygen' },
+          { x: 82, y: 32, z: 0, radius: 23, color: '#E26127', borderColor: '#C74E18', label: 'O', element: 'Oxygen', atomicNum: 8, mass: '15.999', electrons: 'Hydroxyl Oxygen' },
           // Hydroxyl Hydrogen
           { x: 126, y: 20, z: 0, radius: 14, color: '#164B73', borderColor: '#09284C', label: 'H', element: 'Hydrogen', atomicNum: 1, mass: '1.008', electrons: 'Hydroxyl Proton' },
           // Methyl Hydrogens (3)
@@ -327,8 +327,8 @@ export const MoleculeCanvas = ({ className = '' }: { className?: string }) => {
             y: R_H * Math.sin(theta),
             z: 0, // Perfectly planar
             radius: 14,
-            color: '#F4A261',
-            borderColor: '#E76F51',
+            color: '#E26127',
+            borderColor: '#C74E18',
             label: 'H',
             element: 'Hydrogen',
             atomicNum: 1,
@@ -425,48 +425,10 @@ export const MoleculeCanvas = ({ className = '' }: { className?: string }) => {
             ctx.lineTo(pxRing, pyRing);
           }
         }
-        ctx.strokeStyle = '#F4A261';
+        ctx.strokeStyle = '#E26127';
         ctx.lineWidth = 2.5;
         ctx.setLineDash([4, 4]);
         ctx.stroke();
-        ctx.restore();
-      }
-
-      // 2. If Water, render Oxygen's 2 Lone Pairs in 3D
-      if (activeMolecule === 'water') {
-        ctx.save();
-        const lonePairs = [
-          { x: 0, y: -52, z: 28 },
-          { x: 0, y: -52, z: -28 },
-        ];
-        lonePairs.forEach((lp) => {
-          const lx1 = lp.x * cosY + lp.z * sinY;
-          const lz1 = -lp.x * sinY + lp.z * cosY;
-          const ly2 = lp.y * cosX - lz1 * sinX;
-          const lz2 = lp.y * sinX + lz1 * cosX;
-
-          const pScaleLP = (fov / (fov + lz2 + 220)) * scale;
-          const pxLP = centerX + lx1 * pScaleLP;
-          const pyLP = centerY + ly2 * pScaleLP;
-
-          // Translucent lone pair orbital lobe
-          ctx.beginPath();
-          ctx.arc(pxLP, pyLP, 10 * pScaleLP, 0, Math.PI * 2);
-          ctx.fillStyle = 'rgba(244, 162, 97, 0.2)';
-          ctx.fill();
-          ctx.strokeStyle = 'rgba(231, 111, 81, 0.5)';
-          ctx.lineWidth = 1;
-          ctx.setLineDash([2, 3]);
-          ctx.stroke();
-
-          // Electron pair dots
-          ctx.setLineDash([]);
-          ctx.beginPath();
-          ctx.arc(pxLP - 3, pyLP, 2, 0, Math.PI * 2);
-          ctx.arc(pxLP + 3, pyLP, 2, 0, Math.PI * 2);
-          ctx.fillStyle = '#E76F51';
-          ctx.fill();
-        });
         ctx.restore();
       }
 
@@ -547,14 +509,14 @@ export const MoleculeCanvas = ({ className = '' }: { className?: string }) => {
 
             if (atom.label === 'H') {
               grad.addColorStop(0, '#FFFFFF');
-              grad.addColorStop(0.3, '#FDF1E7');
-              grad.addColorStop(0.7, '#F4A261');
-              grad.addColorStop(1, '#C85A17');
+              grad.addColorStop(0.3, '#FFF5ED');
+              grad.addColorStop(0.7, '#E26127');
+              grad.addColorStop(1, '#A83B0E');
             } else if (atom.label === 'O') {
-              grad.addColorStop(0, '#FFF5EB');
-              grad.addColorStop(0.3, '#F4A261');
-              grad.addColorStop(0.8, '#D95D39');
-              grad.addColorStop(1, '#9C2A0A');
+              grad.addColorStop(0, '#FFF5ED');
+              grad.addColorStop(0.3, '#E26127');
+              grad.addColorStop(0.8, '#C74E18');
+              grad.addColorStop(1, '#8A2A08');
             } else {
               grad.addColorStop(0, '#3A7DAA');
               grad.addColorStop(0.4, '#164B73');
@@ -614,9 +576,9 @@ export const MoleculeCanvas = ({ className = '' }: { className?: string }) => {
               // Translucent lone pair orbital lobe
               ctx.beginPath();
               ctx.arc(pxLP, pyLP, 10 * pScaleLP, 0, Math.PI * 2);
-              ctx.fillStyle = 'rgba(244, 162, 97, 0.2)';
+              ctx.fillStyle = 'rgba(226, 97, 39, 0.2)';
               ctx.fill();
-              ctx.strokeStyle = 'rgba(231, 111, 81, 0.5)';
+              ctx.strokeStyle = 'rgba(199, 78, 24, 0.6)';
               ctx.lineWidth = 1;
               ctx.setLineDash([2, 3]);
               ctx.stroke();
@@ -626,7 +588,7 @@ export const MoleculeCanvas = ({ className = '' }: { className?: string }) => {
               ctx.beginPath();
               ctx.arc(pxLP - 3, pyLP, 2, 0, Math.PI * 2);
               ctx.arc(pxLP + 3, pyLP, 2, 0, Math.PI * 2);
-              ctx.fillStyle = '#E76F51';
+              ctx.fillStyle = '#C74E18';
               ctx.fill();
               ctx.restore();
             },
