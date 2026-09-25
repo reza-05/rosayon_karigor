@@ -133,15 +133,13 @@ export const EnrollmentForm = () => {
 
                   <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3">
                     <a
-                      href={`https://wa.me/8801700000000?text=${encodeURIComponent(
-                        `হ্যালো স্যার, আমি রসায়ন কারিগরের ${formData.academicLevel} ব্যাচে ভর্তি হতে আগ্রহী। আমার নাম ${formData.fullName}।`
-                      )}`}
+                      href="https://m.me/roshayonkarigor"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#25D366] text-white text-sm font-semibold hover:bg-[#1EBE5D] transition-colors shadow-md"
+                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#1877F2] text-white text-sm font-semibold hover:bg-[#166FE5] transition-colors shadow-md"
                     >
                       <MessageCircle className="w-4 h-4" />
-                      <span>হোয়াটসঅ্যাপে সরাসরি কথা বলুন</span>
+                      <span>মেসেঞ্জারে সরাসরি যোগাযোগ</span>
                     </a>
 
                     <button
