@@ -62,7 +62,7 @@ export const KarigorMethod: React.FC = () => {
       id: 'practice',
       num: '04',
       title: 'Practice',
-      titleBangla: 'প্রয়োগ',
+      titleBangla: 'অনুশীলন',
       equipmentName: 'Burette & Titration Beaker',
       equipmentBangla: 'ব্যুরেট ও টাইট্রেশন ড্রপার',
       actionTag: 'Precision Problem Solving',
@@ -76,25 +76,8 @@ export const KarigorMethod: React.FC = () => {
       liquidColor: '#f59e0b',
     },
     {
-      id: 'analyze',
-      num: '05',
-      title: 'Analyze',
-      titleBangla: 'বিশ্লেষণ',
-      equipmentName: 'Separating Funnel & Filter',
-      equipmentBangla: 'সেপারেটিং ফানেল ও ফিল্টারিং',
-      actionTag: 'Weakness Filtration & Debugging',
-      chemicalFormula: 'Extraction → Filtration → Zero Error',
-      shortDesc: 'Filter out doubts, silly mistakes, and conceptual gaps.',
-      shortDescBangla: 'ভুলভ্রান্তি ও কনফিউশন দূর করে নিখুঁত প্রস্তুতি নিশ্চিত করা।',
-      details:
-        'Separating funnel divides unwanted impurities from the pure compound. একইভাবে প্রতিটি মক টেস্ট ও প্র্যাকটিসে চিহ্নিত ভুলগুলো আলাদা করে ফিল্টার করা হয়, যাতে পরীক্ষার হলে কোনো সন্দেহ বা ভুলের অবকাশ না থাকে।',
-      color: '#10b981', // Emerald Green
-      glowColor: '#34D399',
-      liquidColor: '#10b981',
-    },
-    {
       id: 'master',
-      num: '06',
+      num: '05',
       title: 'Master',
       titleBangla: 'পারদর্শিতা',
       equipmentName: 'Volumetric Flask & Crystals',
@@ -128,7 +111,7 @@ export const KarigorMethod: React.FC = () => {
           </h2>
 
           <p className="text-sm sm:text-base lg:text-lg text-slate-600 font-bangla max-w-2xl mx-auto leading-relaxed">
-            রসায়ন অন্ধ মুখস্থের কোনো বিষয় নয় — ল্যাবরেটরির স্বয়ংক্রিয় রিঅ্যাকশন পাইপলাইনের মতো এটি একটি নিখুঁত সমন্বিত রূপান্তর। ৬টি ধারাবাহিক ধাপে গড়ে ওঠে রসায়নের স্থায়ী বুৎপত্তি ও পরীক্ষার সেরা সাফল্য।
+            রসায়ন অন্ধ মুখস্থের কোনো বিষয় নয় — ল্যাবরেটরির স্বয়ংক্রিয় রিঅ্যাকশন পাইপলাইনের মতো এটি একটি নিখুঁত সমন্বিত রূপান্তর। ৫টি ধারাবাহিক ধাপে গড়ে ওঠে রসায়নের স্থায়ী বুৎপত্তি ও পরীক্ষার সেরা সাফল্য।
           </p>
         </div>
 
