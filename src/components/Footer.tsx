@@ -23,12 +23,9 @@ export const Footer = () => {
                 />
               </div>
               <div className="flex flex-col">
-                <div className="flex items-center gap-1.5">
-                  <span className="font-bangla font-bold text-xl text-brand-navy leading-none">
-                    রসায়ন কারিগর
-                  </span>
-                  <span className="w-1.5 h-1.5 rounded-full bg-brand-orange"></span>
-                </div>
+                <span className="font-bangla font-bold text-xl text-brand-navy leading-none">
+                  রসায়ন কারিগর
+                </span>
                 <span className="text-[10px] font-bangla text-brand-muted mt-0.5">
                   বোঝো। প্রয়োগ করো। পারদর্শী হও।
                 </span>
