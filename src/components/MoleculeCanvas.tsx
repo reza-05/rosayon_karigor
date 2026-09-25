@@ -770,18 +770,13 @@ export const MoleculeCanvas = ({ className = '' }: { className?: string }) => {
       </div>
 
       {/* Dynamic Scientific Badge 2: Bottom Right (Right Angle & Figure Info) */}
-      <div className="absolute bottom-11 right-3 bg-white/95 backdrop-blur-md px-3.5 py-2 rounded-2xl border border-slate-200/80 shadow-sm text-left animate-float-delayed">
+      <div className="absolute bottom-3 right-3 bg-white/95 backdrop-blur-md px-3.5 py-2 rounded-2xl border border-slate-200/80 shadow-sm text-left animate-float-delayed">
         <div className="flex items-center gap-1.5 text-[10px] text-emerald-600 font-mono uppercase font-bold tracking-wider">
           <Orbit className="w-3 h-3" />
           <span>{meta.badge2.tag}</span>
         </div>
         <div className="text-sm font-sans font-bold text-brand-navy mt-0.5">{meta.badge2.value}</div>
         <div className="text-[10.5px] text-slate-500 font-sans">{meta.badge2.sub}</div>
-      </div>
-
-      {/* Tactile Drag Hint */}
-      <div className="absolute bottom-2 left-1/2 -translate-x-1/2 text-[11px] text-slate-400 bg-white/80 backdrop-blur-sm px-3 py-0.5 rounded-full border border-slate-200/60 pointer-events-none">
-        Click and drag to spin 3D structure
       </div>
     </div>
   );
