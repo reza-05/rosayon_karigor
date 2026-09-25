@@ -84,12 +84,12 @@ export const Hero = () => {
                   alt="Tashriful Arabi"
                 />
                 <div className="w-8 h-8 rounded-full border-2 border-white bg-brand-navy text-white text-[10px] font-bold flex items-center justify-center">
-                  +500
+                  +350
                 </div>
               </div>
 
               <div className="flex items-center gap-2">
-                <span className="font-semibold text-brand-navy">500+ students guided</span>
+                <span className="font-semibold text-brand-navy">350+ students guided</span>
                 <span className="text-brand-navy/20">•</span>
                 <span className="text-amber-500 font-bold">★ 5.0/5</span>
                 <span>(SSC, HSC & Admission)</span>
