@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Zap, Orbit } from 'lucide-react';
+import { Zap, Orbit, Compass } from 'lucide-react';
 
 interface Atom {
   x: number;
@@ -21,6 +21,90 @@ interface Bond {
   type: 'single' | 'double' | 'resonant';
 }
 
+interface MoleculeMetadata {
+  name: string;
+  formula: string;
+  badge1: {
+    icon: 'zap' | 'orbit' | 'compass';
+    tag: string;
+    value: string;
+    sub: string;
+  };
+  badge2: {
+    icon: 'orbit' | 'compass';
+    tag: string;
+    value: string;
+    sub: string;
+  };
+}
+
+const moleculeMetadata: Record<'benzene' | 'water' | 'methane' | 'ethanol', MoleculeMetadata> = {
+  benzene: {
+    name: 'Benzene',
+    formula: 'C₆H₆',
+    badge1: {
+      icon: 'zap',
+      tag: 'HYBRIDIZATION & ENERGY',
+      value: 'sp² • 150.7 kJ/mol',
+      sub: 'Delocalized π-Cloud',
+    },
+    badge2: {
+      icon: 'orbit',
+      tag: 'BOND ANGLE',
+      value: '120.0°',
+      sub: 'Planar Hexagon (∠C-C-C)',
+    },
+  },
+  water: {
+    name: 'Water',
+    formula: 'H₂O',
+    badge1: {
+      icon: 'compass',
+      tag: 'GEOMETRY & HYBRID',
+      value: 'V-Shaped (Bent) • sp³',
+      sub: '2 Bond Pairs + 2 Lone Pairs',
+    },
+    badge2: {
+      icon: 'orbit',
+      tag: 'BOND ANGLE',
+      value: '104.5°',
+      sub: 'Lone Pair Repulsion (VSEPR)',
+    },
+  },
+  methane: {
+    name: 'Methane',
+    formula: 'CH₄',
+    badge1: {
+      icon: 'compass',
+      tag: 'GEOMETRY & HYBRID',
+      value: 'Tetrahedral • sp³',
+      sub: '4 Equivalent C-H σ-Bonds',
+    },
+    badge2: {
+      icon: 'orbit',
+      tag: 'BOND ANGLE',
+      value: '109.5°',
+      sub: 'Regular Tetrahedron (109°28\')',
+    },
+  },
+  ethanol: {
+    name: 'Ethanol',
+    formula: 'C₂H₅OH',
+    badge1: {
+      icon: 'zap',
+      tag: 'FUNCTIONAL GROUP',
+      value: '-OH (Hydroxyl)',
+      sub: 'Polar Alcohol & H-Bonding',
+    },
+    badge2: {
+      icon: 'orbit',
+      tag: 'BOND ANGLES',
+      value: '108.5° & 104.5°',
+      sub: '∠C-C-O (~108.5°) & ∠C-O-H (~104.5°)',
+    },
+  },
+};
+
 export const MoleculeCanvas = ({ className = '' }: { className?: string }) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -29,10 +113,10 @@ export const MoleculeCanvas = ({ className = '' }: { className?: string }) => {
 
   // References for inertial physics
   const physicsRef = useRef({
-    angleX: 0.2,
-    angleY: 0.4,
+    angleX: 0.15,
+    angleY: 0.35,
     velX: 0,
-    velY: 0.005, // gentle idle rotation
+    velY: 0.0035, // gentle idle rotation
     lastMouseX: 0,
     lastMouseY: 0,
     isMouseDown: false,
@@ -49,6 +133,13 @@ export const MoleculeCanvas = ({ className = '' }: { className?: string }) => {
 
     const getMoleculeData = (type: 'benzene' | 'water' | 'methane' | 'ethanol') => {
       if (type === 'water') {
+        // Water H2O: Exact 104.5° bond angle
+        // Half angle = 52.25°. Bond length = 82
+        const bondLength = 82;
+        const halfAngleRad = (52.25 * Math.PI) / 180;
+        const hX = bondLength * Math.sin(halfAngleRad); // ~64.8
+        const hY = bondLength * Math.cos(halfAngleRad); // ~50.2
+
         const atoms: Atom[] = [
           {
             x: 0,
@@ -61,13 +152,13 @@ export const MoleculeCanvas = ({ className = '' }: { className?: string }) => {
             element: 'Oxygen',
             atomicNum: 8,
             mass: '15.999',
-            electrons: '2, 6 (Valency 2)',
+            electrons: '2, 6 (sp³)',
           },
           {
-            x: -70,
-            y: 38,
-            z: -10,
-            radius: 18,
+            x: -hX,
+            y: -22 + hY,
+            z: 0,
+            radius: 17,
             color: '#164B73',
             borderColor: '#09284C',
             label: 'H',
@@ -77,10 +168,10 @@ export const MoleculeCanvas = ({ className = '' }: { className?: string }) => {
             electrons: '1s¹',
           },
           {
-            x: 70,
-            y: 38,
-            z: 10,
-            radius: 18,
+            x: hX,
+            y: -22 + hY,
+            z: 0,
+            radius: 17,
             color: '#164B73',
             borderColor: '#09284C',
             label: 'H',
@@ -90,13 +181,15 @@ export const MoleculeCanvas = ({ className = '' }: { className?: string }) => {
             electrons: '1s¹',
           },
         ];
+
         const bonds: Bond[] = [
           { from: 0, to: 1, type: 'single' },
           { from: 0, to: 2, type: 'single' },
         ];
         return { atoms, bonds, scale: 1.15 };
       } else if (type === 'methane') {
-        const s = 60;
+        // Methane CH4: Exact regular tetrahedron (all angles = 109.47°)
+        const L = 74;
         const atoms: Atom[] = [
           {
             x: 0,
@@ -112,9 +205,9 @@ export const MoleculeCanvas = ({ className = '' }: { className?: string }) => {
             electrons: 'sp³ Hybridized',
           },
           {
-            x: s,
-            y: s,
-            z: s,
+            x: 0,
+            y: -L,
+            z: 0,
             radius: 16,
             color: '#164B73',
             borderColor: '#09284C',
@@ -125,9 +218,9 @@ export const MoleculeCanvas = ({ className = '' }: { className?: string }) => {
             electrons: '1s¹',
           },
           {
-            x: -s,
-            y: -s,
-            z: s,
+            x: L * (2 * Math.SQRT2 / 3),
+            y: L / 3,
+            z: 0,
             radius: 16,
             color: '#164B73',
             borderColor: '#09284C',
@@ -138,9 +231,9 @@ export const MoleculeCanvas = ({ className = '' }: { className?: string }) => {
             electrons: '1s¹',
           },
           {
-            x: -s,
-            y: s,
-            z: -s,
+            x: -L * (Math.SQRT2 / 3),
+            y: L / 3,
+            z: L * Math.sqrt(2 / 3),
             radius: 16,
             color: '#164B73',
             borderColor: '#09284C',
@@ -151,9 +244,9 @@ export const MoleculeCanvas = ({ className = '' }: { className?: string }) => {
             electrons: '1s¹',
           },
           {
-            x: s,
-            y: -s,
-            z: -s,
+            x: -L * (Math.SQRT2 / 3),
+            y: L / 3,
+            z: -L * Math.sqrt(2 / 3),
             radius: 16,
             color: '#F4A261',
             borderColor: '#E76F51',
@@ -172,31 +265,49 @@ export const MoleculeCanvas = ({ className = '' }: { className?: string }) => {
         ];
         return { atoms, bonds, scale: 1.05 };
       } else if (type === 'ethanol') {
+        // Ethanol C2H5OH: Complete 3D model
         const atoms: Atom[] = [
-          { x: -50, y: 10, z: 0, radius: 22, color: '#09284C', borderColor: '#164B73', label: 'C', element: 'Carbon', atomicNum: 6, mass: '12.011', electrons: 'Methyl Carbon' },
-          { x: 30, y: -10, z: 0, radius: 22, color: '#09284C', borderColor: '#164B73', label: 'C', element: 'Carbon', atomicNum: 6, mass: '12.011', electrons: 'Methylene Carbon' },
-          { x: 85, y: 35, z: 10, radius: 24, color: '#F4A261', borderColor: '#E76F51', label: 'O', element: 'Oxygen', atomicNum: 8, mass: '15.999', electrons: 'Hydroxyl Oxygen' },
-          { x: 135, y: 30, z: -10, radius: 15, color: '#164B73', borderColor: '#09284C', label: 'H', element: 'Hydrogen', atomicNum: 1, mass: '1.008', electrons: 'Hydroxyl Proton' },
+          // Carbons
+          { x: -50, y: 12, z: 0, radius: 22, color: '#09284C', borderColor: '#164B73', label: 'C', element: 'Carbon', atomicNum: 6, mass: '12.011', electrons: 'Methyl Carbon' },
+          { x: 26, y: -10, z: 0, radius: 22, color: '#09284C', borderColor: '#164B73', label: 'C', element: 'Carbon', atomicNum: 6, mass: '12.011', electrons: 'Methylene Carbon' },
+          // Hydroxyl Oxygen
+          { x: 82, y: 32, z: 0, radius: 23, color: '#F4A261', borderColor: '#E76F51', label: 'O', element: 'Oxygen', atomicNum: 8, mass: '15.999', electrons: 'Hydroxyl Oxygen' },
+          // Hydroxyl Hydrogen
+          { x: 126, y: 20, z: 0, radius: 14, color: '#164B73', borderColor: '#09284C', label: 'H', element: 'Hydrogen', atomicNum: 1, mass: '1.008', electrons: 'Hydroxyl Proton' },
+          // Methyl Hydrogens (3)
+          { x: -74, y: -18, z: 32, radius: 13, color: '#164B73', borderColor: '#09284C', label: 'H', element: 'Hydrogen', atomicNum: 1, mass: '1.008', electrons: '1s¹' },
+          { x: -74, y: -18, z: -32, radius: 13, color: '#164B73', borderColor: '#09284C', label: 'H', element: 'Hydrogen', atomicNum: 1, mass: '1.008', electrons: '1s¹' },
+          { x: -74, y: 52, z: 0, radius: 13, color: '#164B73', borderColor: '#09284C', label: 'H', element: 'Hydrogen', atomicNum: 1, mass: '1.008', electrons: '1s¹' },
+          // Methylene Hydrogens (2)
+          { x: 28, y: -52, z: 32, radius: 13, color: '#164B73', borderColor: '#09284C', label: 'H', element: 'Hydrogen', atomicNum: 1, mass: '1.008', electrons: '1s¹' },
+          { x: 28, y: -52, z: -32, radius: 13, color: '#164B73', borderColor: '#09284C', label: 'H', element: 'Hydrogen', atomicNum: 1, mass: '1.008', electrons: '1s¹' },
         ];
         const bonds: Bond[] = [
           { from: 0, to: 1, type: 'single' },
           { from: 1, to: 2, type: 'single' },
           { from: 2, to: 3, type: 'single' },
+          { from: 0, to: 4, type: 'single' },
+          { from: 0, to: 5, type: 'single' },
+          { from: 0, to: 6, type: 'single' },
+          { from: 1, to: 7, type: 'single' },
+          { from: 1, to: 8, type: 'single' },
         ];
-        return { atoms, bonds, scale: 1.0 };
+        return { atoms, bonds, scale: 0.95 };
       } else {
-        // Benzene C6H6 with aromatic resonance
-        const R = 78;
-        const R_H = 124;
+        // Benzene C6H6: True flat regular planar hexagon (z = 0 for all atoms)
+        // All angles = 120°, sp² hybridization
+        const R = 76;
+        const R_H = 120;
         const atoms: Atom[] = [];
         const bonds: Bond[] = [];
 
+        // 6 Carbon atoms on a planar hexagon
         for (let i = 0; i < 6; i++) {
           const theta = (i * Math.PI) / 3;
           atoms.push({
             x: R * Math.cos(theta),
             y: R * Math.sin(theta),
-            z: Math.sin(theta * 2) * 10,
+            z: 0, // Perfectly planar
             radius: 20,
             color: '#09284C',
             borderColor: '#164B73',
@@ -208,12 +319,13 @@ export const MoleculeCanvas = ({ className = '' }: { className?: string }) => {
           });
         }
 
+        // 6 Hydrogen atoms extending radially outwards
         for (let i = 0; i < 6; i++) {
           const theta = (i * Math.PI) / 3;
           atoms.push({
             x: R_H * Math.cos(theta),
             y: R_H * Math.sin(theta),
-            z: Math.sin(theta * 2) * 14,
+            z: 0, // Perfectly planar
             radius: 14,
             color: '#F4A261',
             borderColor: '#E76F51',
@@ -225,11 +337,12 @@ export const MoleculeCanvas = ({ className = '' }: { className?: string }) => {
           });
         }
 
+        // Bonds
         for (let i = 0; i < 6; i++) {
           bonds.push({
             from: i,
             to: (i + 1) % 6,
-            type: 'resonant',
+            type: 'single',
           });
           bonds.push({
             from: i,
@@ -268,7 +381,7 @@ export const MoleculeCanvas = ({ className = '' }: { className?: string }) => {
       if (!p.isMouseDown) {
         p.velY *= 0.96;
         p.velX *= 0.96;
-        p.angleY += p.velY + 0.004; // subtle idle spin
+        p.angleY += p.velY + 0.003; // smooth subtle idle spin
         p.angleX += p.velX;
       }
 
@@ -285,12 +398,84 @@ export const MoleculeCanvas = ({ className = '' }: { className?: string }) => {
       const cosY = Math.cos(p.angleY);
       const sinY = Math.sin(p.angleY);
 
-      const projectedAtoms = atoms.map((atom) => {
-        let x1 = atom.x * cosY + atom.z * sinY;
-        let z1 = -atom.x * sinY + atom.z * cosY;
+      // 1. If Benzene, render inscribed 3D-projected aromatic delocalized pi-ring
+      if (activeMolecule === 'benzene') {
+        ctx.save();
+        ctx.beginPath();
+        const innerRadius = 45;
+        const segments = 36;
+        for (let s = 0; s <= segments; s++) {
+          const phi = (s / segments) * Math.PI * 2;
+          const rx = innerRadius * Math.cos(phi);
+          const ry = innerRadius * Math.sin(phi);
+          const rz = 0;
 
-        let y2 = atom.y * cosX - z1 * sinX;
-        let z2 = atom.y * sinX + z1 * cosX;
+          const rx1 = rx * cosY + rz * sinY;
+          const rz1 = -rx * sinY + rz * cosY;
+          const ry2 = ry * cosX - rz1 * sinX;
+          const rz2 = ry * sinX + rz1 * cosX;
+
+          const pScaleRing = (fov / (fov + rz2 + 220)) * scale;
+          const pxRing = centerX + rx1 * pScaleRing;
+          const pyRing = centerY + ry2 * pScaleRing;
+
+          if (s === 0) {
+            ctx.moveTo(pxRing, pyRing);
+          } else {
+            ctx.lineTo(pxRing, pyRing);
+          }
+        }
+        ctx.strokeStyle = '#F4A261';
+        ctx.lineWidth = 2.5;
+        ctx.setLineDash([4, 4]);
+        ctx.stroke();
+        ctx.restore();
+      }
+
+      // 2. If Water, render Oxygen's 2 Lone Pairs in 3D
+      if (activeMolecule === 'water') {
+        ctx.save();
+        const lonePairs = [
+          { x: 0, y: -52, z: 28 },
+          { x: 0, y: -52, z: -28 },
+        ];
+        lonePairs.forEach((lp) => {
+          const lx1 = lp.x * cosY + lp.z * sinY;
+          const lz1 = -lp.x * sinY + lp.z * cosY;
+          const ly2 = lp.y * cosX - lz1 * sinX;
+          const lz2 = lp.y * sinX + lz1 * cosX;
+
+          const pScaleLP = (fov / (fov + lz2 + 220)) * scale;
+          const pxLP = centerX + lx1 * pScaleLP;
+          const pyLP = centerY + ly2 * pScaleLP;
+
+          // Translucent lone pair orbital lobe
+          ctx.beginPath();
+          ctx.arc(pxLP, pyLP, 10 * pScaleLP, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(244, 162, 97, 0.2)';
+          ctx.fill();
+          ctx.strokeStyle = 'rgba(231, 111, 81, 0.5)';
+          ctx.lineWidth = 1;
+          ctx.setLineDash([2, 3]);
+          ctx.stroke();
+
+          // Electron pair dots
+          ctx.setLineDash([]);
+          ctx.beginPath();
+          ctx.arc(pxLP - 3, pyLP, 2, 0, Math.PI * 2);
+          ctx.arc(pxLP + 3, pyLP, 2, 0, Math.PI * 2);
+          ctx.fillStyle = '#E76F51';
+          ctx.fill();
+        });
+        ctx.restore();
+      }
+
+      const projectedAtoms = atoms.map((atom) => {
+        const x1 = atom.x * cosY + atom.z * sinY;
+        const z1 = -atom.x * sinY + atom.z * cosY;
+
+        const y2 = atom.y * cosX - z1 * sinX;
+        const z2 = atom.y * sinX + z1 * cosX;
 
         const pScale = (fov / (fov + z2 + 220)) * scale;
         const px = centerX + x1 * pScale;
@@ -306,84 +491,38 @@ export const MoleculeCanvas = ({ className = '' }: { className?: string }) => {
         };
       });
 
-      // 1. Quantum Orbital Rings
-      ctx.save();
-      ctx.beginPath();
-      ctx.ellipse(centerX, centerY, 135 * scale, 55 * scale, p.angleY * 0.7, 0, Math.PI * 2);
-      ctx.strokeStyle = 'rgba(244, 162, 97, 0.28)';
-      ctx.lineWidth = 1.5;
-      ctx.setLineDash([5, 8]);
-      ctx.stroke();
-
-      // Orbiting Electron Dot
-      const eTheta1 = p.orbitTime * 2;
-      const ex1 = centerX + Math.cos(eTheta1) * 135 * scale * Math.cos(p.angleY * 0.7) - Math.sin(eTheta1) * 55 * scale * Math.sin(p.angleY * 0.7);
-      const ey1 = centerY + Math.cos(eTheta1) * 135 * scale * Math.sin(p.angleY * 0.7) + Math.sin(eTheta1) * 55 * scale * Math.cos(p.angleY * 0.7);
-
-      ctx.beginPath();
-      ctx.arc(ex1, ey1, 4, 0, Math.PI * 2);
-      ctx.fillStyle = '#F4A261';
-      ctx.shadowColor = '#F4A261';
-      ctx.shadowBlur = 10;
-      ctx.fill();
-      ctx.restore();
-
-      // 2. Bonds with volumetric cylinder look
+      // 3. Bonds with clean solid lines
       bonds.forEach((bond) => {
         const a1 = projectedAtoms[bond.from];
         const a2 = projectedAtoms[bond.to];
         if (!a1 || !a2) return;
 
         ctx.save();
-        if (bond.type === 'resonant') {
-          // Aromatic resonant bond (solid main line + glowing dashed internal line)
-          ctx.beginPath();
-          ctx.moveTo(a1.px, a1.py);
-          ctx.lineTo(a2.px, a2.py);
-          ctx.strokeStyle = 'rgba(9, 40, 76, 0.35)';
-          ctx.lineWidth = 3.5;
-          ctx.stroke();
+        const grad = ctx.createLinearGradient(a1.px, a1.py, a2.px, a2.py);
+        grad.addColorStop(0, a1.color);
+        grad.addColorStop(1, a2.color);
 
-          const dx = a2.px - a1.px;
-          const dy = a2.py - a1.py;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          const nx = (-dy / dist) * 4;
-          const ny = (dx / dist) * 4;
-
-          ctx.beginPath();
-          ctx.setLineDash([3, 4]);
-          ctx.moveTo(a1.px + nx, a1.py + ny);
-          ctx.lineTo(a2.px + nx, a2.py + ny);
-          ctx.strokeStyle = '#F4A261';
-          ctx.lineWidth = 2;
-          ctx.stroke();
-        } else {
-          const grad = ctx.createLinearGradient(a1.px, a1.py, a2.px, a2.py);
-          grad.addColorStop(0, a1.color);
-          grad.addColorStop(1, a2.color);
-
-          ctx.beginPath();
-          ctx.moveTo(a1.px, a1.py);
-          ctx.lineTo(a2.px, a2.py);
-          ctx.strokeStyle = grad;
-          ctx.lineWidth = 3.5;
-          ctx.lineCap = 'round';
-          ctx.stroke();
-        }
+        ctx.beginPath();
+        ctx.moveTo(a1.px, a1.py);
+        ctx.lineTo(a2.px, a2.py);
+        ctx.strokeStyle = grad;
+        ctx.lineWidth = 3.5;
+        ctx.lineCap = 'round';
+        ctx.stroke();
         ctx.restore();
       });
 
-      // 3. Render Atoms with 3D Specular Shading
+      // 4. Render Atoms with 3D Specular Shading
       const sortedAtoms = [...projectedAtoms].sort((a, b) => a.pz - b.pz);
 
       sortedAtoms.forEach((atom) => {
         ctx.save();
 
         // 3D Depth Shadow
-        ctx.shadowColor = 'rgba(9, 40, 76, 0.25)';
-        ctx.shadowBlur = 14;
-        ctx.shadowOffsetX = 3;
-        ctx.shadowOffsetY = 6;
+        ctx.shadowColor = 'rgba(9, 40, 76, 0.2)';
+        ctx.shadowBlur = 12;
+        ctx.shadowOffsetX = 2;
+        ctx.shadowOffsetY = 4;
 
         // Spherical Radial Gradient
         const lightX = atom.px - atom.pRadius * 0.35;
@@ -482,10 +621,12 @@ export const MoleculeCanvas = ({ className = '' }: { className?: string }) => {
     physicsRef.current.isMouseDown = false;
   };
 
+  const meta = moleculeMetadata[activeMolecule];
+
   return (
     <div
       ref={containerRef}
-      className={`relative w-full aspect-square max-w-[490px] mx-auto select-none touch-none ${className}`}
+      className={`relative w-full aspect-square max-w-[480px] mx-auto select-none touch-none ${className}`}
       onMouseDown={(e) => handlePointerDown(e.clientX, e.clientY)}
       onMouseMove={(e) => handlePointerMove(e.clientX, e.clientY)}
       onMouseUp={handlePointerUp}
@@ -503,15 +644,15 @@ export const MoleculeCanvas = ({ className = '' }: { className?: string }) => {
       onTouchEnd={handlePointerUp}
       onTouchCancel={handlePointerUp}
     >
-      {/* Top Glassmorphic Molecule Selector */}
-      <div className="absolute top-2 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5 glass-panel px-3 py-1.5 rounded-full shadow-sm text-xs font-semibold text-brand-navy">
+      {/* Top Clean Molecule Selector */}
+      <div className="absolute top-2 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1 bg-white/95 backdrop-blur-md px-2 py-1.5 rounded-full border border-slate-200/90 shadow-xs text-xs font-semibold text-brand-navy">
         <button
           type="button"
           onClick={() => setActiveMolecule('benzene')}
           className={`px-3 py-1 rounded-full transition-all duration-200 ${
             activeMolecule === 'benzene'
-              ? 'bg-brand-navy text-white shadow-sm'
-              : 'text-brand-muted hover:text-brand-navy'
+              ? 'bg-brand-navy text-white shadow-xs'
+              : 'text-slate-500 hover:text-brand-navy'
           }`}
         >
           C₆H₆ Benzene
@@ -521,8 +662,8 @@ export const MoleculeCanvas = ({ className = '' }: { className?: string }) => {
           onClick={() => setActiveMolecule('water')}
           className={`px-3 py-1 rounded-full transition-all duration-200 ${
             activeMolecule === 'water'
-              ? 'bg-brand-navy text-white shadow-sm'
-              : 'text-brand-muted hover:text-brand-navy'
+              ? 'bg-brand-navy text-white shadow-xs'
+              : 'text-slate-500 hover:text-brand-navy'
           }`}
         >
           H₂O Water
@@ -532,8 +673,8 @@ export const MoleculeCanvas = ({ className = '' }: { className?: string }) => {
           onClick={() => setActiveMolecule('methane')}
           className={`px-3 py-1 rounded-full transition-all duration-200 ${
             activeMolecule === 'methane'
-              ? 'bg-brand-navy text-white shadow-sm'
-              : 'text-brand-muted hover:text-brand-navy'
+              ? 'bg-brand-navy text-white shadow-xs'
+              : 'text-slate-500 hover:text-brand-navy'
           }`}
         >
           CH₄ Methane
@@ -543,8 +684,8 @@ export const MoleculeCanvas = ({ className = '' }: { className?: string }) => {
           onClick={() => setActiveMolecule('ethanol')}
           className={`px-3 py-1 rounded-full transition-all duration-200 ${
             activeMolecule === 'ethanol'
-              ? 'bg-brand-navy text-white shadow-sm'
-              : 'text-brand-muted hover:text-brand-navy'
+              ? 'bg-brand-navy text-white shadow-xs'
+              : 'text-slate-500 hover:text-brand-navy'
           }`}
         >
           C₂H₅OH
@@ -557,27 +698,30 @@ export const MoleculeCanvas = ({ className = '' }: { className?: string }) => {
         className={`w-full h-full block ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}`}
       />
 
-      {/* Luminous Floating Scientific Badges */}
-      <div className="absolute top-14 left-4 glass-panel px-3 py-2 rounded-2xl shadow-md text-left animate-float">
-        <div className="flex items-center gap-1.5 text-[10px] text-brand-orange font-mono uppercase font-bold">
-          <Zap className="w-3 h-3" />
-          <span>Resonance</span>
+      {/* Dynamic Scientific Badge 1: Top Left */}
+      <div className="absolute top-14 left-3 bg-white/95 backdrop-blur-md px-3 py-2 rounded-2xl border border-slate-200/80 shadow-sm text-left animate-float">
+        <div className="flex items-center gap-1.5 text-[10px] text-brand-orange font-mono uppercase font-bold tracking-wider">
+          {meta.badge1.icon === 'zap' && <Zap className="w-3 h-3 text-brand-orange" />}
+          {meta.badge1.icon === 'compass' && <Compass className="w-3 h-3 text-brand-ocean" />}
+          {meta.badge1.icon === 'orbit' && <Orbit className="w-3 h-3 text-emerald-600" />}
+          <span>{meta.badge1.tag}</span>
         </div>
-        <div className="text-sm font-serif font-bold text-brand-navy">150 kJ/mol</div>
-        <div className="text-[10px] text-brand-muted font-sans">Delocalized π Energy</div>
+        <div className="text-sm font-sans font-bold text-brand-navy mt-0.5">{meta.badge1.value}</div>
+        <div className="text-[10.5px] text-slate-500 font-sans">{meta.badge1.sub}</div>
       </div>
 
-      <div className="absolute bottom-12 right-4 glass-panel px-3.5 py-2 rounded-2xl shadow-md text-left animate-float-delayed">
-        <div className="flex items-center gap-1.5 text-[10px] text-emerald-600 font-mono uppercase font-bold">
+      {/* Dynamic Scientific Badge 2: Bottom Right (Right Angle & Figure Info) */}
+      <div className="absolute bottom-11 right-3 bg-white/95 backdrop-blur-md px-3.5 py-2 rounded-2xl border border-slate-200/80 shadow-sm text-left animate-float-delayed">
+        <div className="flex items-center gap-1.5 text-[10px] text-emerald-600 font-mono uppercase font-bold tracking-wider">
           <Orbit className="w-3 h-3" />
-          <span>Bond Angle</span>
+          <span>{meta.badge2.tag}</span>
         </div>
-        <div className="text-sm font-serif font-bold text-brand-navy">104.5° vs 109.5°</div>
-        <div className="text-[10px] text-brand-muted font-sans">Lone Pair Repulsion</div>
+        <div className="text-sm font-sans font-bold text-brand-navy mt-0.5">{meta.badge2.value}</div>
+        <div className="text-[10.5px] text-slate-500 font-sans">{meta.badge2.sub}</div>
       </div>
 
       {/* Tactile Drag Hint */}
-      <div className="absolute bottom-2 left-1/2 -translate-x-1/2 text-[11px] text-brand-muted glass-panel px-3 py-0.5 rounded-full pointer-events-none opacity-80">
+      <div className="absolute bottom-2 left-1/2 -translate-x-1/2 text-[11px] text-slate-400 bg-white/80 backdrop-blur-sm px-3 py-0.5 rounded-full border border-slate-200/60 pointer-events-none">
         Click and drag to spin 3D structure
       </div>
     </div>

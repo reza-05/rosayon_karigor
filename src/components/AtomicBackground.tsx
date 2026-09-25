@@ -43,14 +43,14 @@ export const AtomicBackground: React.FC = () => {
       pulseRadius: 0,
     };
 
-    // Color definitions aligned with Rosayon Karigor palette
+    // Color definitions aligned with Rosayon Karigor palette - soft ambient opacity
     const colors = {
-      ocean: 'rgba(22, 75, 115, 0.45)', // #164B73
-      oceanGlow: 'rgba(22, 75, 115, 0.08)',
-      electric: 'rgba(9, 87, 195, 0.55)', // #0957C3
-      electricGlow: 'rgba(9, 87, 195, 0.1)',
-      amber: 'rgba(244, 162, 97, 0.65)', // #F4A261
-      amberGlow: 'rgba(244, 162, 97, 0.15)',
+      ocean: 'rgba(22, 75, 115, 0.25)',
+      oceanGlow: 'rgba(22, 75, 115, 0.03)',
+      electric: 'rgba(9, 87, 195, 0.30)',
+      electricGlow: 'rgba(9, 87, 195, 0.04)',
+      amber: 'rgba(244, 162, 97, 0.35)',
+      amberGlow: 'rgba(244, 162, 97, 0.05)',
     };
 
     // Responsive particle count
@@ -181,9 +181,9 @@ export const AtomicBackground: React.FC = () => {
           const dist = Math.hypot(dx, dy);
 
           if (dist < MAX_BOND_DISTANCE) {
-            const alpha = (1 - dist / MAX_BOND_DISTANCE) * 0.22;
+            const alpha = (1 - dist / MAX_BOND_DISTANCE) * 0.12;
             ctx.strokeStyle = `rgba(22, 75, 115, ${alpha})`;
-            ctx.lineWidth = 0.8;
+            ctx.lineWidth = 0.75;
 
             if (dist < 42) {
               // Double bond simulation for closely coupled atoms
@@ -314,7 +314,7 @@ export const AtomicBackground: React.FC = () => {
     <canvas
       ref={canvasRef}
       aria-hidden="true"
-      className="fixed inset-0 pointer-events-none z-0 opacity-80 transition-opacity duration-700"
+      className="fixed inset-0 pointer-events-none z-0 opacity-25 transition-opacity duration-700"
     />
   );
 };

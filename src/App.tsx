@@ -15,7 +15,7 @@ export function App() {
   return (
     <Router>
       <ScrollToTop />
-      <div className="relative min-h-screen bg-[#FAFBFC] text-[#0F172A] flex flex-col font-sans selection:bg-[#F4A261]/30 selection:text-[#09284C]">
+      <div className="relative min-h-screen bg-white text-[#0F172A] flex flex-col font-sans selection:bg-[#F4A261]/30 selection:text-[#09284C]">
         {/* Global Interactive Atomic Background */}
         <AtomicBackground />
 
