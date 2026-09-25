@@ -10,17 +10,17 @@ export const Hero = () => {
           {/* Left Column: Headline and Actions */}
           <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
             {/* Minimal Posh Micro Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-50 border border-slate-200/80 shadow-xs text-xs font-mono font-medium text-brand-navy">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-50 border border-slate-200/80 shadow-xs text-xs font-sans font-medium text-brand-navy">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
               <span>HSC 27, 28 & Admission</span>
               <span className="text-slate-300">•</span>
-              <span className="text-brand-orange font-semibold font-bangla">নতুন ব্যাচ ভর্তি চলছে</span>
+              <span className="text-brand-orange font-bold font-bangla">নতুন ব্যাচ ভর্তি চলছে</span>
             </div>
 
             {/* Main Headline */}
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-sans font-bold text-brand-navy tracking-tight leading-[1.14]">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[46px] xl:text-[54px] 2xl:text-6xl font-sans font-bold text-brand-navy tracking-tight leading-[1.12]">
               Chemistry doesn't have to{' '}
-              <span className="text-brand-orange">feel complicated.</span>
+              <span className="text-brand-orange block">feel complicated.</span>
             </h1>
 
             {/* Clean, Non-Cluttered Subtitle */}
