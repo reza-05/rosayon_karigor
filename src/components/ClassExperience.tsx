@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { CheckCircle2, ArrowRight, Sparkles, ExternalLink, HelpCircle, Check, X, Tv } from 'lucide-react';
+import { CheckCircle2, ArrowRight, ExternalLink, HelpCircle, Check, X, Tv } from 'lucide-react';
 
 export const ClassExperience = () => {
   const [showQuizModal, setShowQuizModal] = useState(false);
@@ -21,11 +21,6 @@ export const ClassExperience = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center space-y-4 mb-14">
-          <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-brand-ocean/10 text-brand-ocean text-xs font-bold tracking-wider uppercase">
-            <Sparkles className="w-3.5 h-3.5 text-brand-orange" />
-            <span>CLASSROOM DEMO LECTURE</span>
-          </div>
-
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif text-brand-navy tracking-tight">
             See how a <span className="font-bangla font-bold text-brand-orange">কারিগর</span> class feels.
           </h1>

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Plus, Minus, Sparkles } from 'lucide-react';
+import { Plus, Minus } from 'lucide-react';
 import { faqData } from '../data/faqData';
 
 export const FAQSection = () => {
@@ -15,10 +15,6 @@ export const FAQSection = () => {
         {/* Section Header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-16">
           <div className="space-y-3">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-navy/5 text-brand-ocean text-xs font-bold tracking-wider uppercase">
-              <Sparkles className="w-3.5 h-3.5 text-brand-orange" />
-              <span>FAQ</span>
-            </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-brand-navy tracking-tight">
               Frequently asked questions.
             </h2>

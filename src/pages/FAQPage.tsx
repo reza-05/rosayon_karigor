@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Search, Plus, Minus, MessageCircle, Sparkles, Mail } from 'lucide-react';
+import { Search, Plus, Minus, MessageCircle, Mail } from 'lucide-react';
 import { faqData } from '../data/faqData';
 
 export const FAQPage = () => {
@@ -37,10 +37,6 @@ export const FAQPage = () => {
     <div className="pt-24 pb-16">
       {/* Page Header */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-center space-y-4">
-        <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-brand-navy/5 text-brand-ocean text-xs font-bold tracking-wider uppercase">
-          <Sparkles className="w-3.5 h-3.5 text-brand-orange" />
-          <span>HELP & SUPPORT</span>
-        </div>
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif text-brand-navy tracking-tight">
           Frequently asked questions.
         </h1>

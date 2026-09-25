@@ -39,10 +39,6 @@ export const ProblemSection = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center space-y-4 mb-16">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-orange/15 text-brand-orange text-xs font-bold tracking-wider uppercase">
-            <span>THE PROBLEM</span>
-          </div>
-
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-brand-navy tracking-tight leading-tight">
             You don’t hate chemistry.{' '}
             <span className="text-brand-orange italic font-normal block sm:inline">

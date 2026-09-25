@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowRight, Check, X, FlaskConical, Sparkles } from 'lucide-react';
+import { ArrowRight, Check, X, FlaskConical } from 'lucide-react';
 import { beforeAfterComparison } from '../data/testimonialsData';
 import { LabApparatusPipeline, type LabStage } from './LabApparatusPipeline';
 
@@ -123,11 +123,6 @@ export const KarigorMethod: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center space-y-4 mb-8">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-navy/5 border border-brand-navy/10 text-brand-ocean text-xs font-bold tracking-wider uppercase">
-            <FlaskConical className="w-3.5 h-3.5 text-brand-ocean animate-pulse" />
-            <span>LABORATORY SYNTHESIS • কারিগর মেথডলজি</span>
-          </div>
-
           <h2 className="text-3xl sm:text-5xl lg:text-6xl font-sans font-bold text-brand-navy tracking-tight">
             The <span className="text-brand-ocean font-bangla">কারিগর</span> Method™
           </h2>
@@ -193,7 +188,6 @@ export const KarigorMethod: React.FC = () => {
               href="#demo"
               className="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-brand-navy text-white text-xs font-bold hover:bg-brand-ocean transition-all shadow-sm active:scale-95 flex-shrink-0"
             >
-              <Sparkles className="w-3.5 h-3.5 text-brand-orange" />
               <span>See It In Action</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </a>

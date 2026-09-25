@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Sparkles, FlaskConical, Mail } from 'lucide-react';
+import { FlaskConical, Mail } from 'lucide-react';
 import { timelineExperience, specializations } from '../data/timelineData';
 
 export const MeetTeacher = () => {
@@ -10,11 +10,6 @@ export const MeetTeacher = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top Header */}
         <div className="max-w-3xl mx-auto text-center space-y-4 mb-16">
-          <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-brand-navy/5 text-brand-ocean text-xs font-bold tracking-wider uppercase">
-            <Sparkles className="w-3.5 h-3.5 text-brand-orange" />
-            <span>শিক্ষক পরিচিতি • ABOUT THE EDUCATOR</span>
-          </div>
-
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif text-brand-navy tracking-tight">
             Meet the <span className="font-bangla font-bold text-brand-orange">কারিগর</span>.
           </h1>
@@ -47,7 +42,7 @@ export const MeetTeacher = () => {
                   </div>
                 </div>
                 <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0">
-                  <Sparkles className="w-5 h-5 text-brand-orange" />
+                  <FlaskConical className="w-5 h-5 text-brand-orange" />
                 </div>
               </div>
             </div>

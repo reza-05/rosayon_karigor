@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronLeft, ChevronRight, Quote, Sparkles, Star, CheckCircle2, GraduationCap, ArrowRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Quote, Star, CheckCircle2, GraduationCap, ArrowRight } from 'lucide-react';
 import { testimonialsData } from '../data/testimonialsData';
 
 export const Testimonials: React.FC = () => {
@@ -32,10 +32,6 @@ export const Testimonials: React.FC = () => {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div className="space-y-3 max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-navy/5 border border-brand-navy/10 text-brand-ocean text-xs font-semibold tracking-wider uppercase">
-              <Sparkles className="w-3.5 h-3.5 text-amber-500" />
-              <span>REAL STUDENT EXPERIENCES • বাস্তব অভিজ্ঞতা</span>
-            </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-sans font-bold text-brand-navy tracking-tight">
               শিক্ষার্থীদের চোখে <span className="text-brand-ocean">রসায়ন কারিগর</span>
             </h2>

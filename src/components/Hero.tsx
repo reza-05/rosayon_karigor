@@ -13,14 +13,6 @@ export const Hero = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* Left Column: Headline and Actions */}
           <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
-            {/* Pill Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-brand-navy/10 shadow-sm text-xs font-semibold text-brand-ocean tracking-wide">
-              <span className="w-2 h-2 rounded-full bg-brand-orange animate-pulse" />
-              <span>CHEMISTRY, REIMAGINED</span>
-              <span className="text-brand-muted">•</span>
-              <span className="font-bangla font-normal text-brand-navy">রসায়ন শিক্ষা, নতুন রূপে</span>
-            </div>
-
             {/* Main Headline */}
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-sans font-bold text-brand-navy tracking-tight leading-[1.12]">
               Chemistry doesn't have to{' '}

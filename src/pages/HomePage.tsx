@@ -3,7 +3,7 @@ import { Hero } from '../components/Hero';
 import { ProblemSection } from '../components/ProblemSection';
 import { StatsBar } from '../components/StatsBar';
 import { ClassroomGallery } from '../components/ClassroomGallery';
-import { ArrowRight, Sparkles, PlayCircle, UserCheck, HelpCircle } from 'lucide-react';
+import { ArrowRight, PlayCircle, UserCheck, HelpCircle } from 'lucide-react';
 
 export const HomePage = () => {
   return (
@@ -19,10 +19,6 @@ export const HomePage = () => {
         <div className="glass-panel rounded-3xl p-8 sm:p-12 border border-brand-navy/10 shadow-card">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-7 space-y-4">
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-orange/15 text-brand-orange text-xs font-bold tracking-wider uppercase">
-                <Sparkles className="w-3.5 h-3.5 text-brand-orange" />
-                <span>SIGNATURE FRAMEWORK</span>
-              </div>
               <h2 className="text-3xl sm:text-4xl font-serif text-brand-navy">
                 The <span className="font-bangla font-bold">কারিগর</span> Method™
               </h2>

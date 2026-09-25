@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import type { FormEvent } from 'react';
-import { ArrowRight, CheckCircle2, ShieldCheck, Sparkles, MessageCircle, AlertCircle, Award } from 'lucide-react';
+import { ArrowRight, CheckCircle2, ShieldCheck, MessageCircle, AlertCircle, Award } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import type { EnrollmentFormData } from '../types';
 
@@ -77,11 +77,6 @@ export const EnrollmentForm = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Left Column: Heading & Trust */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 text-brand-orange text-xs font-bold tracking-wider uppercase">
-              <Sparkles className="w-3.5 h-3.5 text-brand-orange" />
-              <span>PREMIUM MENTORSHIP BATCH</span>
-            </div>
-
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-white tracking-tight leading-tight">
               Ready to make chemistry easier?
             </h2>

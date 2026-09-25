@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, Sparkles } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface ClassroomSlide {
   image: string;
@@ -49,11 +49,6 @@ export const ClassroomGallery = () => {
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       {/* Section Header */}
       <div className="text-center max-w-3xl mx-auto mb-10 space-y-3">
-        <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-brand-orange/10 text-brand-orange text-xs font-bold tracking-wider uppercase">
-          <Sparkles className="w-3.5 h-3.5 text-brand-orange" />
-          <span>CLASSROOM GLIMPSE • অফলাইন ক্লাসরুম</span>
-        </div>
-
         <h3 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-brand-navy tracking-tight">
           রসায়ন কারিগরের <span className="font-bangla font-bold text-brand-orange">বাস্তব ক্লাসরুম</span>
         </h3>

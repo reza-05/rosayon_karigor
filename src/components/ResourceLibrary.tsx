@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FileText, Map, CheckSquare, Video, Download, Eye, Sparkles, X, CheckCircle, ArrowRight } from 'lucide-react';
+import { FileText, Map, CheckSquare, Video, Download, Eye, BookOpen, X, CheckCircle, ArrowRight } from 'lucide-react';
 import { resourcesData } from '../data/resourcesData';
 import type { ChemistryResource } from '../types';
 
@@ -32,7 +32,7 @@ export const ResourceLibrary = () => {
       case 'problem_set':
         return <CheckSquare className="w-5 h-5 text-emerald-600" />;
       case 'formula_sheet':
-        return <Sparkles className="w-5 h-5 text-indigo-600" />;
+        return <BookOpen className="w-5 h-5 text-indigo-600" />;
       case 'video_list':
         return <Video className="w-5 h-5 text-purple-600" />;
     }
@@ -50,11 +50,6 @@ export const ResourceLibrary = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center space-y-4 mb-12">
-          <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-brand-orange/15 text-brand-orange text-xs font-bold tracking-wider uppercase">
-            <Sparkles className="w-3.5 h-3.5 text-brand-orange" />
-            <span>FREE DIGITAL LIBRARY</span>
-          </div>
-
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif text-brand-navy tracking-tight">
             A free library for curious minds.
           </h1>
@@ -175,7 +170,7 @@ export const ResourceLibrary = () => {
         <div className="mt-12 bg-white rounded-2xl p-6 border border-brand-navy/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-full bg-brand-orange/15 text-brand-orange flex items-center justify-center flex-shrink-0">
-              <Sparkles className="w-5 h-5" />
+              <BookOpen className="w-5 h-5" />
             </div>
             <div>
               <div className="text-sm font-bold text-brand-navy font-serif">

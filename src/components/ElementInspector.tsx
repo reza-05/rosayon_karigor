@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Sparkles, Atom, ShieldAlert, CheckCircle2 } from 'lucide-react';
+import { Atom, ShieldAlert, CheckCircle2 } from 'lucide-react';
 
 interface ElementInfo {
   symbol: string;
@@ -137,10 +137,6 @@ export const ElementInspector = () => {
         {/* Section Header */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
           <div>
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-navy/5 text-brand-ocean text-xs font-bold tracking-wider uppercase mb-1">
-              <Sparkles className="w-3.5 h-3.5 text-brand-orange" />
-              <span>INTERACTIVE CHEMISTRY PLAYGROUND</span>
-            </div>
             <h3 className="text-2xl sm:text-3xl font-serif text-brand-navy">
               Element Quantum Inspector
             </h3>

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Sparkles, Orbit } from 'lucide-react';
+import { Zap, Orbit } from 'lucide-react';
 
 interface Atom {
   x: number;
@@ -560,7 +560,7 @@ export const MoleculeCanvas = ({ className = '' }: { className?: string }) => {
       {/* Luminous Floating Scientific Badges */}
       <div className="absolute top-14 left-4 glass-panel px-3 py-2 rounded-2xl shadow-md text-left animate-float">
         <div className="flex items-center gap-1.5 text-[10px] text-brand-orange font-mono uppercase font-bold">
-          <Sparkles className="w-3 h-3" />
+          <Zap className="w-3 h-3" />
           <span>Resonance</span>
         </div>
         <div className="text-sm font-serif font-bold text-brand-navy">150 kJ/mol</div>
