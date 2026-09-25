@@ -102,11 +102,6 @@ export const KarigorMethod: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="max-w-4xl mx-auto text-center space-y-4 mb-8">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-ocean/10 text-brand-ocean text-xs font-mono font-bold uppercase tracking-wider mb-1">
-            <span className="w-2 h-2 rounded-full bg-brand-ocean animate-pulse" />
-            <span>Graphical Chemical Flow</span>
-          </div>
-
           <h2 className="text-3xl sm:text-5xl lg:text-6xl font-sans font-bold text-brand-navy tracking-tight">
             The <span className="text-brand-ocean font-bangla">কারিগর</span> Method
           </h2>
