@@ -39,7 +39,7 @@ export const MeetTeacher = () => {
                   Farzaad Sawrar
                 </div>
                 <div className="text-xs font-bangla text-brand-navy font-medium mt-0.5">
-                  ফারজাদ সওড়ার (ফারজাদ ভাইয়া) • প্রতিষ্ঠাতা ও মেন্টর, রসায়ন কারিগর
+                  প্রতিষ্ঠাতা ও মেন্টর, রসায়ন কারিগর
                 </div>
                 <div className="text-[11px] font-mono text-brand-ocean mt-0.5">
                   CEE, Islamic University of Technology (IUT)
