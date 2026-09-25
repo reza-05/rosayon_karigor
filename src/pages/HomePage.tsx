@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Hero } from '../components/Hero';
 import { ProblemSection } from '../components/ProblemSection';
-import { ElementInspector } from '../components/ElementInspector';
 import { StatsBar } from '../components/StatsBar';
 import { ClassroomGallery } from '../components/ClassroomGallery';
 import { ArrowRight, Sparkles, PlayCircle, FolderDown, UserCheck, HelpCircle } from 'lucide-react';
@@ -54,10 +53,7 @@ export const HomePage = () => {
         </div>
       </section>
 
-      {/* 4. Interactive Element Quantum Inspector */}
-      <ElementInspector />
-
-      {/* 5. Live Statistics Ribbon */}
+      {/* 4. Live Statistics Ribbon */}
       <StatsBar />
 
       {/* 6. Quick Discovery Grid (Class Demo, Resources, About, FAQ) */}
