@@ -80,23 +80,27 @@ export const Navbar = () => {
 
           {/* Desktop Right CTA */}
           <div className="hidden lg:flex items-center gap-3">
-            <Link
-              to="/enroll"
+            <a
+              href="https://www.facebook.com/roshayonkarigor"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-brand-orange text-white text-sm font-semibold shadow-sm hover:bg-brand-orange-hover hover:shadow-glow-orange active:scale-[0.98] transition-all duration-200 group"
             >
               <span>Join Next Batch</span>
               <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5" />
-            </Link>
+            </a>
           </div>
 
           {/* Mobile & Tablet Menu Button */}
           <div className="flex lg:hidden items-center gap-2">
-            <Link
-              to="/enroll"
+            <a
+              href="https://www.facebook.com/roshayonkarigor"
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-3 py-1.5 rounded-full bg-brand-orange text-white text-xs font-semibold shadow-sm"
             >
               ভর্তি হোন
-            </Link>
+            </a>
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -139,14 +143,16 @@ export const Navbar = () => {
           </div>
 
           <div className="pt-3 border-t border-slate-200/60">
-            <Link
-              to="/enroll"
+            <a
+              href="https://www.facebook.com/roshayonkarigor"
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => setMobileMenuOpen(false)}
               className="w-full flex items-center justify-center gap-2 py-3 rounded-full btn-luxury-primary text-white text-sm font-semibold shadow-md"
             >
               <span>Join Next Batch / ব্যাচে ভর্তি হোন</span>
               <ArrowRight className="w-4 h-4" />
-            </Link>
+            </a>
           </div>
         </div>
       )}

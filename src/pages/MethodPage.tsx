@@ -1,6 +1,5 @@
 import { KarigorMethod } from '../components/KarigorMethod';
 import { Testimonials } from '../components/Testimonials';
-import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 
 export const MethodPage = () => {
@@ -23,13 +22,15 @@ export const MethodPage = () => {
             আমাদের আসন্ন ব্যাচে ভর্তি চলছে। এখনই তোমার আসন সংরক্ষণ করো এবং রসায়নের ভীতি জয় করো।
           </p>
           <div className="pt-2">
-            <Link
-              to="/enroll"
+            <a
+              href="https://www.facebook.com/roshayonkarigor"
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn-luxury-primary inline-flex items-center gap-2 text-sm font-semibold tracking-wide"
             >
               <span>Join Upcoming Batch</span>
               <ArrowRight className="w-4 h-4" />
-            </Link>
+            </a>
           </div>
         </div>
       </div>

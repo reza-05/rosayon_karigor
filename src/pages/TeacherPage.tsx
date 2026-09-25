@@ -1,5 +1,4 @@
 import { MeetTeacher } from '../components/MeetTeacher';
-import { Link } from 'react-router-dom';
 import { ArrowRight, Award } from 'lucide-react';
 
 export const TeacherPage = () => {
@@ -24,13 +23,15 @@ export const TeacherPage = () => {
               প্রতিটি শিক্ষার্থীকে ব্যক্তিগতভাবে তদারকি এবং যেকোনো কঠিন টপিক ওয়ান-টু-ওয়ান ডাউট সলভের মাধ্যমে বুঝিয়ে দেওয়া হয়।
             </p>
           </div>
-          <Link
-            to="/enroll"
+          <a
+            href="https://www.facebook.com/roshayonkarigor"
+            target="_blank"
+            rel="noopener noreferrer"
             className="btn-luxury-primary inline-flex items-center gap-2 text-sm font-semibold tracking-wide flex-shrink-0"
           >
             <span>আসন্ন ব্যাচে ভর্তি হোন</span>
             <ArrowRight className="w-4 h-4" />
-          </Link>
+          </a>
         </div>
       </div>
     </div>

@@ -187,7 +187,9 @@ export const ResourceLibrary = () => {
             </div>
           </div>
           <a
-            href="#enroll"
+            href="https://www.facebook.com/roshayonkarigor"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-brand-orange text-white text-xs font-semibold hover:bg-brand-orange-hover transition-colors flex-shrink-0"
           >
             <span>Join Upcoming Batch</span>

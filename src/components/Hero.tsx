@@ -51,13 +51,15 @@ export const Hero = () => {
 
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
-              <Link
-                to="/enroll"
+              <a
+                href="https://www.facebook.com/roshayonkarigor"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full btn-luxury-primary text-white text-base font-semibold shadow-md transition-all duration-200 group"
               >
                 <span>Join the Next Batch</span>
                 <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
-              </Link>
+              </a>
 
               <Link
                 to="/demo"

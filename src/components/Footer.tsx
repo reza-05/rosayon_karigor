@@ -171,10 +171,12 @@ export const Footer = () => {
 
             <div className="pt-2">
               <a
-                href="#enroll"
+                href="https://www.facebook.com/roshayonkarigor"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-block text-xs font-semibold text-brand-orange hover:underline font-bangla"
               >
-                ব্যাচ ভর্তির বিস্তারিত জানতে ক্লিক করুন →
+                ব্যাচ ভর্তির বিস্তারিত জানতে মেসেজ দিন →
               </a>
             </div>
           </div>

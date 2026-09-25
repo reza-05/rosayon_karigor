@@ -30,7 +30,9 @@ export const FAQSection = () => {
           <div className="text-left sm:text-right">
             <span className="text-xs text-brand-muted block">Still have questions?</span>
             <a
-              href="#enroll"
+              href="https://www.facebook.com/roshayonkarigor"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-xs font-semibold text-brand-orange hover:underline inline-flex items-center gap-1"
             >
               <span>Feel free to contact us</span>

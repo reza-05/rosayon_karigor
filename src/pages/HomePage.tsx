@@ -176,13 +176,15 @@ export const HomePage = () => {
               এইচএসসি ও এডমিশনের সেরা প্রস্তুতি।
             </p>
             <div className="pt-2">
-              <Link
-                to="/enroll"
+              <a
+                href="https://www.facebook.com/roshayonkarigor"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full btn-luxury-primary text-white text-sm font-semibold transition-all shadow-md"
               >
                 <span>Reserve My Seat / আসন নিশ্চিত করুন</span>
                 <ArrowRight className="w-4 h-4" />
-              </Link>
+              </a>
             </div>
           </div>
         </div>

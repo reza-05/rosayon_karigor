@@ -1,5 +1,4 @@
 import { ClassExperience } from '../components/ClassExperience';
-import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 
 export const DemoPage = () => {
@@ -19,13 +18,15 @@ export const DemoPage = () => {
             সম্পূর্ণ সিলেবাস শেষ করার জন্য যুক্ত হও আমাদের পূর্ণাঙ্গ অনলাইন ও অফলাইন ব্যাচে।
           </p>
           <div className="pt-2">
-            <Link
-              to="/enroll"
+            <a
+              href="https://www.facebook.com/roshayonkarigor"
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn-luxury-primary inline-flex items-center gap-2 text-sm font-semibold tracking-wide"
             >
-              <span>ব্যাচে ভর্তি হোন (Enroll Now)</span>
+              <span>ব্যাচে ভর্তি হোন (Join Next Batch)</span>
               <ArrowRight className="w-4 h-4" />
-            </Link>
+            </a>
           </div>
         </div>
       </div>
