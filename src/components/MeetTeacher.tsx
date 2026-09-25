@@ -28,33 +28,18 @@ export const MeetTeacher = () => {
               </div>
 
               <p className="text-brand-navy/90 text-sm sm:text-base leading-relaxed">
-                আমি <strong className="text-brand-navy font-bold">ফারজাদ ভাইয়া</strong>, আইইউটি (IUT)-তে Civil and Environmental Engineering department এর শিক্ষার্থী এবং ‘রসায়ন কারিগর’-এর প্রতিষ্ঠাতা। আমার এই যাত্রাপথে আমি ৯ম থেকে ১২শ শ্রেণির শিক্ষার্থীদের পড়িয়েছি; ‘শিক্ষানীড় একাডেমিক কোচিং’-এ রসায়ন বিভাগের প্রধান (Former Head of the Chemistry Department) এবং ‘উদ্ভাস ইঞ্জিনিয়ারিং অ্যাডমিশন প্রোগ্রাম’-এ রসায়ন বিষয়ের প্রধান পরীক্ষক (Head Examiner) হিসেবে দায়িত্ব পালন করেছি।
+                আমি <strong className="text-brand-navy font-bold">Farzaad Sawrar (ফারজাদ ভাইয়া)</strong>, আইইউটি (IUT)-তে Civil and Environmental Engineering department এর শিক্ষার্থী এবং ‘রসায়ন কারিগর’-এর প্রতিষ্ঠাতা। আমার এই যাত্রাপথে আমি ৯ম থেকে ১২শ শ্রেণির শিক্ষার্থীদের পড়িয়েছি; ‘শিক্ষানীড় একাডেমিক কোচিং’-এ রসায়ন বিভাগের প্রধান (Former Head of the Chemistry Department) এবং ‘উদ্ভাস ইঞ্জিনিয়ারিং অ্যাডমিশন প্রোগ্রাম’-এ রসায়ন বিষয়ের প্রধান পরীক্ষক (Head Examiner) হিসেবে দায়িত্ব পালন করেছি। শিক্ষার্থীদের রসায়নের ভীতি দূর করে আত্মবিশ্বাস তৈরি করাই আমার লক্ষ্য—কারণ আমার একটাই বিশ্বাস ও প্রত্যয়, <span className="text-brand-orange font-bold">"রসায়ন মানেই, রসায়ন কারিগর।"</span>
               </p>
-
-              {/* Punchline Card */}
-              <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-brand-navy via-brand-navy to-brand-ocean text-white shadow-md flex items-center justify-between gap-4">
-                <div>
-                  <div className="text-[11px] font-mono tracking-widest text-brand-orange uppercase font-bold">
-                    মটো ও প্রত্যয়
-                  </div>
-                  <div className="text-xl sm:text-2xl font-bold font-bangla mt-0.5 tracking-wide">
-                    রসায়ন মানেই, রসায়ন কারিগর।
-                  </div>
-                </div>
-                <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0">
-                  <FlaskConical className="w-5 h-5 text-brand-orange" />
-                </div>
-              </div>
             </div>
 
             {/* Signature & Credentials Badge */}
             <div className="pt-6 border-t border-brand-navy/10 flex flex-wrap items-center justify-between gap-4">
               <div>
                 <div className="font-serif italic text-2xl font-bold text-brand-navy">
-                  Farzaad
+                  Farzaad Sawrar
                 </div>
                 <div className="text-xs font-bangla text-brand-navy font-medium mt-0.5">
-                  ফারজাদ ভাইয়া • প্রতিষ্ঠাতা ও মেন্টর, রসায়ন কারিগর
+                  ফারজাদ সওড়ার (ফারজাদ ভাইয়া) • প্রতিষ্ঠাতা ও মেন্টর, রসায়ন কারিগর
                 </div>
                 <div className="text-[11px] font-mono text-brand-ocean mt-0.5">
                   CEE, Islamic University of Technology (IUT)
@@ -92,7 +77,7 @@ export const MeetTeacher = () => {
                 <div className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-brand-navy/5">
                   <img
                     src="/farzaad.jpg"
-                    alt="ফারজাদ ভাইয়া - প্রতিষ্ঠাতা ও প্রধান রসায়ন মেন্টর, রসায়ন কারিগর"
+                    alt="Farzaad Sawrar (ফারজাদ ভাইয়া) - প্রতিষ্ঠাতা ও প্রধান রসায়ন মেন্টর, রসায়ন কারিগর"
                     className="w-full h-full object-cover object-top"
                   />
                   {/* Overlay Gradient */}
@@ -104,26 +89,21 @@ export const MeetTeacher = () => {
                       Founder & Lead Chemistry Mentor
                     </div>
                     <div className="font-serif text-2xl font-bold flex items-baseline gap-2">
-                      <span>Farzaad</span>
+                      <span>Farzaad Sawrar</span>
                       <span className="font-bangla text-sm font-normal text-slate-200">(ফারজাদ ভাইয়া)</span>
                     </div>
                     <div className="text-xs text-slate-200 font-sans mt-0.5">
                       Civil & Environmental Engineering, IUT
                     </div>
-                    <div className="mt-2 pt-2 border-t border-white/15 flex flex-wrap gap-1.5">
-                      <span className="text-[10px] font-bangla px-2 py-0.5 rounded-md bg-white/15 text-slate-100">
-                        সাবেক প্রধান পরীক্ষক, উদ্ভাস
+                    <div className="mt-2.5 pt-2.5 border-t border-white/15 flex flex-wrap gap-1.5">
+                      <span className="text-[11px] font-sans font-medium px-2.5 py-1 rounded-md bg-white/15 backdrop-blur-sm text-slate-100">
+                        Former Head Examiner, Udvash
                       </span>
-                      <span className="text-[10px] font-bangla px-2 py-0.5 rounded-md bg-white/15 text-slate-100">
-                        সাবেক বিভাগীয় প্রধান, শিক্ষানীড়
+                      <span className="text-[11px] font-sans font-medium px-2.5 py-1 rounded-md bg-white/15 backdrop-blur-sm text-slate-100">
+                        Former Head of Chemistry, Shikkhanir
                       </span>
                     </div>
                   </div>
-                </div>
-
-                {/* Floating quote badge */}
-                <div className="mt-3 p-3 rounded-xl bg-slate-50 border border-slate-200/80 text-xs text-brand-navy font-bangla font-semibold text-center">
-                  "রসায়ন মানেই, রসায়ন কারিগর।"
                 </div>
               </div>
             </div>
