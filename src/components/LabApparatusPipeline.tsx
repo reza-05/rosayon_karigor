@@ -63,9 +63,10 @@ export const LabApparatusPipeline: React.FC<LabApparatusPipelineProps> = ({
             </linearGradient>
 
             <linearGradient id="pastelGoldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stopColor="#FEF08A" stopOpacity="0.95" />
-              <stop offset="50%" stopColor="#FDE047" stopOpacity="0.85" />
-              <stop offset="100%" stopColor="#EAB308" stopOpacity="0.9" />
+              <stop offset="0%" stopColor="#FEF3C7" stopOpacity="0.95" />
+              <stop offset="30%" stopColor="#FBBF24" stopOpacity="0.9" />
+              <stop offset="70%" stopColor="#F59E0B" stopOpacity="0.9" />
+              <stop offset="100%" stopColor="#EA580C" stopOpacity="0.92" />
             </linearGradient>
 
             {/* Bunsen Burner Outer Flame Gradient */}
@@ -335,6 +336,30 @@ export const LabApparatusPipeline: React.FC<LabApparatusPipelineProps> = ({
               .anim-suction-flow {
                 stroke-dasharray: 8 6;
                 animation: suctionDashUp 1.5s linear infinite;
+              }
+              @keyframes gaugeNeedleFlutter {
+                0%, 100% {
+                  transform: rotate(-36deg);
+                }
+                18% {
+                  transform: rotate(-44deg);
+                }
+                35% {
+                  transform: rotate(-32deg);
+                }
+                52% {
+                  transform: rotate(-48deg);
+                }
+                70% {
+                  transform: rotate(-35deg);
+                }
+                85% {
+                  transform: rotate(-42deg);
+                }
+              }
+              .anim-gauge-needle {
+                transform-origin: 950px 275px;
+                animation: gaugeNeedleFlutter 2s infinite ease-in-out;
               }
             `}</style>
           </defs>
@@ -765,12 +790,12 @@ export const LabApparatusPipeline: React.FC<LabApparatusPipelineProps> = ({
               STEP 5: VOLUMETRIC FLASK (2-HOLE STOPPER) & VACUUM PUMP
              ======================================================== */}
           <g>
-            {/* VOLUMETRIC FLASK */}
+            {/* VOLUMETRIC FLASK (Filled to calibration line with rich orange chemical) */}
             <path
-              d="M 808 376 Q 808 380 813 380 L 857 380 Q 862 380 862 376 Q 868 340 850 305 L 845 305 L 825 305 L 820 305 Q 802 340 808 376 Z"
+              d="M 808 376 Q 808 380 813 380 L 857 380 Q 862 380 862 376 Q 872 310 845 275 L 845 205 L 825 205 L 825 275 Q 795 310 808 376 Z"
               fill="url(#pastelGoldGrad)"
             />
-            <ellipse cx="835" cy="305" rx="12" ry="2.5" fill="#FEF08A" opacity="0.8" />
+            <ellipse cx="835" cy="205" rx="10" ry="2" fill="#FEF3C7" opacity="0.9" />
 
             {/* Sparkling Crystals in Volumetric Flask */}
             <g transform="translate(835, 365)">
@@ -818,8 +843,12 @@ export const LabApparatusPipeline: React.FC<LabApparatusPipelineProps> = ({
             <line x1="950" y1="262" x2="950" y2="266" stroke="#64748B" strokeWidth="1.5" />
             <line x1="960" y1="266" x2="957" y2="269" stroke="#64748B" strokeWidth="1.5" />
             <line x1="940" y1="266" x2="943" y2="269" stroke="#64748B" strokeWidth="1.5" />
-            <line x1="950" y1="275" x2="943" y2="267" stroke="#EF4444" strokeWidth="2" strokeLinecap="round" />
-            <circle cx="950" cy="275" r="2" fill="#334155" />
+
+            {/* Live Oscillating Vacuum Needle */}
+            <g className="anim-gauge-needle">
+              <line x1="950" y1="275" x2="950" y2="263" stroke="#EF4444" strokeWidth="2.2" strokeLinecap="round" />
+            </g>
+            <circle cx="950" cy="275" r="2.2" fill="#334155" />
 
             {/* Intake port */}
             <rect x="946" y="275" width="8" height="12" rx="1.5" fill="#334155" />
