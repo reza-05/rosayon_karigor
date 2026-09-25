@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Sparkles, FlaskConical } from 'lucide-react';
+import { Sparkles, FlaskConical, Mail } from 'lucide-react';
 import { timelineExperience, specializations } from '../data/timelineData';
 
 export const MeetTeacher = () => {
@@ -12,14 +12,14 @@ export const MeetTeacher = () => {
         <div className="max-w-3xl mx-auto text-center space-y-4 mb-16">
           <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-brand-navy/5 text-brand-ocean text-xs font-bold tracking-wider uppercase">
             <Sparkles className="w-3.5 h-3.5 text-brand-orange" />
-            <span>ABOUT THE EDUCATOR</span>
+            <span>শিক্ষক পরিচিতি • ABOUT THE EDUCATOR</span>
           </div>
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif text-brand-navy tracking-tight">
-            Meet the <span className="font-bangla font-bold">কারিগর</span>.
+            Meet the <span className="font-bangla font-bold text-brand-orange">কারিগর</span>.
           </h1>
           <p className="text-base sm:text-lg text-brand-muted font-bangla max-w-2xl mx-auto leading-relaxed">
-            A teacher, a learner, and a firm believer that better explanations can change everything. প্রতিটি শিক্ষার্থীর মাঝে রসায়নের প্রতি ভালোবাসা ও গভীর উপলব্ধি তৈরি করাই আমার অঙ্গীকার।
+            রসায়ন মানে কেবল মুখস্থ করা নয়; বরং এটি হলো বিষয়টিকে গভীরভাবে বুঝতে পারা।
           </p>
         </div>
 
@@ -27,34 +27,61 @@ export const MeetTeacher = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-20">
           {/* Left Column: Teacher Story & Philosophy */}
           <div className="lg:col-span-7 space-y-6">
-            <div className="space-y-4 text-brand-navy text-base sm:text-lg leading-relaxed font-bangla">
-              <p>
-                আমি যখন প্রথম রসায়ন পড়ানো শুরু করি, লক্ষ্য করলাম অনেক মেধাবী শিক্ষার্থী রসায়নে ভয় পায় — তাদের মেধার
-                ঘাটতির কারণে নয়, বরং বিষয়টিকে তাদের সামনে তুলে ধরা হয়েছে অগণিত বিচ্ছিন্ন সূত্রের বোঝা হিসেবে।
+            <div className="space-y-5 text-brand-navy text-base sm:text-lg leading-relaxed font-bangla">
+              <div className="bg-amber-50/70 p-5 rounded-2xl border-l-4 border-brand-orange text-brand-navy leading-relaxed shadow-sm">
+                “অধিকাংশ শিক্ষার্থীর ধারণা, রসায়ন মানেই প্রচুর বিক্রিয়া, সূত্র এবং মুখস্থ করার বিষয়। কিন্তু এক পর্যায়ে আমি বুঝতে পারি যে, রসায়ন মানে কেবল মুখস্থ করা নয়; বরং এটি হলো বিষয়টিকে বুঝতে পারা। সেই ছোট্ট চিন্তা থেকেই রসায়ন কারিগরের যাত্রা শুরু, যেখানে আমি আমার প্রতিটি শিক্ষার্থীর মধ্যে সেই পরিবর্তনটিই আনতে চাই, যাতে তাদের চিন্তাধারা <span className="text-brand-ocean font-bold">"আমাকে এটা মুখস্থ করতে হবে"</span> থেকে পরিবর্তন হয়ে <span className="text-emerald-700 font-bold">"এখন আমি জানি কেন এমনটা হয়"</span>-তে রূপান্তরিত হয়।”
+              </div>
+
+              <p className="text-brand-navy/90 text-sm sm:text-base leading-relaxed">
+                আমি <strong className="text-brand-navy font-bold">ফারজাদ ভাইয়া</strong>, আইইউটি (IUT)-তে Civil and Environmental Engineering department এর শিক্ষার্থী এবং ‘রসায়ন কারিগর’-এর প্রতিষ্ঠাতা। আমার এই যাত্রাপথে আমি ৯ম থেকে ১২শ শ্রেণির শিক্ষার্থীদের পড়িয়েছি; ‘শিক্ষানীড় একাডেমিক কোচিং’-এ রসায়ন বিভাগের প্রধান (Former Head of the Chemistry Department) এবং ‘উদ্ভাস ইঞ্জিনিয়ারিং অ্যাডমিশন প্রোগ্রাম’-এ রসায়ন বিষয়ের প্রধান পরীক্ষক (Head Examiner) হিসেবে দায়িত্ব পালন করেছি।
               </p>
-              <p className="text-brand-muted font-sans text-sm sm:text-base leading-relaxed">
-                "Today, I teach to make chemistry visible, understandable, and applicable — so that students can build
-                unshakable confidence, think clearly, and truly enjoy the science."
-              </p>
-              <p>
-                আমার লক্ষ্য কেবল শিক্ষার্থীদের পরীক্ষায় ভালো নম্বর এনে দেওয়া নয়, বরং তাদের মধ্যে একটি বৈজ্ঞানিক দৃষ্টিভঙ্গি
-                ও যৌক্তিক চিন্তাশক্তি গড়ে তোলা—যা তাদের উচ্চশিক্ষায় ও যেকোনো প্রতিযোগিতামূলক ভর্তি পরীক্ষায় এগিয়ে রাখবে।
-              </p>
+
+              {/* Punchline Card */}
+              <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-brand-navy via-brand-navy to-brand-ocean text-white shadow-md flex items-center justify-between gap-4">
+                <div>
+                  <div className="text-[11px] font-mono tracking-widest text-brand-orange uppercase font-bold">
+                    মটো ও প্রত্যয়
+                  </div>
+                  <div className="text-xl sm:text-2xl font-bold font-bangla mt-0.5 tracking-wide">
+                    রসায়ন মানেই, রসায়ন কারিগর।
+                  </div>
+                </div>
+                <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0">
+                  <Sparkles className="w-5 h-5 text-brand-orange" />
+                </div>
+              </div>
             </div>
 
-            {/* Signature & Seal */}
-            <div className="pt-6 border-t border-brand-navy/10 flex items-center justify-between">
+            {/* Signature & Credentials Badge */}
+            <div className="pt-6 border-t border-brand-navy/10 flex flex-wrap items-center justify-between gap-4">
               <div>
-                <div className="font-serif italic text-2xl text-brand-navy">
-                  Reza
+                <div className="font-serif italic text-2xl font-bold text-brand-navy">
+                  Farzaad
                 </div>
-                <div className="text-xs font-bangla text-brand-muted mt-0.5">
-                  প্রতিষ্ঠাতা ও প্রধান নির্দেশক, রসায়ন কারিগর
+                <div className="text-xs font-bangla text-brand-navy font-medium mt-0.5">
+                  ফারজাদ ভাইয়া • প্রতিষ্ঠাতা ও মেন্টর, রসায়ন কারিগর
+                </div>
+                <div className="text-[11px] font-mono text-brand-ocean mt-0.5">
+                  CEE, Islamic University of Technology (IUT)
                 </div>
               </div>
 
-              <div className="px-4 py-2 rounded-xl bg-slate-100 border border-slate-200 text-xs font-mono font-medium text-brand-ocean">
-                Chemistry for a Brighter You
+              <div className="flex items-center gap-2">
+                <a
+                  href="https://www.facebook.com/roshayonkarigor"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-3.5 py-1.5 rounded-xl bg-blue-50 hover:bg-blue-100 border border-blue-200 text-xs font-medium text-blue-700 transition-colors inline-flex items-center gap-1.5"
+                >
+                  <span>Facebook Page</span>
+                </a>
+                <a
+                  href="mailto:farzaadp68@gmail.com"
+                  className="px-3.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 border border-slate-200 text-xs font-medium text-slate-700 transition-colors inline-flex items-center gap-1.5"
+                >
+                  <Mail className="w-3.5 h-3.5 text-slate-500" />
+                  <span>ইমেইল</span>
+                </a>
               </div>
             </div>
           </div>
@@ -63,36 +90,45 @@ export const MeetTeacher = () => {
           <div className="lg:col-span-5 relative">
             <div className="relative mx-auto max-w-md">
               {/* Background Accent Frame */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-brand-navy to-brand-ocean rounded-3xl rotate-3 scale-[1.02] shadow-xl" />
+              <div className="absolute inset-0 bg-gradient-to-tr from-brand-navy to-brand-ocean rounded-3xl rotate-2 scale-[1.02] shadow-xl" />
 
               {/* Card Container */}
               <div className="relative bg-white rounded-3xl p-4 shadow-card overflow-hidden">
                 <div className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-brand-navy/5">
                   <img
-                    src="https://images.unsplash.com/photo-1577896851231-70ef18881754?w=800&auto=format&fit=crop&q=80"
-                    alt="Teacher in classroom"
-                    className="w-full h-full object-cover"
+                    src="/farzaad.jpg"
+                    alt="ফারজাদ ভাইয়া - প্রতিষ্ঠাতা ও প্রধান রসায়ন মেন্টর, রসায়ন কারিগর"
+                    className="w-full h-full object-cover object-top"
                   />
                   {/* Overlay Gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-brand-navy/20 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/95 via-brand-navy/30 to-transparent" />
 
                   {/* Photo Caption */}
                   <div className="absolute bottom-4 left-4 right-4 text-white">
-                    <div className="text-xs font-mono tracking-widest text-brand-orange uppercase mb-1">
-                      Educator & Mentor
+                    <div className="text-[11px] font-mono tracking-widest text-brand-orange uppercase mb-1 font-bold">
+                      Founder & Lead Chemistry Mentor
                     </div>
-                    <div className="font-serif text-xl font-bold">
-                      Md. Reza
+                    <div className="font-serif text-2xl font-bold flex items-baseline gap-2">
+                      <span>Farzaad</span>
+                      <span className="font-bangla text-sm font-normal text-slate-200">(ফারজাদ ভাইয়া)</span>
                     </div>
-                    <div className="text-xs text-slate-300 font-bangla mt-0.5">
-                      B.Sc. in Chemical Sciences • 4+ Years Mentorship
+                    <div className="text-xs text-slate-200 font-sans mt-0.5">
+                      Civil & Environmental Engineering, IUT
+                    </div>
+                    <div className="mt-2 pt-2 border-t border-white/15 flex flex-wrap gap-1.5">
+                      <span className="text-[10px] font-bangla px-2 py-0.5 rounded-md bg-white/15 text-slate-100">
+                        সাবেক প্রধান পরীক্ষক, উদ্ভাস
+                      </span>
+                      <span className="text-[10px] font-bangla px-2 py-0.5 rounded-md bg-white/15 text-slate-100">
+                        সাবেক বিভাগীয় প্রধান, শিক্ষানীড়
+                      </span>
                     </div>
                   </div>
                 </div>
 
                 {/* Floating quote badge */}
-                <div className="mt-3 p-3 rounded-xl bg-slate-50 border border-slate-200/80 text-xs text-brand-navy font-serif italic text-center">
-                  "Good chemistry changes everything." — রসায়ন কারিগর
+                <div className="mt-3 p-3 rounded-xl bg-slate-50 border border-slate-200/80 text-xs text-brand-navy font-bangla font-semibold text-center">
+                  "রসায়ন মানেই, রসায়ন কারিগর।"
                 </div>
               </div>
             </div>

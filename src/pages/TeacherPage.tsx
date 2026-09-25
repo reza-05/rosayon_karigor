@@ -18,7 +18,7 @@ export const TeacherPage = () => {
               <span>DIRECT MENTORSHIP</span>
             </div>
             <h3 className="text-2xl font-serif text-brand-navy">
-              সরাসরি রেজা স্যারের তত্ত্বাবধানে শেখার সুযোগ
+              সরাসরি ফারজাদ ভাইয়ার তত্ত্বাবধানে শেখার সুযোগ
             </h3>
             <p className="text-sm font-bangla text-brand-muted max-w-xl leading-relaxed">
               প্রতিটি শিক্ষার্থীকে ব্যক্তিগতভাবে তদারকি এবং যেকোনো কঠিন টপিক ওয়ান-টু-ওয়ান ডাউট সলভের মাধ্যমে বুঝিয়ে দেওয়া হয়।

@@ -128,7 +128,7 @@ export const HomePage = () => {
                 শিক্ষক পরিচিতি (About)
               </h4>
               <p className="text-xs font-bangla text-brand-muted leading-relaxed">
-                রেজা স্যারের শিক্ষাদান দর্শন, শিক্ষাগত যোগ্যতা এবং রসায়ন কারিগরের মূল গল্প জানুন।
+                ফারজাদ ভাইয়ার শিক্ষাদান দর্শন, অভিজ্ঞতা এবং রসায়ন কারিগরের মূল গল্প জানুন।
               </p>
             </div>
             <div className="mt-6 pt-4 border-t border-slate-200/60 flex items-center justify-between text-xs font-bold text-indigo-700">
@@ -172,7 +172,7 @@ export const HomePage = () => {
               Ready to make chemistry easier?
             </h3>
             <p className="text-sm font-bangla text-slate-300 leading-relaxed">
-              সীমিত আসনের নতুন ব্যাচে যুক্ত হয়ে রসায়নের ভয় দূর করো। সরাসরি রেজা স্যারের তত্ত্বাবধানে শুরু হোক তোমার
+              সীমিত আসনের নতুন ব্যাচে যুক্ত হয়ে রসায়নের ভয় দূর করো। সরাসরি ফারজাদ ভাইয়ার তত্ত্বাবধানে শুরু হোক তোমার
               এইচএসসি ও এডমিশনের সেরা প্রস্তুতি।
             </p>
             <div className="pt-2">
