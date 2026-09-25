@@ -143,6 +143,15 @@
   animation: drip 1.8s infinite cubic-bezier(0.4, 0, 0.8, 1);
 }
 
+@keyframes galleryProgress {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 7px;

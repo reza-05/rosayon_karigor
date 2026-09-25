@@ -3,6 +3,7 @@ import { Hero } from '../components/Hero';
 import { ProblemSection } from '../components/ProblemSection';
 import { ElementInspector } from '../components/ElementInspector';
 import { StatsBar } from '../components/StatsBar';
+import { ClassroomGallery } from '../components/ClassroomGallery';
 import { ArrowRight, Sparkles, PlayCircle, FolderDown, UserCheck, HelpCircle } from 'lucide-react';
 
 export const HomePage = () => {
@@ -161,7 +162,10 @@ export const HomePage = () => {
         </div>
       </section>
 
-      {/* 7. Quick Join Next Batch Banner */}
+      {/* 7. Live Classroom Moments Auto Slideshow */}
+      <ClassroomGallery />
+
+      {/* 8. Quick Join Next Batch Banner */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
         <div className="bg-brand-navy text-white rounded-3xl p-8 sm:p-12 relative overflow-hidden bg-chem-dark-grid shadow-2xl">
           <div className="max-w-2xl space-y-4 relative z-10">
