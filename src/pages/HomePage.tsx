@@ -20,7 +20,7 @@ export const HomePage = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-7 space-y-4">
               <h2 className="text-3xl sm:text-4xl font-serif text-brand-navy">
-                The <span className="font-bangla font-bold">কারিগর</span> Method™
+                The <span className="font-bangla font-bold">কারিগর</span> Method
               </h2>
               <p className="text-sm sm:text-base font-bangla text-brand-muted leading-relaxed max-w-xl">
                 রসায়ন মুখস্থের বিষয় নয় — এটি একটি সুশৃঙ্খল মানসিক চিত্র। Understand ➔ Visualize ➔ Connect ➔ Practice ➔ Master —

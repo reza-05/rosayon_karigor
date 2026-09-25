@@ -101,13 +101,18 @@ export const KarigorMethod: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="max-w-3xl mx-auto text-center space-y-4 mb-8">
+        <div className="max-w-4xl mx-auto text-center space-y-4 mb-8">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-ocean/10 text-brand-ocean text-xs font-mono font-bold uppercase tracking-wider mb-1">
+            <span className="w-2 h-2 rounded-full bg-brand-ocean animate-pulse" />
+            <span>Graphical Chemical Flow</span>
+          </div>
+
           <h2 className="text-3xl sm:text-5xl lg:text-6xl font-sans font-bold text-brand-navy tracking-tight">
-            The <span className="text-brand-ocean font-bangla">কারিগর</span> Method™
+            The <span className="text-brand-ocean font-bangla">কারিগর</span> Method
           </h2>
 
-          <p className="text-sm sm:text-base lg:text-lg text-slate-600 font-bangla max-w-2xl mx-auto leading-relaxed">
-            রসায়ন অন্ধ মুখস্থের কোনো বিষয় নয় — ল্যাবরেটরির স্বয়ংক্রিয় রিঅ্যাকশন পাইপলাইনের মতো এটি একটি নিখুঁত সমন্বিত রূপান্তর। ৫টি ধারাবাহিক ধাপে গড়ে ওঠে রসায়নের স্থায়ী বুৎপত্তি ও পরীক্ষার সেরা সাফল্য।
+          <p className="text-base sm:text-lg lg:text-xl text-slate-700 font-bangla max-w-3xl mx-auto leading-relaxed font-medium">
+            তোমার রসায়ন পড়ার ধরণটা হওয়া উচিত ল্যাবরেটরির এমন একটি ধারাবাহিক রাসায়নিক বিক্রিয়ার মতো — যেখানে প্রতিটি ধাপই অত্যন্ত গুরুত্বপূর্ণ এবং প্রতিটি পদক্ষেপের সফল সমন্বয়েই অর্জিত হয় কাঙ্ক্ষিত পারদর্শিতা।
           </p>
         </div>
 
