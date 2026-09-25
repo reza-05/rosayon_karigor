@@ -88,13 +88,8 @@ export const FAQPage = () => {
     <div className="pt-24 pb-20">
       {/* Page Header */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 text-center space-y-4">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-orange/10 border border-brand-orange/20 text-brand-orange text-xs font-semibold uppercase tracking-wider">
-          <HelpCircle className="w-3.5 h-3.5" />
-          <span>জিজ্ঞাসা ও সমাধান • FAQs</span>
-        </div>
-
         <h1 className="text-3xl sm:text-5xl lg:text-6xl font-serif text-brand-navy tracking-tight font-bold">
-          Frequently asked questions.
+          Frequently asked questions
         </h1>
 
         <p className="text-base sm:text-lg text-brand-muted font-bangla max-w-2xl mx-auto leading-relaxed">

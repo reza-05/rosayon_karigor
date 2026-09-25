@@ -11,7 +11,7 @@ export const MeetTeacher = () => {
         {/* Top Header */}
         <div className="max-w-3xl mx-auto text-center space-y-4 mb-16">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif text-brand-navy tracking-tight">
-            Meet the <span className="font-bangla font-bold text-brand-orange">কারিগর</span>.
+            Meet the <span className="font-bangla font-bold text-brand-orange">কারিগর</span>
           </h1>
           <p className="text-base sm:text-lg text-brand-muted font-bangla max-w-2xl mx-auto leading-relaxed">
             রসায়ন মানে কেবল মুখস্থ করা নয়; বরং এটি হলো বিষয়টিকে গভীরভাবে বুঝতে পারা।

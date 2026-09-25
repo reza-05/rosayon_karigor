@@ -18,11 +18,8 @@ export const FAQSection = () => {
         {/* Section Header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12 sm:mb-16">
           <div className="space-y-3">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-orange/10 border border-brand-orange/20 text-brand-orange text-xs font-semibold uppercase tracking-wider">
-              <span>জিজ্ঞাসা ও সমাধান</span>
-            </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-brand-navy tracking-tight font-bold">
-              Frequently asked questions.
+              Frequently asked questions
             </h2>
             <p className="text-base text-brand-muted font-bangla">
               রসায়ন কারিগর সম্পর্কে শিক্ষার্থীদের সাধারণ প্রশ্নগুলোর উত্তর।
