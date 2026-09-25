@@ -239,7 +239,7 @@ export const EnrollmentForm = () => {
                     {/* Phone Number */}
                     <div className="space-y-1.5">
                       <label htmlFor="phone" className="text-xs font-semibold text-brand-navy">
-                        Phone Number (WhatsApp) <span className="text-brand-orange">*</span>
+                        ফোন নম্বর (Phone Number) <span className="text-brand-orange">*</span>
                       </label>
                       <input
                         id="phone"

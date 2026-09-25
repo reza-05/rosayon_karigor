@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Zap, Orbit, Compass } from 'lucide-react';
+import { Orbit, Compass } from 'lucide-react';
 
 interface Atom {
   x: number;
@@ -25,7 +25,7 @@ interface MoleculeMetadata {
   name: string;
   formula: string;
   badge1: {
-    icon: 'zap' | 'orbit' | 'compass';
+    icon?: 'orbit' | 'compass' | 'none';
     tag: string;
     value: string;
     sub: string;
@@ -43,7 +43,6 @@ const moleculeMetadata: Record<'benzene' | 'water' | 'methane' | 'ethanol', Mole
     name: 'Benzene',
     formula: 'C₆H₆',
     badge1: {
-      icon: 'zap',
       tag: 'HYBRIDIZATION & ENERGY',
       value: 'sp² • 150.7 kJ/mol',
       sub: 'Delocalized π-Cloud',
@@ -91,7 +90,6 @@ const moleculeMetadata: Record<'benzene' | 'water' | 'methane' | 'ethanol', Mole
     name: 'Ethanol',
     formula: 'C₂H₅OH',
     badge1: {
-      icon: 'zap',
       tag: 'FUNCTIONAL GROUP',
       value: '-OH (Hydroxyl)',
       sub: 'Polar Alcohol & H-Bonding',
@@ -722,7 +720,6 @@ export const MoleculeCanvas = ({ className = '' }: { className?: string }) => {
       {/* Dynamic Scientific Badge 1: Top Left */}
       <div className="absolute top-14 left-3 bg-white/95 backdrop-blur-md px-3 py-2 rounded-2xl border border-slate-200/80 shadow-sm text-left animate-float">
         <div className="flex items-center gap-1.5 text-[10px] text-brand-orange font-mono uppercase font-bold tracking-wider">
-          {meta.badge1.icon === 'zap' && <Zap className="w-3 h-3 text-brand-orange" />}
           {meta.badge1.icon === 'compass' && <Compass className="w-3 h-3 text-brand-ocean" />}
           {meta.badge1.icon === 'orbit' && <Orbit className="w-3 h-3 text-emerald-600" />}
           <span>{meta.badge1.tag}</span>

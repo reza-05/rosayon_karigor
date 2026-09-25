@@ -38,7 +38,7 @@ A modern, high-performance web platform for **রসায়ন কারিগ
 7. **Batch Reservation & Lead Enrollment Form**:
    - Student & Guardian segmented toggle.
    - Form validation with Bangladesh phone format verification.
-   - Celebratory confetti on reservation and instant direct WhatsApp chat link.
+   - Celebratory confetti on reservation and instant direct Messenger chat link.
 
 8. **Frequently Asked Questions (FAQ)**:
    - Accessible accordion answering queries about online/offline batches, class recordings, exams, and doubt-solving.
