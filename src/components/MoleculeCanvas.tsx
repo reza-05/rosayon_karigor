@@ -512,73 +512,132 @@ export const MoleculeCanvas = ({ className = '' }: { className?: string }) => {
         ctx.restore();
       });
 
-      // 4. Render Atoms with 3D Specular Shading
-      const sortedAtoms = [...projectedAtoms].sort((a, b) => a.pz - b.pz);
+      // 4. Proper 3D Depth Occlusion (Painter's Algorithm: Farthest first, Nearest last)
+      interface RenderableItem {
+        pz: number;
+        render: () => void;
+      }
 
-      sortedAtoms.forEach((atom) => {
-        ctx.save();
+      const renderList: RenderableItem[] = [];
 
-        // 3D Depth Shadow
-        ctx.shadowColor = 'rgba(9, 40, 76, 0.2)';
-        ctx.shadowBlur = 12;
-        ctx.shadowOffsetX = 2;
-        ctx.shadowOffsetY = 4;
+      // Add atoms to renderList
+      projectedAtoms.forEach((atom) => {
+        renderList.push({
+          pz: atom.pz,
+          render: () => {
+            ctx.save();
 
-        // Spherical Radial Gradient
-        const lightX = atom.px - atom.pRadius * 0.35;
-        const lightY = atom.py - atom.pRadius * 0.35;
-        const grad = ctx.createRadialGradient(
-          lightX,
-          lightY,
-          atom.pRadius * 0.08,
-          atom.px,
-          atom.py,
-          atom.pRadius
-        );
+            // 3D Depth Shadow
+            ctx.shadowColor = 'rgba(9, 40, 76, 0.2)';
+            ctx.shadowBlur = 12;
+            ctx.shadowOffsetX = 2;
+            ctx.shadowOffsetY = 4;
 
-        if (atom.label === 'H') {
-          grad.addColorStop(0, '#FFFFFF');
-          grad.addColorStop(0.3, '#FDF1E7');
-          grad.addColorStop(0.7, '#F4A261');
-          grad.addColorStop(1, '#C85A17');
-        } else if (atom.label === 'O') {
-          grad.addColorStop(0, '#FFF5EB');
-          grad.addColorStop(0.3, '#F4A261');
-          grad.addColorStop(0.8, '#D95D39');
-          grad.addColorStop(1, '#9C2A0A');
-        } else {
-          grad.addColorStop(0, '#3A7DAA');
-          grad.addColorStop(0.4, '#164B73');
-          grad.addColorStop(0.85, '#09284C');
-          grad.addColorStop(1, '#041325');
-        }
+            // Spherical Radial Gradient
+            const lightX = atom.px - atom.pRadius * 0.35;
+            const lightY = atom.py - atom.pRadius * 0.35;
+            const grad = ctx.createRadialGradient(
+              lightX,
+              lightY,
+              atom.pRadius * 0.08,
+              atom.px,
+              atom.py,
+              atom.pRadius
+            );
 
-        ctx.fillStyle = grad;
-        ctx.beginPath();
-        ctx.arc(atom.px, atom.py, atom.pRadius, 0, Math.PI * 2);
-        ctx.fill();
+            if (atom.label === 'H') {
+              grad.addColorStop(0, '#FFFFFF');
+              grad.addColorStop(0.3, '#FDF1E7');
+              grad.addColorStop(0.7, '#F4A261');
+              grad.addColorStop(1, '#C85A17');
+            } else if (atom.label === 'O') {
+              grad.addColorStop(0, '#FFF5EB');
+              grad.addColorStop(0.3, '#F4A261');
+              grad.addColorStop(0.8, '#D95D39');
+              grad.addColorStop(1, '#9C2A0A');
+            } else {
+              grad.addColorStop(0, '#3A7DAA');
+              grad.addColorStop(0.4, '#164B73');
+              grad.addColorStop(0.85, '#09284C');
+              grad.addColorStop(1, '#041325');
+            }
 
-        // Specular highlight gleam
-        ctx.shadowBlur = 0;
-        ctx.beginPath();
-        ctx.arc(lightX, lightY, atom.pRadius * 0.22, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(255, 255, 255, 0.65)';
-        ctx.fill();
+            ctx.fillStyle = grad;
+            ctx.beginPath();
+            ctx.arc(atom.px, atom.py, atom.pRadius, 0, Math.PI * 2);
+            ctx.fill();
 
-        // Rim Light
-        ctx.strokeStyle = 'rgba(255, 255, 255, 0.4)';
-        ctx.lineWidth = 1;
-        ctx.stroke();
+            // Specular highlight gleam
+            ctx.shadowBlur = 0;
+            ctx.beginPath();
+            ctx.arc(lightX, lightY, atom.pRadius * 0.22, 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.65)';
+            ctx.fill();
 
-        // Atom Symbol Label
-        ctx.fillStyle = '#FFFFFF';
-        ctx.font = `bold ${Math.max(10, Math.floor(atom.pRadius * 0.88))}px "Plus Jakarta Sans", sans-serif`;
-        ctx.textAlign = 'center';
-        ctx.textBaseline = 'middle';
-        ctx.fillText(atom.label, atom.px, atom.py + 0.5);
+            // Rim Light
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.4)';
+            ctx.lineWidth = 1;
+            ctx.stroke();
 
-        ctx.restore();
+            // Atom Symbol Label
+            ctx.fillStyle = '#FFFFFF';
+            ctx.font = `bold ${Math.max(10, Math.floor(atom.pRadius * 0.88))}px "Plus Jakarta Sans", sans-serif`;
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText(atom.label, atom.px, atom.py + 0.5);
+
+            ctx.restore();
+          },
+        });
       });
+
+      // If Water, add Lone Pairs to renderList with their respective 3D depth
+      if (activeMolecule === 'water') {
+        const lonePairs = [
+          { x: 0, y: -52, z: 28 },
+          { x: 0, y: -52, z: -28 },
+        ];
+        lonePairs.forEach((lp) => {
+          const lx1 = lp.x * cosY + lp.z * sinY;
+          const lz1 = -lp.x * sinY + lp.z * cosY;
+          const ly2 = lp.y * cosX - lz1 * sinX;
+          const lz2 = lp.y * sinX + lz1 * cosX;
+
+          const pScaleLP = (fov / (fov + lz2 + 220)) * scale;
+          const pxLP = centerX + lx1 * pScaleLP;
+          const pyLP = centerY + ly2 * pScaleLP;
+
+          renderList.push({
+            pz: lz2,
+            render: () => {
+              ctx.save();
+              // Translucent lone pair orbital lobe
+              ctx.beginPath();
+              ctx.arc(pxLP, pyLP, 10 * pScaleLP, 0, Math.PI * 2);
+              ctx.fillStyle = 'rgba(244, 162, 97, 0.2)';
+              ctx.fill();
+              ctx.strokeStyle = 'rgba(231, 111, 81, 0.5)';
+              ctx.lineWidth = 1;
+              ctx.setLineDash([2, 3]);
+              ctx.stroke();
+
+              // Electron pair dots
+              ctx.setLineDash([]);
+              ctx.beginPath();
+              ctx.arc(pxLP - 3, pyLP, 2, 0, Math.PI * 2);
+              ctx.arc(pxLP + 3, pyLP, 2, 0, Math.PI * 2);
+              ctx.fillStyle = '#E76F51';
+              ctx.fill();
+              ctx.restore();
+            },
+          });
+        });
+      }
+
+      // Sort descending: largest positive pz (farthest back) rendered first,
+      // smallest/negative pz (closest front) rendered last (occluding items behind them)
+      renderList.sort((a, b) => b.pz - a.pz);
+      renderList.forEach((item) => item.render());
 
       animationFrameId = requestAnimationFrame(render);
     };
