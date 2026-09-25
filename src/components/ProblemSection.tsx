@@ -35,10 +35,10 @@ export const ProblemSection = () => {
   ];
 
   return (
-    <section id="problem" className="py-20 bg-transparent relative overflow-hidden border-t border-slate-200/60">
+    <section id="problem" className="py-10 sm:py-12 bg-transparent relative overflow-hidden border-t border-slate-200/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="max-w-3xl mx-auto text-center space-y-4 mb-16">
+        <div className="max-w-3xl mx-auto text-center space-y-3 mb-8 sm:mb-10">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-brand-navy tracking-tight leading-tight">
             You don’t hate chemistry.{' '}
             <span className="text-brand-orange italic font-normal block sm:inline">
@@ -53,19 +53,19 @@ export const ProblemSection = () => {
         </div>
 
         {/* 3 Problem Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
           {problems.map((prob) => {
             const Icon = prob.icon;
             return (
               <div
                 key={prob.id}
-                className="group relative bg-white rounded-3xl p-8 border border-slate-200/85 shadow-card hover:shadow-card-hover hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between"
+                className="group relative bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/85 shadow-card hover:shadow-card-hover hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between"
               >
                 {/* Top Icon */}
                 <div>
-                  <div className="flex items-center justify-between mb-6">
-                    <div className={`w-12 h-12 rounded-2xl ${prob.iconBg} flex items-center justify-center transition-transform group-hover:scale-110 duration-200`}>
-                      <Icon className={`w-6 h-6 ${prob.iconColor}`} />
+                  <div className="flex items-center justify-between mb-4 sm:mb-5">
+                    <div className={`w-11 h-11 rounded-2xl ${prob.iconBg} flex items-center justify-center transition-transform group-hover:scale-110 duration-200`}>
+                      <Icon className={`w-5 h-5 ${prob.iconColor}`} />
                     </div>
                     <span className="text-[10px] tracking-widest uppercase font-mono font-semibold text-brand-muted/70">
                       Pain Point
@@ -73,19 +73,19 @@ export const ProblemSection = () => {
                   </div>
 
                   {/* English Quote */}
-                  <blockquote className="font-serif text-lg text-brand-navy font-medium leading-snug mb-3">
+                  <blockquote className="font-serif text-base sm:text-lg text-brand-navy font-medium leading-snug mb-2 sm:mb-3">
                     {prob.quote}
                   </blockquote>
 
                   {/* Bengali Subquote */}
-                  <p className="text-sm font-bangla text-brand-muted leading-relaxed mb-6 italic">
+                  <p className="text-xs sm:text-sm font-bangla text-brand-muted leading-relaxed mb-4 sm:mb-5 italic">
                     {prob.quoteBangla}
                   </p>
                 </div>
 
                 {/* Bottom Context Badge */}
-                <div className="pt-4 border-t border-brand-navy/5">
-                  <div className="text-[10px] font-mono font-bold tracking-wider text-brand-ocean uppercase mb-1">
+                <div className="pt-3.5 border-t border-brand-navy/5">
+                  <div className="text-[10px] font-mono font-bold tracking-wider text-brand-ocean uppercase mb-0.5">
                     {prob.context}
                   </div>
                   <div className="text-xs font-bangla text-brand-navy/80">

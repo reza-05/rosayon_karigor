@@ -46,9 +46,9 @@ export const ClassroomGallery = () => {
   };
 
   return (
-    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
       {/* Section Header */}
-      <div className="text-center max-w-3xl mx-auto mb-10 space-y-3">
+      <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-8 space-y-2.5">
         <h3 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-brand-navy tracking-tight">
           রসায়ন কারিগরের <span className="font-bangla font-bold text-brand-orange">অফলাইন ক্লাসরুম</span>
         </h3>

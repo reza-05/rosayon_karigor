@@ -4,7 +4,7 @@ import { MoleculeCanvas } from './MoleculeCanvas';
 
 export const Hero = () => {
   return (
-    <section id="home" className="relative pt-28 pb-16 sm:pt-32 sm:pb-20 overflow-hidden bg-white">
+    <section id="home" className="relative pt-24 sm:pt-28 pb-8 sm:pb-12 overflow-hidden bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* Left Column: Headline and Actions */}
