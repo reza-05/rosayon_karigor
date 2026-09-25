@@ -432,9 +432,9 @@ export const LabApparatusPipeline: React.FC<LabApparatusPipelineProps> = ({
               strokeWidth="2.8"
               strokeLinecap="round"
             />
-            {/* Animated purple stream flowing out of neck into condenser */}
+            {/* Animated purple vapor stream: flowing from neck to halfway inside condenser */}
             <path
-              d="M 330 80 Q 330 62 348 62 L 380 62 Q 405 62 430 91 L 640 212"
+              d="M 330 80 Q 330 62 348 62 L 380 62 Q 405 62 430 91 L 531.5 149.6"
               fill="none"
               stroke="#C084FC"
               strokeWidth="3.8"
@@ -468,9 +468,9 @@ export const LabApparatusPipeline: React.FC<LabApparatusPipelineProps> = ({
               strokeLinecap="round"
             />
             {/* OPEN DRIP NOZZLE at y=260 (no closure line!) */}
-            {/* Flow stream to tip - Orange chemical exiting condenser */}
+            {/* Flow stream: Orange chemical condensed from halfway inside condenser through delivery nozzle */}
             <path
-              d="M 640 212 Q 665 226 675 260"
+              d="M 531.5 149.6 L 640 212 Q 665 226 675 260"
               fill="none"
               stroke="#E26127"
               strokeWidth="3.8"
