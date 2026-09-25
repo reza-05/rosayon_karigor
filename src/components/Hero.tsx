@@ -13,14 +13,6 @@ export const Hero = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* Left Column: Headline and Actions */}
           <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
-            {/* Posh Micro Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/95 border border-slate-200/90 shadow-xs text-xs font-mono font-medium text-brand-navy">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-              <span>HSC 26, 27 & Admission Chemistry</span>
-              <span className="text-slate-300">•</span>
-              <span className="text-brand-orange font-semibold font-bangla">নতুন ব্যাচ ভর্তি চলছে</span>
-            </div>
-
             {/* Main Headline */}
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-sans font-bold text-brand-navy tracking-tight leading-[1.12]">
               Chemistry doesn't have to{' '}
@@ -92,12 +84,12 @@ export const Hero = () => {
                   alt="Tashriful Arabi"
                 />
                 <div className="w-8 h-8 rounded-full border-2 border-white bg-brand-navy text-white text-[10px] font-bold flex items-center justify-center">
-                  +350
+                  +500
                 </div>
               </div>
 
               <div className="flex items-center gap-2">
-                <span className="font-semibold text-brand-navy">350+ students guided</span>
+                <span className="font-semibold text-brand-navy">500+ students guided</span>
                 <span className="text-brand-navy/20">•</span>
                 <span className="text-amber-500 font-bold">★ 5.0/5</span>
                 <span>(SSC, HSC & Admission)</span>
