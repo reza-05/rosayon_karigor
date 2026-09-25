@@ -27,22 +27,13 @@ export const LabApparatusPipeline: React.FC<LabApparatusPipelineProps> = ({
 }) => {
   return (
     <div className={`w-full relative select-none ${className}`}>
-      {/* Mobile Swipe Guidance Bar */}
-      <div className="flex sm:hidden items-center justify-between px-2 mb-1.5 text-[11px] font-bangla text-slate-500">
-        <span className="inline-flex items-center gap-1.5 text-brand-orange font-semibold">
-          <span>↔</span> সোয়াইপ করে সম্পূর্ণ সেটআপ দেখুন
-        </span>
-        <span className="text-[10px] font-mono text-slate-400">১ম ➔ ৫ম ধাপ</span>
-      </div>
-
-      {/* 1-LINE STRICT CONTINUOUS LABORATORY PIPELINE (RESPONSIVE SVG SCALING WITH MOBILE HORIZONTAL SWIPE) */}
-      <div className="w-full bg-white rounded-2xl sm:rounded-3xl p-2 sm:p-4 md:p-6 shadow-sm border border-slate-200/80 overflow-x-auto scrollbar-none touch-pan-x">
-        <div className="min-w-[720px] sm:min-w-full">
-          <svg
-            viewBox="25 48 1085 396"
-            className="w-full h-auto block select-none"
-            preserveAspectRatio="xMidYMid meet"
-          >
+      {/* 1-LINE STRICT CONTINUOUS LABORATORY PIPELINE (RESPONSIVE SVG FITTING SCREEN WIDTH) */}
+      <div className="w-full bg-white rounded-2xl sm:rounded-3xl p-1 sm:p-4 md:p-6 shadow-sm border border-slate-200/80 overflow-hidden">
+        <svg
+          viewBox="25 48 1085 396"
+          className="w-full h-auto max-w-full block select-none"
+          preserveAspectRatio="xMidYMid meet"
+        >
           <defs>
             {/* Soft Pastel Liquid Gradients */}
             <linearGradient id="pastelBlueGrad" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -874,7 +865,6 @@ export const LabApparatusPipeline: React.FC<LabApparatusPipelineProps> = ({
             </text>
           </g>
         </svg>
-        </div>
       </div>
     </div>
   );

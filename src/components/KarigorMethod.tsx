@@ -146,28 +146,28 @@ export const KarigorMethod: React.FC = () => {
             ))}
           </div>
 
-          {/* Mobile: Strictly 1 line with smooth horizontal momentum swipe */}
-          <div className="flex sm:hidden items-center gap-2 overflow-x-auto pb-3 pt-1 scrollbar-none px-1 touch-pan-x">
-            {stages.map((st, idx) => (
-              <div key={st.id} className="flex items-center gap-2 shrink-0">
-                <div className="inline-flex items-center gap-1.5 bg-white border border-slate-200/90 rounded-xl px-3 py-2 shadow-xs whitespace-nowrap">
+          {/* Mobile: 5 Connected Steps Fitting 100% Screen Width (Strictly 1 Line, Zero Scroll, Zero Scrollbars) */}
+          <div className="grid grid-cols-5 gap-1 w-full sm:hidden">
+            {stages.map((st) => (
+              <div
+                key={st.id}
+                className="bg-white border border-slate-200/90 rounded-xl py-2 px-0.5 shadow-xs text-center flex flex-col items-center justify-center min-w-0"
+              >
+                <div className="flex items-center gap-1 mb-1">
                   <span
-                    className="w-2 h-2 rounded-full shrink-0"
+                    className="w-1.5 h-1.5 rounded-full shrink-0"
                     style={{ backgroundColor: st.color }}
                   />
-                  <span className="font-mono text-[11px] font-bold text-slate-400">
+                  <span className="font-mono text-[9px] font-bold text-slate-400">
                     {st.num}
                   </span>
-                  <span className="font-sans font-bold text-brand-navy text-xs">
-                    {st.title}
-                  </span>
-                  <span className="font-bangla font-semibold text-xs text-brand-ocean">
-                    ({st.titleBangla})
-                  </span>
                 </div>
-                {idx < stages.length - 1 && (
-                  <ArrowRight className="w-3.5 h-3.5 text-slate-300 shrink-0" />
-                )}
+                <span className="font-sans font-bold text-brand-navy text-[10px] leading-tight truncate w-full">
+                  {st.title}
+                </span>
+                <span className="font-bangla font-semibold text-[9px] text-brand-ocean leading-tight mt-0.5 truncate w-full">
+                  {st.titleBangla}
+                </span>
               </div>
             ))}
           </div>
