@@ -146,11 +146,11 @@ export const KarigorMethod: React.FC = () => {
             ))}
           </div>
 
-          {/* Mobile: Clean, natural wrapped pills without cramming or scrollbar */}
-          <div className="flex sm:hidden flex-wrap items-center justify-center gap-2 max-w-sm mx-auto">
+          {/* Mobile: Strictly 1 line with smooth horizontal momentum swipe */}
+          <div className="flex sm:hidden items-center gap-2 overflow-x-auto pb-3 pt-1 scrollbar-none px-1 touch-pan-x">
             {stages.map((st, idx) => (
-              <React.Fragment key={st.id}>
-                <div className="inline-flex items-center gap-1.5 bg-white border border-slate-200/90 rounded-xl px-3 py-2 shadow-xs">
+              <div key={st.id} className="flex items-center gap-2 shrink-0">
+                <div className="inline-flex items-center gap-1.5 bg-white border border-slate-200/90 rounded-xl px-3 py-2 shadow-xs whitespace-nowrap">
                   <span
                     className="w-2 h-2 rounded-full shrink-0"
                     style={{ backgroundColor: st.color }}
@@ -168,7 +168,7 @@ export const KarigorMethod: React.FC = () => {
                 {idx < stages.length - 1 && (
                   <ArrowRight className="w-3.5 h-3.5 text-slate-300 shrink-0" />
                 )}
-              </React.Fragment>
+              </div>
             ))}
           </div>
         </div>

@@ -27,12 +27,12 @@ export const HomePage = () => {
                 এই ৫টি ধাপে শিক্ষার্থীদের রসায়ন ভীতি দূর করে পরীক্ষায় সেরা ফলাফল এনে দেয় কারিগর মেথড।
               </p>
 
-              <div className="flex flex-wrap gap-2 pt-1 text-xs font-semibold text-brand-ocean">
-                <span className="px-3 py-1.5 rounded-full bg-white border border-brand-navy/10 shadow-xs">01 Understand</span>
-                <span className="px-3 py-1.5 rounded-full bg-white border border-brand-navy/10 shadow-xs">02 Visualize</span>
-                <span className="px-3 py-1.5 rounded-full bg-white border border-brand-navy/10 shadow-xs">03 Connect</span>
-                <span className="px-3 py-1.5 rounded-full bg-white border border-brand-navy/10 shadow-xs">04 Practice</span>
-                <span className="px-3 py-1.5 rounded-full bg-white border border-brand-navy/10 shadow-xs">05 Master</span>
+              <div className="flex items-center gap-2 pt-1 text-xs font-semibold text-brand-ocean overflow-x-auto scrollbar-none pb-1 touch-pan-x">
+                <span className="px-3 py-1.5 rounded-full bg-white border border-brand-navy/10 shadow-xs whitespace-nowrap shrink-0">01 Understand</span>
+                <span className="px-3 py-1.5 rounded-full bg-white border border-brand-navy/10 shadow-xs whitespace-nowrap shrink-0">02 Visualize</span>
+                <span className="px-3 py-1.5 rounded-full bg-white border border-brand-navy/10 shadow-xs whitespace-nowrap shrink-0">03 Connect</span>
+                <span className="px-3 py-1.5 rounded-full bg-white border border-brand-navy/10 shadow-xs whitespace-nowrap shrink-0">04 Practice</span>
+                <span className="px-3 py-1.5 rounded-full bg-white border border-brand-navy/10 shadow-xs whitespace-nowrap shrink-0">05 Master</span>
               </div>
             </div>
 
