@@ -83,6 +83,11 @@ export const LabApparatusPipeline: React.FC<LabApparatusPipelineProps> = ({
               <stop offset="100%" stopColor="#0284C7" stopOpacity="0.2" />
             </radialGradient>
 
+            {/* Neck Clip Path to ensure rising vapor stays strictly inside the glass tube */}
+            <clipPath id="flaskNeckClip">
+              <rect x="325.4" y="65" width="9.2" height="165" />
+            </clipPath>
+
             {/* CSS Animations */}
             <style>{`
               @keyframes flameFlicker {
@@ -147,6 +152,50 @@ export const LabApparatusPipeline: React.FC<LabApparatusPipelineProps> = ({
                   opacity: 0;
                 }
               }
+              @keyframes boilingDropFall {
+                0% {
+                  transform: translateY(0) scale(0.5);
+                  opacity: 0;
+                }
+                8% {
+                  transform: translateY(2px) scale(0.9);
+                  opacity: 1;
+                }
+                16% {
+                  transform: translateY(12px) scale(1, 1.15);
+                  opacity: 1;
+                }
+                78% {
+                  transform: translateY(134px) scale(0.9, 1.25);
+                  opacity: 1;
+                }
+                84% {
+                  transform: translateY(140px) scale(1.6, 0.45);
+                  opacity: 0.95;
+                }
+                89% {
+                  transform: translateY(142px) scale(2.2, 0.15);
+                  opacity: 0;
+                }
+                100% {
+                  transform: translateY(142px) scale(2.2, 0.15);
+                  opacity: 0;
+                }
+              }
+              @keyframes boilingRippleEffect {
+                0%, 82% {
+                  transform: scale(0);
+                  opacity: 0;
+                }
+                85% {
+                  transform: scale(0.8);
+                  opacity: 0.9;
+                }
+                100% {
+                  transform: scale(4);
+                  opacity: 0;
+                }
+              }
               @keyframes dropFallStep4 {
                 0% {
                   transform: translateY(0);
@@ -184,7 +233,7 @@ export const LabApparatusPipeline: React.FC<LabApparatusPipelineProps> = ({
               }
               @keyframes vaporRise {
                 0% {
-                  transform: translateY(0) scale(0.85);
+                  transform: translateY(0) scale(0.8);
                   opacity: 0;
                 }
                 25% {
@@ -194,7 +243,7 @@ export const LabApparatusPipeline: React.FC<LabApparatusPipelineProps> = ({
                   opacity: 0.6;
                 }
                 100% {
-                  transform: translateY(-48px) scale(1.15);
+                  transform: translateY(-55px) scale(0.95);
                   opacity: 0;
                 }
               }
@@ -250,6 +299,13 @@ export const LabApparatusPipeline: React.FC<LabApparatusPipelineProps> = ({
               .anim-gravity-ripple {
                 transform-origin: 0 0;
                 animation: gravityRippleEffect 1.8s infinite ease-out;
+              }
+              .anim-boiling-drop {
+                animation: boilingDropFall 1.8s infinite cubic-bezier(0.4, 0, 1, 1) 0.4s;
+              }
+              .anim-boiling-ripple {
+                transform-origin: 0 0;
+                animation: boilingRippleEffect 1.8s infinite ease-out 0.4s;
               }
               .anim-drop-step4 {
                 animation: dropFallStep4 1.6s infinite cubic-bezier(0.4, 0, 1, 1) 0.3s;
@@ -318,7 +374,7 @@ export const LabApparatusPipeline: React.FC<LabApparatusPipelineProps> = ({
             />
             {/* Continuous animated blue chemical stream entering neck */}
             <path
-              d="M 150 333 L 210 333 Q 225 333 225 318 L 225 142 Q 225 127 240 127 L 330 127"
+              d="M 150 333 L 210 333 Q 225 333 225 318 L 225 142 Q 225 127 240 127 L 326 127 Q 328 127 328 131"
               fill="none"
               stroke="#38BDF8"
               strokeWidth="3.8"
@@ -568,6 +624,16 @@ export const LabApparatusPipeline: React.FC<LabApparatusPipelineProps> = ({
             />
             <ellipse cx="330" cy="272" rx="28" ry="4" fill="#DDD6FE" opacity="0.6" />
 
+            {/* Surface Ripple upon Drop Landing in Boiling Flask */}
+            <g transform="translate(330, 272)">
+              <ellipse cx="0" cy="0" rx="3.5" ry="1" fill="none" stroke="#BAE6FD" strokeWidth="1.5" className="anim-boiling-ripple" />
+            </g>
+
+            {/* Falling Drop from Blue Delivery Pipe down into Boiling Liquid */}
+            <g transform="translate(328, 132)">
+              <circle cx="0" cy="0" r="3.2" fill="#38BDF8" className="anim-boiling-drop" />
+            </g>
+
             {/* Boiling bubbles */}
             <circle cx="320" cy="285" r="2.5" fill="#FFFFFF" className="anim-bubble-1" />
             <circle cx="335" cy="288" r="3" fill="#FFFFFF" className="anim-bubble-2" />
@@ -588,12 +654,14 @@ export const LabApparatusPipeline: React.FC<LabApparatusPipelineProps> = ({
             {/* Right neck wall */}
             <line x1="336" y1="80" x2="336" y2="230" stroke="#334155" strokeWidth="2.8" />
 
-            {/* RISING PURPLE VAPOR THROUGH VERTICAL TUBE */}
-            <g transform="translate(330, 200)">
-              <circle cx="-2" cy="0" r="5" fill="#C084FC" opacity="0.5" className="anim-vapor-1" />
-              <circle cx="4" cy="-10" r="6" fill="#DDD6FE" opacity="0.55" className="anim-vapor-2" />
-              <circle cx="-1" cy="-20" r="7" fill="#A855F7" opacity="0.45" className="anim-vapor-1" />
-              <circle cx="2" cy="-40" r="8" fill="#C084FC" opacity="0.6" className="anim-vapor-2" />
+            {/* RISING PURPLE VAPOR THROUGH VERTICAL TUBE (Strictly contained inside glass neck) */}
+            <g clipPath="url(#flaskNeckClip)">
+              <g transform="translate(330, 200)">
+                <circle cx="0" cy="0" r="3.2" fill="#C084FC" opacity="0.65" className="anim-vapor-1" />
+                <circle cx="0.5" cy="-14" r="3.4" fill="#DDD6FE" opacity="0.7" className="anim-vapor-2" />
+                <circle cx="-0.5" cy="-28" r="3.2" fill="#A855F7" opacity="0.6" className="anim-vapor-1" />
+                <circle cx="0" cy="-42" r="3.4" fill="#C084FC" opacity="0.7" className="anim-vapor-2" />
+              </g>
             </g>
 
             {/* Upward Pressure Indicator Arrow */}
