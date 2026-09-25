@@ -3,7 +3,7 @@ import { Users, Calendar, Video, Award, Quote } from 'lucide-react';
 export const StatsBar = () => {
   const stats = [
     {
-      value: '500+',
+      value: '350+',
       label: 'Students Guided',
       labelBangla: 'সফল শিক্ষার্থী',
       icon: Users,
@@ -15,7 +15,7 @@ export const StatsBar = () => {
       icon: Calendar,
     },
     {
-      value: '1,200+',
+      value: '1,500+',
       label: 'Classes Conducted',
       labelBangla: 'সফল ক্লাস সম্পন্ন',
       icon: Video,
@@ -65,11 +65,11 @@ export const StatsBar = () => {
               <Quote className="w-6 h-6 text-brand-orange flex-shrink-0 opacity-80" />
               <div className="space-y-2">
                 <p className="text-xs sm:text-sm text-slate-100 italic leading-relaxed">
-                  "I stopped trying to memorize every reaction. Once I understood the pattern, everything became easier."
+                  "The way you explained even difficult topics in such a simple way made everything much easier to understand. I genuinely learned a lot from you."
                 </p>
                 <div className="flex items-center justify-between text-xs text-brand-orange pt-1 border-t border-white/10 font-medium">
-                  <span>Ayaan Rahman</span>
-                  <span className="text-slate-300 text-[11px]">HSC 2025 • NDC</span>
+                  <span>Afsana Fairoze Tanisha</span>
+                  <span className="text-slate-300 text-[11px]">HSC 26 • BMARPC</span>
                 </div>
               </div>
             </div>
