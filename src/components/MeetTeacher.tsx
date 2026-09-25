@@ -78,7 +78,7 @@ export const MeetTeacher = () => {
                   <img
                     src="/farzaad.jpg"
                     alt="Farzaad Sawrar (ফারজাদ ভাইয়া) - প্রতিষ্ঠাতা ও প্রধান রসায়ন মেন্টর, রসায়ন কারিগর"
-                    className="w-full h-full object-cover object-top"
+                    className="w-full h-full object-cover object-center"
                   />
                   {/* Overlay Gradient */}
                   <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/95 via-brand-navy/30 to-transparent" />
